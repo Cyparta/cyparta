@@ -9,9 +9,11 @@ import ContactUs from '@/components/home/contactUs';
 import Client from '@/components/home/client';
 import Footer from '@/components/layout/Footer';
 import TopNav from '@/components/layout/topNav';
+import TestNav from '@/components/layout/testNav';
 const Index = () => {
   return (
     <>
+      <TestNav />
       <TopNav />
       <Navbar />
       <Container>
