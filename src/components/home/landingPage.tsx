@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
-import line from '../../assets/home/line.png';
+// import line from '../../assets/home/line.png';
 
 import faceIcon from '../../assets/icons/facebook.png';
 import whatsIcon from '../../assets/icons/whats.png';
@@ -34,9 +34,9 @@ const LandingPage = () => {
                 <Box sx={{ mr: "10px" }}>
                     <Image src={faceIcon} width={10} height={10} alt="facebook" />
                 </Box>
-                <div style={{ transform: "rotate(-90deg)", margin: "0 10px" }}>
+                {/* <div style={{ transform: "rotate(-90deg)", margin: "0 10px" }}>
                     <Image src={line} width="1" height="20" alt="line" />
-                </div>
+                </div> */}
                 <p style={{ padding: "0px", margin: "0px" }}>Social</p>
             </Box>
             <Box sx={{ position: "relative" }}>
