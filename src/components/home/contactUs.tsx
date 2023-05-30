@@ -52,7 +52,7 @@ const ContactUs = () => {
                             title="Gray's and Danny's Meat Plant"
                             height="325px"
                             style={{ border: 0, borderRadius:"20px" }}
-                            allowFullScreen=""
+                            allowFullScreen
                             aria-hidden="false"
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
