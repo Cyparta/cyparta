@@ -90,7 +90,7 @@ export default function DrawerAppBar(props: Props) {
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: "block", mr: "20px", marginLeft: "80px" } }}>
                             {navItems.map((item, index) => (
-                                <Link href={`/${item.to}`}>
+                                <Link href={`/${item.to}`} key={index}>
                                     <Button key={index} sx={{ color: 'rgba(133, 133, 133, 1)', textTransform: "capitalize", fontSize: "16px", marginRight: "15px" }}>
                                         {item.title}
                                     </Button>
