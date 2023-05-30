@@ -20,6 +20,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/material'
 import TopNav from './topNav';
+import Link from 'next/link';
 
 
 interface Props {
@@ -32,8 +33,8 @@ interface Props {
 
 const drawerWidth = 240;
 
-const navItems = ['Home', 'About Us', 'services', 'projects', 'Contact Us', 'Team'];
-
+// const navItems = ['Home', 'projects', 'Contact Us', 'Team'];
+const navItems = [{ title: "Home", to: '/' }, { title: "projects", to: '/projects' }, { title: "Careers", to: '/careers' }, { title: "Blog", to: '/blog' }, { title: "Team", to: '/team' }]
 export default function DrawerAppBar(props: Props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -44,15 +45,17 @@ export default function DrawerAppBar(props: Props) {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
-            </Typography>
-            <Divider />
+
+            <Link href="/">
+                <Image src={logoImg} width={100} height={50} alt="logo" />
+            </Link>
             <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
+                {navItems.map((item, index) => (
+                    <ListItem key={index} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
+                            <Link href={`/${item.to}`}>
+                                <ListItemText primary={item.title} />
+                            </Link>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -65,13 +68,15 @@ export default function DrawerAppBar(props: Props) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav" sx={{ background: "rgba(204, 204, 204, 1)", boxShadow:"0px 1px 2px #A49FA1", position:"sticky", width:"100%" }}>
+            <AppBar component="nav" sx={{ background: "rgba(204, 204, 204, 1)", boxShadow: "0px 1px 2px #A49FA1", position: "sticky", width: "100%" }}>
                 <Container>
 
                     <Toolbar>
                         <Box sx={{ display: "flex", justifyContent: "space-between", flex: 1 }}>
-                            <Image src={logoImg} width={100} height={50} alt="logo" />
-                            <Box sx={{alignSelf: "center", justifySelf:"end", display:"flex", textAlign:"right"}}>
+                            <Link href="/">
+                                <Image src={logoImg} width={100} height={50} alt="logo" />
+                            </Link>
+                            <Box sx={{ alignSelf: "center", justifySelf: "end", display: "flex", textAlign: "right" }}>
                                 <IconButton
                                     color="inherit"
                                     aria-label="open drawer"
@@ -84,10 +89,12 @@ export default function DrawerAppBar(props: Props) {
                             </Box>
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: "block", mr: "20px", marginLeft: "80px" } }}>
-                            {navItems.map((item) => (
-                                <Button key={item} sx={{ color: 'rgba(133, 133, 133, 1)', textTransform: "capitalize", fontSize: "16px", marginRight: "15px" }}>
-                                    {item}
-                                </Button>
+                            {navItems.map((item, index) => (
+                                <Link href={`/${item.to}`}>
+                                    <Button key={index} sx={{ color: 'rgba(133, 133, 133, 1)', textTransform: "capitalize", fontSize: "16px", marginRight: "15px" }}>
+                                        {item.title}
+                                    </Button>
+                                </Link>
                             ))}
                         </Box>
                     </Toolbar>

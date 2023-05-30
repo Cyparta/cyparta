@@ -3,6 +3,7 @@ import phoneIcon from "../../assets/icons/phone-nav.png";
 import messageIcon from "../../assets/icons/message-icon.png";
 import Image from "next/image";
 import MainButton from "../commons/MainButton";
+import Link from "next/link";
 const TopNav = () => {
   return (
     <Box
@@ -12,6 +13,7 @@ const TopNav = () => {
         color: "#fff",
         padding: "10px",
         boxShadow: "0px 1px 2px #A49FA1",
+        display:{xs:"none", md:"block"}
       }}
     >
       <Container>
@@ -50,9 +52,9 @@ const TopNav = () => {
             </Grid>
           </Grid>
           <Grid item xs={6} textAlign={"right"}>
-            <Box>
+            <Link href="/offer">
               <MainButton text="Offer Price" />
-            </Box>
+            </Link>
           </Grid>
         </Grid>
       </Container>

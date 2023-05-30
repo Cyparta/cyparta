@@ -45,13 +45,24 @@ const ContactUs = () => {
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                     <Box>
-                        <Image src={MapImage} alt="map" width={400} height={400} style={{ width: "100%", height: "323px" }} />
+                        {/* <Image src={MapImage} alt="map" width={400} height={400} style={{ width: "100%", height: "323px" }} /> */}
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3456.167949022293!2d30.946718315113394!3d29.974602981907758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDU4JzI4LjYiTiAzMMKwNTYnNTYuMSJF!5e0!3m2!1sen!2seg!4v1685351032103!5m2!1sen!2seg"
+                            width="100%"
+                            title="Gray's and Danny's Meat Plant"
+                            height="325px"
+                            style={{ border: 0, borderRadius:"20px" }}
+                            allowFullScreen=""
+                            aria-hidden="false"
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </Box>
                 </Grid>
             </Grid>
 
-            <Box sx={{background: "#FCFBFC", borderRadius: "20px", boxShadow:" 0px 1px 4px rgba(0, 0, 0, 0.16)"}}>
-                <Grid container spacing={3} sx={{  mt: "24px", borderRadius: "20px", padding:"0 20px" }}>
+            <Box sx={{ background: "#FCFBFC", borderRadius: "20px", boxShadow: " 0px 1px 4px rgba(0, 0, 0, 0.16)" }}>
+                <Grid container spacing={3} sx={{ mt: "24px", borderRadius: "20px", padding: "0 20px" }}>
                     <Grid item xs={12} sm={6} md={4}>
                         <Box sx={{ display: "flex", gap: "16px", justifyContent: "center", mt: "32px", mb: "32px" }}>
                             <Box sx={{ background: "rgba(63, 60, 61, 1)", borderRadius: "50%", width: "64px", height: "64px", display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid #EC232B" }}>

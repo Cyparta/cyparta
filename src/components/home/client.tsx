@@ -36,7 +36,7 @@ const Client = () => {
     const [image, setImage] = useState(client1)
     return (
         <div>
-            <Typography sx={{ color: "rgba(37, 35, 36, 1)", mt: "32px", mb: "30px", textAlign: "center", fontWeight: "500", fontSize: "24px" }}>Our Clients</Typography>
+            <Typography sx={{ color: "rgba(37, 35, 36, 1)", mt: "80px", mb: "30px", textAlign: "center", fontWeight: "500", fontSize: "24px" }}>Our Clients</Typography>
             <Swiper
                 // install Swiper modules
                 modules={[A11y, Autoplay]}

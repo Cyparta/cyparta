@@ -9,20 +9,22 @@ import ContactUs from '@/components/home/contactUs';
 import Client from '@/components/home/client';
 import Footer from '@/components/layout/Footer';
 import TopNav from '@/components/layout/topNav';
-import TestNav from '@/components/layout/testNav';
+import ProjectSection from '@/components/home/projectSection';
+import MapSection from '@/components/home/mapSection';
 const Index = () => {
   return (
     <>
-      <TestNav />
       <TopNav />
       <Navbar />
-      <Container>
-      </Container>
       <LandingPage />
       <Container>
         <InfoSection />
         <AboutSection />
-        {/* <ServicesSection /> */}
+      </Container>
+        <ServicesSection />
+      <MapSection />
+      <ProjectSection />
+      <Container>
         <ContactUs />
       </Container>
       <Client />

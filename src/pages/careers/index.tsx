@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Container } from "@mui/material";
+import { Box, Typography, Grid, Container, FormControl } from "@mui/material";
 import Navbar from "@/components/layout/navbar";
 import TopNav from "@/components/layout/topNav";
 import HeroPage from "@/components/commons/heroPage";
@@ -10,9 +10,21 @@ import siteIcon from "../../assets/icons/lap-icon.png";
 import arrowIconsCareers from "../../assets/icons/arrow-icon-careers.png";
 import Image from "next/image";
 import Checkbox from "@mui/material/Checkbox";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import InputBase from '@mui/material/InputBase';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Footer from "@/components/layout/Footer";
+import Link from "next/link";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const Index = () => {
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value as string);
+  };
   return (
     <Box>
       <TopNav />
@@ -31,16 +43,39 @@ const Index = () => {
           }}
         >
           <Container>
-            <Box sx={{ background: "#CCCCCC", padding: "15px" }}>
-              <Grid container>
+            <Box sx={{ background: "#CCCCCC", padding: "5px", borderRadius: "10px" }}>
+              <Grid container spacing={1}>
                 <Grid item xs={4}>
-                  <Box>test</Box>
+                  <Box>
+                    <Box sx={{ minWidth: 120, }} className="selectdiv">
+                      <select style={{ width: "100%", height: "100%", background: "#fff", padding: "20px", borderRadius: "12px", outline: "none", border: "none" }}>
+                        <option value="Category">Category</option>
+                        <option value="test 2">test 2</option>
+                        <option value="test">test3</option>
+                        <option value="test"> test 4</option>
+                      </select>
+                    </Box>
+                  </Box>
                 </Grid>
                 <Grid item xs={4}>
-                  <Box>test</Box>
+                  <Box className="selectdev">
+                    <select style={{ width: "100%", height: "100%", background: "#fff", padding: "20px", borderRadius: "12px", outline: "none", border: "none" }}>
+                      <option value="Work from">Work from</option>
+                      <option value="test 2">test 2</option>
+                      <option value="test">test3</option>
+                      <option value="test"> test 4</option>
+                    </select>
+                  </Box>
                 </Grid>
                 <Grid item xs={4}>
-                  <Box>test</Box>
+                  <Box className="selectdev">
+                    <select style={{ width: "100%", height: "100%", background: "#fff", padding: "20px", borderRadius: "12px", outline: "none", border: "none" }}>
+                      <option value="Job type">Job type</option>
+                      <option value="test 2">test 2</option>
+                      <option value="test">test3</option>
+                      <option value="test"> test 4</option>
+                    </select>
+                  </Box>
                 </Grid>
               </Grid>
             </Box>
@@ -124,32 +159,33 @@ const Index = () => {
                     </p>
                   </Box>
                 </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "end",
-                    cursor: "pointer",
-                  }}
-                >
-                  <span
-                    style={{
-                      color: "#252324",
-                      fontWeight: "500",
-                      marginRight: "8px",
-                      display: "inline-block",
+                <Link href="/careers/1">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "end",
+                      cursor: "pointer",
                     }}
                   >
-                    Apply now
-                  </span>
-                  <Image
-                    alt="test"
-                    src={arrowIconsCareers}
-                    width={24}
-                    height={24}
-                  />
-                </Box>
+                    <span
+                      style={{
+                        color: "#252324",
+                        fontWeight: "500",
+                        marginRight: "8px",
+                        display: "inline-block",
+                      }}
+                    >
+                      Apply now
+                    </span>
+                    <Image
+                      alt="test"
+                      src={arrowIconsCareers}
+                      width={24}
+                      height={24}
+                    />
+                  </Box>
+                </Link>
               </Box>
             </Box>
           </Grid>
@@ -220,7 +256,9 @@ const Index = () => {
                     </p>
                   </Box>
                 </Box>
-
+                
+                <Link href="/careers/2">
+                
                 <Box
                   sx={{
                     display: "flex",
@@ -246,6 +284,7 @@ const Index = () => {
                     height={24}
                   />
                 </Box>
+                </Link>
               </Box>
             </Box>
           </Grid>
@@ -539,6 +578,8 @@ const Index = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <Footer />
     </Box>
   );
 };

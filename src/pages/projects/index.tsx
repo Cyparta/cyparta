@@ -17,12 +17,13 @@ import Stack from "@mui/material/Stack";
 
 import Image from "next/image";
 import Footer from "@/components/layout/Footer";
+import Link from "next/link";
 const Index = () => {
   return (
     <div>
       <TopNav />
       <Navbar />
-      
+
       <Box sx={{ position: "relative" }}>
         <Image
           src={coverImage}
@@ -131,26 +132,30 @@ const Index = () => {
         </Box>
         <Grid container spacing={2} sx={{ mt: "24px" }}>
           <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project1}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
+            <Link href={`/projects/1`}>
+              <Box>
+                <Image
+                  src={project1}
+                  width="500"
+                  height={282}
+                  style={{ width: "100%", borderRadius: "10px", height: "100%" }}
+                  alt="project Name"
+                />
+              </Box>
+            </Link>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project2}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
+            <Link href={`/projects/2`}>
+              <Box>
+                <Image
+                  src={project2}
+                  width="500"
+                  height={282}
+                  style={{ width: "100%", borderRadius: "10px", height: "100%" }}
+                  alt="project Name"
+                />
+              </Box>
+            </Link>
           </Grid>
           <Grid item xs={12} sm={6}>
             <Box>
@@ -230,9 +235,13 @@ const Index = () => {
             </Box>
           </Grid>
         </Grid>
-        <Stack spacing={2} sx={{ justifyContent: "center", mt: "70px" }}>
-          <Pagination count={10} />
-        </Stack>
+
+        <Box sx={{display:"flex", justifyContent:"center"}}>
+
+          <Stack spacing={2} sx={{ justifyContent: "center", mt: "70px", display: "flex", textAlign: 'center' }}>
+            <Pagination count={10} />
+          </Stack>
+        </Box>
       </Container>
 
       <Footer />
