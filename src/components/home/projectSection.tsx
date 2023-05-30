@@ -28,7 +28,7 @@ const ProjectSection = () => {
                 slidesPerView={5}
                 freeMode={true}
                 onSlideChange={(e) => console.log('slide change')}
-                onSwiper={(swiper) => {
+                onSwiper={(swiper:any) => {
                     // Delay execution for the refs to be defined
                     setTimeout(() => {
                         // Override prevEl & nextEl now that refs are defined
