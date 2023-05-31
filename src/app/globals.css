@@ -315,3 +315,7 @@ select::-ms-expand {
 .options li:hover {
   background-color: #ddd;
 }
+
+.animated-container{
+  justify-content: center;
+}

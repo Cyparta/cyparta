@@ -181,10 +181,10 @@ const ProjectSection = () => {
                         swiper.navigation.update();
                     });
                 }}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
+                // autoplay={{
+                //     delay: 2500,
+                //     disableOnInteraction: false,
+                // }}
                 modules={[FreeMode, Navigation]}
                 breakpoints={{
                     1: {

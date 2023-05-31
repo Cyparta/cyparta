@@ -30,7 +30,7 @@ const HeroPage = ({ text, heading, imageCover }: HeroPageProps) => {
           <Typography
             sx={{
               color: "rgba(255, 255, 255, 1)",
-              fontSize: "48px",
+              fontSize: {xs:"30px", md:"48px"},
               fontWeight: "700",
             }}
           >
@@ -38,12 +38,13 @@ const HeroPage = ({ text, heading, imageCover }: HeroPageProps) => {
           </Typography>
           <Typography
             sx={{
-              fontSize: "24px",
+              fontSize: {xs:"18px", md:"24px"},
               color: "rgba(255, 255, 255, 1)",
-              width: "502px",
+              width: {md:"502px"},
               margin: "0 auto",
               display: "inline-block",
               fontWeight: "400",
+              
             }}
           >
             {text}

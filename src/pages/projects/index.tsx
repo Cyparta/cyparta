@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TopNav from "@/components/layout/topNav";
 import Navbar from "@/components/layout/navbar";
 import { Container, Box, Typography, Grid } from "@mui/material";
@@ -18,53 +19,32 @@ import Stack from "@mui/material/Stack";
 import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
+import HeroPage from "@/components/commons/heroPage";
 const Index = () => {
+  const [projectDet, setProjectDet] = useState("all");
+
+  const projectDetails = [
+    { photo: project1, type: "web" },
+    { photo: project2, type: "applications" },
+    { photo: project3, type: "applications" },
+    { photo: project4, type: "web" },
+    { photo: project5, type: "web" },
+    { photo: project6, type: "applications" },
+    { photo: project7, type: "applications" },
+    { photo: project8, type: "web" },
+    { photo: project9, type: "applications" },
+  ];
+
   return (
     <div>
       <TopNav />
       <Navbar />
 
-      <Box sx={{ position: "relative" }}>
-        <Image
-          src={coverImage}
-          alt="cover"
-          width={500}
-          height={375}
-          style={{ width: "100%" }}
-        />
-        <Box
-          sx={{
-            position: "absolute",
-            top: "60%",
-            width: "100%",
-            transform: "translateY(-50%)",
-          }}
-        >
-          <Container>
-            <Typography
-              sx={{
-                color: "rgba(255, 255, 255, 1)",
-                fontSize: "48px",
-                fontWeight: "700",
-              }}
-            >
-              Projects
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "24px",
-                color: "rgba(255, 255, 255, 1)",
-                width: "502px",
-                margin: "0 auto",
-                display: "inline-block",
-                fontWeight: "400",
-              }}
-            >
-              thinking you make a better decision more than choosing us !!
-            </Typography>
-          </Container>
-        </Box>
-      </Box>
+      <HeroPage
+        text="thinking you make a better decision more than choosing us !!"
+        heading="Projects"
+        imageCover={coverImage}
+      />
 
       <Container>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -81,6 +61,7 @@ const Index = () => {
           >
             <li
               style={{ fontSize: "16px", fontWeight: "500", cursor: "pointer" }}
+              onClick={() => setProjectDet("all")}
             >
               All /{" "}
             </li>
@@ -91,6 +72,7 @@ const Index = () => {
                 color: "rgba(164, 164, 164, 1)",
                 cursor: "pointer",
               }}
+              onClick={() => setProjectDet("applications")}
             >
               Applications /
             </li>
@@ -101,6 +83,7 @@ const Index = () => {
                 color: "rgba(164, 164, 164, 1)",
                 cursor: "pointer",
               }}
+              onClick={() => setProjectDet("web")}
             >
               Websites
             </li>
@@ -131,114 +114,56 @@ const Index = () => {
           </Box>
         </Box>
         <Grid container spacing={2} sx={{ mt: "24px" }}>
-          <Grid item xs={12} sm={6}>
-            <Link href={`/projects/1`}>
-              <Box>
-                <Image
-                  src={project1}
-                  width="500"
-                  height={282}
-                  style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                  alt="project Name"
-                />
-              </Box>
-            </Link>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Link href={`/projects/2`}>
-              <Box>
-                <Image
-                  src={project2}
-                  width="500"
-                  height={282}
-                  style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                  alt="project Name"
-                />
-              </Box>
-            </Link>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project3}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project4}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project5}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project6}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project7}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project8}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px", height: "100%" }}
-                alt="project Name"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box>
-              <Image
-                src={project9}
-                width="500"
-                height={282}
-                style={{ width: "100%", borderRadius: "10px" }}
-                alt="project Name"
-              />
-            </Box>
-          </Grid>
+          {projectDet === "all" ? projectDetails.map((project, index) => (
+            <Grid item xs={12} sm={6}>
+              <Link href={`/projects/${index + 1}`}>
+                <Box>
+                  <Image
+                    src={project.photo}
+                    width="500"
+                    height={282}
+                    style={{
+                      width: "100%",
+                      borderRadius: "10px",
+                      height: "100%",
+                    }}
+                    alt="project Name"
+                  />
+                </Box>
+              </Link>
+            </Grid>
+          )) : projectDetails.filter((project) => project.type == projectDet).map((project, index) => (
+            <Grid item xs={12} sm={6}>
+              <Link href={`/projects/${index + 1}`}>
+                <Box>
+                  <Image
+                    src={project.photo}
+                    width="500"
+                    height={282}
+                    style={{
+                      width: "100%",
+                      borderRadius: "10px",
+                      height: "100%",
+                    }}
+                    alt="project Name"
+                  />
+                </Box>
+              </Link>
+            </Grid>
+          ))}
+
         </Grid>
 
-        <Box sx={{display:"flex", justifyContent:"center"}}>
-
-          <Stack spacing={2} sx={{ justifyContent: "center", mt: "70px", display: "flex", textAlign: 'center' }}>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Stack
+            spacing={2}
+            sx={{
+              justifyContent: "center",
+              mt: "70px",
+              display: "flex",
+              textAlign: "center",
+            }}
+          >
             <Pagination count={10} />
           </Stack>
         </Box>

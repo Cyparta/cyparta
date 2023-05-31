@@ -16,7 +16,7 @@ const ServicesSection = () => {
     return (
         <>
             {isResb &&
-                <Box sx={{ position: "relative" }} className="services">
+                <Box sx={{ position: "relative", lineHeight:"0" }} className="services">
                     <Box>
                         <Image
                             src={serviceImage}
@@ -30,6 +30,7 @@ const ServicesSection = () => {
                             width: "100%",
                             top: "0px",
                             height: "100%",
+                            lineHeight: 0
                         }}
                     >
                         <Box
@@ -37,7 +38,7 @@ const ServicesSection = () => {
                                 display: "flex",
                                 justifyContent: "center",
                                 textAlign: "center",
-                                height: "99%",
+                                height: "100%",
                                 alignItems: "end",
                             }}
                         >
@@ -46,7 +47,22 @@ const ServicesSection = () => {
                                 onMouseEnter={() => setServiceImage(services)}
                                 onMouseLeave={() => console.log("no")}
                             >
-                                <Box sx={{ fontSize: "16px" }}>
+                                <Box sx={{ fontSize: "16px", padding:"10px" }}>
+                                    <Typography sx={{ fontSize: "28px", margin: "0" }}>
+                                        Web development
+                                    </Typography>{" "}
+                                    <br />
+                                    <Typography sx={{ mt: "14px" }} className="services-hover">
+                                        cyparta is one of the top mobile app development companies
+                                    </Typography>
+                                </Box>
+                            </Box>
+                            <Box
+                                className="service-box"
+                                onMouseEnter={() => setServiceImage(services2)}
+                                onMouseLeave={() => console.log("no")}
+                            >
+                                <Box sx={{ fontSize: "16px",  padding:"10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         App development
                                     </Typography>{" "}
@@ -61,22 +77,7 @@ const ServicesSection = () => {
                                 onMouseEnter={() => setServiceImage(services2)}
                                 onMouseLeave={() => console.log("no")}
                             >
-                                <Box sx={{ fontSize: "16px" }}>
-                                    <Typography sx={{ fontSize: "28px", margin: "0" }}>
-                                        App development
-                                    </Typography>{" "}
-                                    <br />
-                                    <Typography sx={{ mt: "14px" }} className="services-hover">
-                                        cyparta is one of the top mobile app development companies
-                                    </Typography>
-                                </Box>
-                            </Box>
-                            <Box
-                                className="service-box"
-                                onMouseEnter={() => setServiceImage(services2)}
-                                onMouseLeave={() => console.log("no")}
-                            >
-                                <Box sx={{ fontSize: "16px" }}>
+                                <Box sx={{ fontSize: "16px",  padding:"10px"  }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         CRM systems
                                     </Typography>{" "}
@@ -91,7 +92,7 @@ const ServicesSection = () => {
                                 onMouseEnter={() => setServiceImage(services)}
                                 onMouseLeave={() => console.log("no")}
                             >
-                                <Box sx={{ fontSize: "16px" }}>
+                                <Box sx={{ fontSize: "16px",  padding:"10px"  }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         Social Media Management
                                     </Typography>{" "}
@@ -106,7 +107,7 @@ const ServicesSection = () => {
                                 onMouseEnter={() => setServiceImage(services2)}
                                 onMouseLeave={() => console.log("no")}
                             >
-                                <Box sx={{ fontSize: "16px" }}>
+                                <Box sx={{ fontSize: "16px",  padding:"10px"  }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         Penetration Testing
                                     </Typography>{" "}
@@ -124,13 +125,13 @@ const ServicesSection = () => {
                 <Box className="">
                     <Swiper className="mySwiper">
                         <SwiperSlide>
-                            <Box sx={{ position: "relative" }}>
+                            <Box sx={{ position: "relative", lineHeight:"0" }}>
                                 <Image
                                     src={serviceImage}
                                     alt="services"
                                     style={{ width: "100%", height: "100%" }}
                                 />
-                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end" }}>
+                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end", zIndex: "8" }}>
                                     <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
                                         App development
                                     </Typography>{" "}
@@ -138,16 +139,17 @@ const ServicesSection = () => {
                                         cyparta is one of the top mobile app development companies
                                     </Typography>
                                 </Box>
+                                <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
                             </Box>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <Box sx={{ position: "relative" }}>
+                            <Box sx={{ position: "relative", lineHeight:"0" }}>
                                 <Image
                                     src={serviceImage}
                                     alt="services"
                                     style={{ width: "100%", height: "100%" }}
                                 />
-                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end" }}>
+                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end", zIndex: "8" }}>
                                     <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
                                         App development
                                     </Typography>{" "}
@@ -155,55 +157,61 @@ const ServicesSection = () => {
                                         cyparta is one of the top mobile app development companies
                                     </Typography>
                                 </Box>
+                                <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
                             </Box>
                         </SwiperSlide>
                         <SwiperSlide>
-                        <Box sx={{ position: "relative" }}>
+                            <Box sx={{ position: "relative", lineHeight:"0" }}>
                                 <Image
                                     src={serviceImage}
                                     alt="services"
                                     style={{ width: "100%", height: "100%" }}
                                 />
-                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end" }}>
+                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end", zIndex: "8" }}>
                                     <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
-                                    CRM systems
+                                        CRM systems
                                     </Typography>{" "}
                                     <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
                                         cyparta is one of the top mobile app development companies
                                     </Typography>
                                 </Box>
+                                <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
                             </Box>
                         </SwiperSlide>
-                        <SwiperSlide><Box sx={{ position: "relative" }}>
-                                <Image
-                                    src={serviceImage}
-                                    alt="services"
-                                    style={{ width: "100%", height: "100%" }}
-                                />
-                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end" }}>
-                                    <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
+                        <SwiperSlide><Box sx={{ position: "relative", lineHeight:"0" }}>
+                            <Image
+                                src={serviceImage}
+                                alt="services"
+                                style={{ width: "100%", height: "100%" }}
+                            />
+                            <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end", zIndex: "8" }}>
+                                <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
                                     Social Media Management
-                                    </Typography>{" "}
-                                    <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
-                                        cyparta is one of the top mobile app development companies
-                                    </Typography>
-                                </Box>
-                            </Box></SwiperSlide>
-                        <SwiperSlide><Box sx={{ position: "relative" }}>
-                                <Image
-                                    src={serviceImage}
-                                    alt="services"
-                                    style={{ width: "100%", height: "100%" }}
-                                />
-                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end" }}>
-                                    <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
+                                </Typography>{" "}
+                                <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
+                                    cyparta is one of the top mobile app development companies
+                                </Typography>
+                            </Box>
+                            <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
+                        </Box>
+                        </SwiperSlide>
+                        <SwiperSlide><Box sx={{ position: "relative", lineHeight:"0" }}>
+                            <Image
+                                src={serviceImage}
+                                alt="services"
+                                style={{ width: "100%", height: "100%" }}
+                            />
+                            <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "end", zIndex: "8" }}>
+                                <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
                                     Penetration Testing
-                                    </Typography>{" "}
-                                    <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
-                                        cyparta is one of the top mobile app development companies
-                                    </Typography>
-                                </Box>
-                            </Box></SwiperSlide>
+                                </Typography>{" "}
+                                <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
+                                    cyparta is one of the top mobile app development companies
+                                </Typography>
+                            </Box>
+                            <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
+                        </Box>
+                        </SwiperSlide>
                     </Swiper>
                 </Box>
             )}

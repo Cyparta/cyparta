@@ -11,6 +11,7 @@ import Footer from '@/components/layout/Footer';
 import TopNav from '@/components/layout/topNav';
 import ProjectSection from '@/components/home/projectSection';
 import MapSection from '@/components/home/mapSection';
+import InfoTest from '@/components/home/InfoTest';
 const Index = () => {
   return (
     <>
@@ -18,6 +19,8 @@ const Index = () => {
       <Navbar />
       <LandingPage />
       <Container>
+        {/* <Info /> */}
+        {/* <InfoTest /> */}
         <InfoSection />
         <AboutSection />
       </Container>

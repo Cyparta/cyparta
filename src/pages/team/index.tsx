@@ -17,16 +17,30 @@ import team9 from "../../assets/team/team-9.png";
 import team10 from "../../assets/team/team-10.png";
 import team11 from "../../assets/team/team-11.png";
 import team12 from "../../assets/team/team-12.png";
+import team13 from "../../assets/team/team-13.png";
 import facebookIcon from "../../assets/team/ri_facebook-fill.png";
 import backTeam from "../../assets/team/background-team.png";
 import whatsIcon from "../../assets/team/ri_whatsapp-fill.png";
 const Team = () => {
-  const teamInfo = [
-    { name: "mohamed Ayed", job: "flutter developer" },
-    { name: "khaled el hadedy", job: "flutter developer" },
-    { name: "Eslam el hadedy", job: "software developer" },
-    { name: "Khaled Gamal", job: "front developer" },
-    { name: "Ali samer", job: "front developer" },
+  const teamInfoCol = [
+    { name: "mohamed Ayyad", job: "flutter developer", photo: team1 },
+    { name: "khaled el hadedy", job: "Founder & CEO", photo: team2 },
+    { name: "Eslam el hadedy", job: "software developer", photo: team3 },
+    { name: "Khaled Gamal", job: "FrontEnd developer", photo: team4 },
+  ]
+
+  const teamInfoCol2 = [
+    { name: "Ali samer", job: "flutter developer", photo: team5 },
+    { name: "Maram Khaled", job: "Backend Developer", photo: team6 },
+    { name: "Nada Medhat", job: "UI & UX", photo: team7 },
+    { name: "Rawya Mokhtar", job: "Markting", photo: team8 },
+    { name: "Ahmed Ezzat", job: "flutter developer", photo: team9 },
+  ]
+
+  const teamInfoCol3 = [
+    { name: "Moaz Tarek", job: "Backend Developer", photo: team10 },
+    { name: "Mostafa Hassanen", job: "Graphic Designer", photo: team11 },
+    { name: "Hosam Salah", job: "FrontEnd Developer", photo: team12 },
   ]
   return (
     <>
@@ -46,100 +60,88 @@ const Team = () => {
               </Box>
 
               <Box sx={{ display: "flex", pl: { md: "81px" }, gap: "20px", justifyContent: { xs: "center", md: "flex-start" }, flexWrap: "wrap" }}>
-                <Box
-                  sx={{ position: "relative", overflow: "hidden" }}
-                  className="team-info"
-                >
-                  <Image src={team1} alt="test" width="162" height="162" />
+                {teamInfoCol.map((person) => (
                   <Box
-                    sx={{
-                      position: "absolute",
-                      top: "0",
-                      width: "100%",
-                      height: "100%",
-                      background: "#20202073",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      flexDirection: "column",
-                      clipPath:
-                        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                    }}
+                    sx={{ position: "relative", overflow: "hidden" }}
+                    className="team-info"
                   >
-                    <Typography sx={{ color: "#fff", fontSize: "20px" }}>
-                      Mohamed Ayed
-                    </Typography>
-                    <Typography
+                    <Image src={person.photo} alt="test" width="162" height="162" />
+                    <Box
                       sx={{
-                        color: "#fff",
-                        textAlign: "center",
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        mt: "5px",
-                        mb: "5px",
+                        position: "absolute",
+                        top: "0",
+                        width: "100%",
+                        height: "100%",
+                        background: "#20202073",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "column",
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 73%, 50% 97%, 0% 72%, 0% 24%)",
+                        textAlign: "center"
                       }}
                     >
-                      flutter developer
-                    </Typography>
+                      <Typography sx={{ color: "#fff", fontSize: "20px" }}>
+                        {person.name}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#fff",
+                          textAlign: "center",
+                          fontSize: "14px",
+                          fontWeight: "500",
+                          mt: "5px",
+                          mb: "5px",
+                        }}
+                      >
+                        {person.job}
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-                <Box sx={{ position: "relative", overflow: "hidden" }} className="team-info">
-                  <Image src={team2} alt="test" width="162" height="162" />
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: "0",
-                      width: "100%",
-                      height: "100%",
-                      background: "#20202073",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      flexDirection: "column",
-                      clipPath:
-                        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                    }}
-                  >
-                    <Typography sx={{ color: "#fff", fontSize: "20px" }}>
-                      Khaled Elhededy
-                    </Typography>
-                    <Typography
-                      sx={{
-                        color: "#fff",
-                        textAlign: "center",
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        mt: "5px",
-                        mb: "5px",
-                      }}
-                    >
-                      flutter developer
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box>
-                  <Image src={team3} alt="test" width="162" height="162" />
-                </Box>
-                <Box>
-                  <Image src={team4} alt="test" width="162" height="162" />
-                </Box>
+                ))}
               </Box>
               <Box sx={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
-                <Box>
-                  <Image src={team5} alt="test" width="162" height="162" />
-                </Box>
-                <Box>
-                  <Image src={team6} alt="test" width="162" height="162" />
-                </Box>
-                <Box>
-                  <Image src={team7} alt="test" width="162" height="162" />
-                </Box>
-                <Box>
-                  <Image src={team8} alt="test" width="162" height="162" />
-                </Box>
-                <Box>
-                  <Image src={team9} alt="test" width="162" height="162" />
-                </Box>
+                {teamInfoCol2.map((person) => (
+                  <Box
+                    sx={{ position: "relative", overflow: "hidden" }}
+                    className="team-info"
+                  >
+                    <Image src={person.photo} alt="test" width="162" height="162" />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: "0",
+                        width: "100%",
+                        height: "100%",
+                        background: "#20202073",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "column",
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 73%, 50% 97%, 0% 72%, 0% 24%)",
+                        textAlign: "center"
+                      }}
+                    >
+                      <Typography sx={{ color: "#fff", fontSize: "20px" }}>
+                        {person.name}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#fff",
+                          textAlign: "center",
+                          fontSize: "14px",
+                          fontWeight: "500",
+                          mt: "5px",
+                          mb: "5px",
+                        }}
+                      >
+                        {person.job}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ))}
               </Box>
               <Box
                 sx={{
@@ -150,15 +152,46 @@ const Team = () => {
                   flexWrap: "wrap"
                 }}
               >
-                <Box>
-                  <Image src={team10} alt="test" width="162" height="162" />
-                </Box>
-                <Box>
-                  <Image src={team11} alt="test" width="162" height="162" />
-                </Box>
-                <Box>
-                  <Image src={team12} alt="test" width="162" height="162" />
-                </Box>
+                {teamInfoCol3.map((person) => (
+                  <Box
+                    sx={{ position: "relative", overflow: "hidden" }}
+                    className="team-info"
+                  >
+                    <Image src={person.photo} alt="test" width="162" height="162" />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: "0",
+                        width: "100%",
+                        height: "100%",
+                        background: "#20202073",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "column",
+                        clipPath:
+                          "polygon(50% 0%, 100% 25%, 100% 73%, 50% 97%, 0% 72%, 0% 24%)",
+                          textAlign:"center"
+                      }}
+                    >
+                      <Typography sx={{ color: "#fff", fontSize: "20px" }}>
+                        {person.name}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#fff",
+                          textAlign: "center",
+                          fontSize: "14px",
+                          fontWeight: "500",
+                          mt: "5px",
+                          mb: "5px",
+                        }}
+                      >
+                        {person.job}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ))}
               </Box>
             </Box>
           </Container>

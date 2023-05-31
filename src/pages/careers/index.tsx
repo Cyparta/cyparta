@@ -43,7 +43,7 @@ const Index = () => {
         />
         <Box
           sx={{
-            position: "absolute",
+            position: {md:"absolute"},
             bottom: "0px",
             width: "100%",
           }}
@@ -93,7 +93,7 @@ const Index = () => {
       </Box>
 
       <Container>
-        <Box sx={{ display: "flex", alignItems: "center", mb: "40px" }}>
+        <Box sx={{ display: "flex", alignItems: "center", mb: "40px", mt:"20px" }}>
           <Checkbox {...label} />
           <Typography sx={{ fontSize: "13px" }}>
             I need to be noticed if there is an empty position

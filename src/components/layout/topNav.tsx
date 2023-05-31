@@ -13,7 +13,7 @@ const TopNav = () => {
         color: "#fff",
         padding: "10px",
         boxShadow: "0px 1px 2px #A49FA1",
-        display:{xs:"none", md:"block"}
+        display: { xs: "none", md: "block" }
       }}
     >
       <Container>
@@ -28,25 +28,25 @@ const TopNav = () => {
               <Grid item md={4}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Image src={phoneIcon} alt="phone" width={20} height={20} />
-                  <p style={{ cursor: "pointer", fontSize: "14px" }}>
+                  <a href="tel:+1 (312) 270-0815" style={{ cursor: "pointer", fontSize: "14px" }}>
                     +1 (312) 270-0815
-                  </p>
+                  </a>
                 </Box>
               </Grid>
               <Grid item md={4}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Image src={phoneIcon} alt="phone" width={20} height={20} />
-                  <p style={{ cursor: "pointer", fontSize: "14px" }}>
+                  <a href="tel:20 0101 720 4584" style={{ cursor: "pointer", fontSize: "14px" }}>
                     +20 0101 720 4584
-                  </p>
+                  </a>
                 </Box>
               </Grid>
               <Grid item md={4}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Image src={messageIcon} alt="phone" width={20} height={20} />
-                  <p style={{ cursor: "pointer", fontSize: "14px" }}>
+                  <a href="mailto:Support@cyparta.com" style={{ cursor: "pointer", fontSize: "14px" }}>
                     Support@cyparta.com
-                  </p>
+                  </a>
                 </Box>
               </Grid>
             </Grid>
