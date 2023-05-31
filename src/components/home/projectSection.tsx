@@ -205,8 +205,8 @@ const ProjectSection = () => {
                     }
                 }}
             >
-                {projectDet === 'all' ? projectDetails.map(ele => {
-                    return (<SwiperSlide>
+                {projectDet === 'all' ? projectDetails.map((ele, index) => {
+                    return (<SwiperSlide key={index}>
                         <Box>
                             <Image
                                 src={project1}
@@ -220,8 +220,8 @@ const ProjectSection = () => {
                             solutions you need to creaists in their field.
                         </Box>
                     </SwiperSlide>)
-                }) : projectDetails.filter(ele => ele.type === projectDet).map(ele => (
-                    <SwiperSlide>
+                }) : projectDetails.filter((ele) => ele.type === projectDet).map((ele, index) => (
+                    <SwiperSlide key={index}>
                         <Box>
                             <Image
                                 src={project1}
