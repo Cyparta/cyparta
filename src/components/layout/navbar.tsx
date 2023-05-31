@@ -76,22 +76,22 @@ export default function DrawerAppBar(props: Props) {
                             <Link href="/">
                                 <Image src={logoImg} width={100} height={50} alt="logo" />
                             </Link>
-                            <Box sx={{ alignSelf: "center", justifySelf: "end", display: "flex", textAlign: "right" }}>
+                            <Box sx={{ alignSelf: "center", justifySelf: "end", display: "flex", textAlign: "right", margin:"0 !important"}}>
                                 <IconButton
                                     color="inherit"
                                     aria-label="open drawer"
                                     edge="start"
                                     onClick={handleDrawerToggle}
-                                    sx={{ mr: 2, display: { md: 'none' } }}
+                                    sx={{  display: { md: 'none' } }}
                                 >
-                                    <MenuIcon />
+                                    <MenuIcon/>
                                 </IconButton>
                             </Box>
                         </Box>
                         <Box sx={{ display: { xs: 'none', sm: 'none', md: "block", mr: "20px", marginLeft: "80px" } }}>
                             {navItems.map((item, index) => (
                                 <Link href={`/${item.to}`} key={index}>
-                                    <Button key={index} sx={{ color: 'rgba(133, 133, 133, 1)', textTransform: "capitalize", fontSize: "16px", marginRight: "15px" }}>
+                                    <Button key={index} sx={{ color: 'rgba(133, 133, 133, 1)', textTransform: "capitalize", fontSize: "16px" }}>
                                         {item.title}
                                     </Button>
                                 </Link>

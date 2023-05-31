@@ -21,6 +21,13 @@ import facebookIcon from "../../assets/team/ri_facebook-fill.png";
 import backTeam from "../../assets/team/background-team.png";
 import whatsIcon from "../../assets/team/ri_whatsapp-fill.png";
 const Team = () => {
+  const teamInfo = [
+    { name: "mohamed Ayed", job: "flutter developer" },
+    { name: "khaled el hadedy", job: "flutter developer" },
+    { name: "Eslam el hadedy", job: "software developer" },
+    { name: "Khaled Gamal", job: "front developer" },
+    { name: "Ali samer", job: "front developer" },
+  ]
   return (
     <>
       <Box>
@@ -38,7 +45,7 @@ const Team = () => {
                 </Typography>
               </Box>
 
-              <Box sx={{ display: "flex", pl: { md: "81px" }, gap: "20px", justifyContent:{xs:"center", md:"flex-start"}, flexWrap:"wrap" }}>
+              <Box sx={{ display: "flex", pl: { md: "81px" }, gap: "20px", justifyContent: { xs: "center", md: "flex-start" }, flexWrap: "wrap" }}>
                 <Box
                   sx={{ position: "relative", overflow: "hidden" }}
                   className="team-info"
@@ -60,7 +67,7 @@ const Team = () => {
                     }}
                   >
                     <Typography sx={{ color: "#fff", fontSize: "20px" }}>
-                      Hosam
+                      Mohamed Ayed
                     </Typography>
                     <Typography
                       sx={{
@@ -72,26 +79,43 @@ const Team = () => {
                         mb: "5px",
                       }}
                     >
-                      Back-end developer
+                      flutter developer
                     </Typography>
-                    <Box sx={{ display: "flex" }}>
-                      <Image
-                        src={facebookIcon}
-                        alt="face"
-                        width={20}
-                        height={20}
-                      />
-                      <Image
-                        src={whatsIcon}
-                        alt="face"
-                        width={20}
-                        height={20}
-                      />
-                    </Box>
                   </Box>
                 </Box>
-                <Box>
+                <Box sx={{ position: "relative", overflow: "hidden" }} className="team-info">
                   <Image src={team2} alt="test" width="162" height="162" />
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "0",
+                      width: "100%",
+                      height: "100%",
+                      background: "#20202073",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      clipPath:
+                        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                    }}
+                  >
+                    <Typography sx={{ color: "#fff", fontSize: "20px" }}>
+                      Khaled Elhededy
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#fff",
+                        textAlign: "center",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        mt: "5px",
+                        mb: "5px",
+                      }}
+                    >
+                      flutter developer
+                    </Typography>
+                  </Box>
                 </Box>
                 <Box>
                   <Image src={team3} alt="test" width="162" height="162" />
@@ -100,7 +124,7 @@ const Team = () => {
                   <Image src={team4} alt="test" width="162" height="162" />
                 </Box>
               </Box>
-              <Box sx={{ display: "flex", gap: "20px", justifyContent:"center", flexWrap:"wrap" }}>
+              <Box sx={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
                 <Box>
                   <Image src={team5} alt="test" width="162" height="162" />
                 </Box>
@@ -122,8 +146,8 @@ const Team = () => {
                   display: "flex",
                   paddingLeft: { md: "81px" },
                   gap: "20px",
-                  justifyContent:{xs:"center", md:"flex-start"},
-                  flexWrap:"wrap"
+                  justifyContent: { xs: "center", md: "flex-start" },
+                  flexWrap: "wrap"
                 }}
               >
                 <Box>

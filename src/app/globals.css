@@ -277,3 +277,41 @@ select::-ms-expand {
 .services .service-box:hover .services-hover {
   display: block;
 }
+
+.main-button::placeholder {
+  color: rgba(188, 188, 188, 1);
+  font-weight: 400;
+}
+
+
+/* custom select */
+.selected-option {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e1e6ef;
+  outline: none;
+  border-radius: 10px;
+  height: 40px;
+  font-size: 16px;
+  color:#252324;
+  font-weight: 400;
+  background-color: #fff;
+}
+.options {
+  list-style: none;
+  background-color: #fff;
+  box-shadow: 0px 10px 30px rgba(200, 200, 200, 0.28);
+  border-radius: "4px";
+  position: absolute;
+  width:100%;
+  z-index: 8;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.options li {
+  padding: 15px 15px;
+}
+
+.options li:hover {
+  background-color: #ddd;
+}

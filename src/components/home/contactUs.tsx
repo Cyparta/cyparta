@@ -7,8 +7,20 @@ import InputControl from '@/components/commons/InputControl'
 import messageIcon from '../../assets/icons/message-icon.png'
 import phoneIcon from '../../assets/icons/phone-icon.png'
 import timeIcon from '../../assets/icons/time-icon.png'
+import selectIcon from '../../assets/icons/select-icon.png'
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Client from './client';
+import CustomSelect from '../commons/customSelect';
 const ContactUs = () => {
+    const [age, setAge] = React.useState('');
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setAge(event.target.value as string);
+    };
+
     return (
         <Box>
             <Typography sx={{ fontSize: "24px", fontWeight: "500", textAlign: "center", mb: "24px" }}>Contact Us</Typography>
@@ -28,8 +40,9 @@ const ContactUs = () => {
                             </Box>
                             <Box sx={{ display: "flex", gap: "20px", flexWrap: { xs: "wrap", sm: "nowrap" } }}>
                                 <Box sx={{ width: "100%" }}>
-                                    <InputControl type='text' placeholder='Development' />
+                                    <CustomSelect />
                                 </Box>
+
                                 <Box sx={{ width: "100%" }}>
                                     <InputControl type='text' placeholder='Phone number' />
                                 </Box>
@@ -51,7 +64,7 @@ const ContactUs = () => {
                             width="100%"
                             title="Gray's and Danny's Meat Plant"
                             height="325px"
-                            style={{ border: 0, borderRadius:"20px" }}
+                            style={{ border: 0, borderRadius: "20px" }}
                             allowFullScreen
                             aria-hidden="false"
                             loading="lazy"

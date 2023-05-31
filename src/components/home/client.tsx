@@ -60,6 +60,7 @@ const Client = () => {
                         slidesPerView: 5,
                     },
                 }}
+                centeredSlides={true}
             >
 
                 <SwiperSlide>
