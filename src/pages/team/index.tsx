@@ -60,10 +60,11 @@ const Team = () => {
               </Box>
 
               <Box sx={{ display: "flex", pl: { md: "81px" }, gap: "20px", justifyContent: { xs: "center", md: "flex-start" }, flexWrap: "wrap" }}>
-                {teamInfoCol.map((person) => (
+                {teamInfoCol.map((person, index) => (
                   <Box
                     sx={{ position: "relative", overflow: "hidden" }}
                     className="team-info"
+                    key={index}
                   >
                     <Image src={person.photo} alt="test" width="162" height="162" />
                     <Box
@@ -102,10 +103,11 @@ const Team = () => {
                 ))}
               </Box>
               <Box sx={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
-                {teamInfoCol2.map((person) => (
+                {teamInfoCol2.map((person, index) => (
                   <Box
                     sx={{ position: "relative", overflow: "hidden" }}
                     className="team-info"
+                    key={index}
                   >
                     <Image src={person.photo} alt="test" width="162" height="162" />
                     <Box
@@ -152,10 +154,11 @@ const Team = () => {
                   flexWrap: "wrap"
                 }}
               >
-                {teamInfoCol3.map((person) => (
+                {teamInfoCol3.map((person, index) => (
                   <Box
                     sx={{ position: "relative", overflow: "hidden" }}
                     className="team-info"
+                    key={index}
                   >
                     <Image src={person.photo} alt="test" width="162" height="162" />
                     <Box
