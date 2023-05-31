@@ -12,6 +12,10 @@ import TopNav from '@/components/layout/topNav';
 import ProjectSection from '@/components/home/projectSection';
 import MapSection from '@/components/home/mapSection';
 import InfoTest from '@/components/home/InfoTest';
+import ProjectSlider from '@/components/home/projectSlider';
+import ProjectSlick from '@/components/home/projectSlick';
+
+
 const Index = () => {
   return (
     <>
@@ -27,6 +31,8 @@ const Index = () => {
         <ServicesSection />
       <MapSection />
       <ProjectSection />
+      {/* <ProjectSlider /> */}
+      <ProjectSlick />
       <Container>
         <ContactUs />
       </Container>
