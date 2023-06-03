@@ -115,7 +115,7 @@ const Index = () => {
         </Box>
         <Grid container spacing={2} sx={{ mt: "24px" }}>
           {projectDet === "all" ? projectDetails.map((project, index) => (
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} key={index}>
               <Link href={`/projects/${index + 1}`}>
                 <Box>
                   <Image
@@ -133,7 +133,7 @@ const Index = () => {
               </Link>
             </Grid>
           )) : projectDetails.filter((project) => project.type == projectDet).map((project, index) => (
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} key={index}>
               <Link href={`/projects/${index + 1}`}>
                 <Box>
                   <Image
