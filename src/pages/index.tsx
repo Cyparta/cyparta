@@ -12,8 +12,9 @@ import TopNav from '@/components/layout/topNav';
 import ProjectSection from '@/components/home/projectSection';
 import MapSection from '@/components/home/mapSection';
 import InfoTest from '@/components/home/InfoTest';
-import ProjectSlider from '@/components/home/projectSlider';
 import ProjectSlick from '@/components/home/projectSlick';
+// import ProjectSlider from '@/components/home/projectSlider';
+// import TestSection from '@/components/home/testSection';
 
 
 const Index = () => {
@@ -32,6 +33,7 @@ const Index = () => {
       <MapSection />
       <ProjectSection />
       {/* <ProjectSlider /> */}
+      {/* <TestSection /> */}
       <ProjectSlick />
       <Container>
         <ContactUs />

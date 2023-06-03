@@ -325,12 +325,16 @@ select::-ms-expand {
 .slick-track {
   padding: 20px 0;
   overflow: hidden;
+  outline:none !important
 }
 
+.slick-slide {
+  outline:none !important
+}
 .slick-center div .project {
-  transform: scale(1.1);
+  transform: scaleY(1.1);
   z-index:10000;
-  transition: all 400ms ease-in-out;
+  transition: all 50ms ease-in-out;
 }
 
 
@@ -341,6 +345,7 @@ select::-ms-expand {
 .project .swiper-info{
   opacity: 0;
   visibility: none;
+  text-align: center;
 }
 
 .slick-center .project .swiper-info {
@@ -351,3 +356,91 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
 }
+
+.arrow-test {
+  height: 100px;
+  width: 500px;
+}
+
+.center .slick-prev:before, .slick-next:before{
+  display: none;
+}
+.center .slick-prev {
+  display: none;
+}
+.center .slick-next {
+  display: none;
+}
+
+.project {
+  position: relative;
+}
+
+.slider-arrow .back, .slider-arrow .next {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 10px 30px rgba(200, 200, 200, 0.28);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border:none;
+  outline:none
+}
+
+.slider-arrow .back {
+  position: absolute;
+  top: 71%;
+  left: 30%;
+}
+.slider-arrow .next {
+  position: absolute;
+  top: 71%;
+  right: 30%;
+}
+
+@media (min-width: 600px) and (max-width: 990px) {
+  .slider-arrow .back {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+  }
+
+  .slider-arrow .next {
+    position: absolute;
+    top: 60%;
+    right: 30%;
+  }
+
+  .slider-arrow .back, .slider-arrow .next {
+    padding:5px
+  }
+
+  .swiper-info {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 0) and (max-width: 600px) {
+  .slider-arrow .back {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+  }
+
+  .slider-arrow .next {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+  }
+
+  .slider-arrow .back, .slider-arrow .next {
+    padding:5px
+  }
+
+  .swiper-info {
+    font-size: 12px;
+  }
+}
+

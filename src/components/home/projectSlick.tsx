@@ -1,56 +1,91 @@
-import React, {useState} from 'react'
+import React, { useState, useRef } from 'react'
 import Slider from "react-slick";
 import project1 from "../../assets/projects/project-1.png";
 import project2 from "../../assets/projects/project-2.png";
+import project3 from "../../assets/projects/project-3.png";
+import project4 from "../../assets/projects/project-4.png";
+import project5 from "../../assets/projects/project-5.png";
 
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import {Box, Typography} from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
+import MainButton from '../commons/MainButton';
+
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+
+
 
 const projectSlick = () => {
+    const [details, setDetails] = useState('all');
+
+    const arrowRef = useRef<Slider>(null);
+
+    const handlePrevClick = (): void => {
+        if (arrowRef.current !== null) {
+            arrowRef.current.slickPrev();
+        }
+    };
+
+    const handleNextClick = (): void => {
+        if (arrowRef.current !== null) {
+            arrowRef.current.slickNext();
+        }
+    };
     var settings = {
         className: "center",
         centerMode: true,
         dots: false,
+        centerPadding: "60px",
         infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
-        arrows : false,
+        arrows: true,
         spaceBetween: 20,
         responsive: [
-          {
-            breakpoint: 990,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              initialSlide: 2,
-              centerMode: false,
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-                centerMode: false,
+            {
+                breakpoint: 990,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            },
+            {
+                breakpoint: 989,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    initialSlide: 2,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 2,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
 
+                }
             }
-          }
         ]
-      };
+    };
 
     const projectDetails = [
         {
@@ -64,27 +99,17 @@ const projectSlick = () => {
             type: "Applications",
         },
         {
-            photo: project1,
+            photo: project3,
             text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
             type: "web",
         },
         {
-            photo: project2,
+            photo: project4,
             text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
             type: "Applications",
         },
         {
-            photo: project1,
-            text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
-            type: "web",
-        },
-        {
-            photo: project2,
-            text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
-            type: "Applications",
-        },
-        {
-            photo: project1,
+            photo: project5,
             text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
             type: "web",
         },
@@ -96,35 +121,24 @@ const projectSlick = () => {
         {
             photo: project2,
             text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
-            type: "Applications",
-        }, {
-            photo: project1,
-            text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
-            type: "Applications",
-        }, {
-            photo: project2,
-            text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
-            type: "Applications",
-        }, {
-            photo: project1,
-            text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
-            type: "web",
-        }, {
-            photo: project1,
-            text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
             type: "web",
         },
         {
-            photo: project1,
+            photo: project4,
             text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
-            type: "web",
+            type: "Applications",
         },
+        {
+            photo: project3,
+            text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
+            type: "Applications",
+        }, 
     ];
 
     const [projectDet, setProjectDet] = useState("all")
 
     return (
-        <div>
+        <div style={{ position: "relative" }}>
             <Typography
                 sx={{
                     color: "rgba(37, 35, 36, 1)",
@@ -155,7 +169,7 @@ const projectSlick = () => {
                             color: projectDet !== "all" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
 
                         }}
-                        onClick={() => setProjectDet('all')}
+                        onClick={() => setDetails('all')}
                     >
                         All /{" "}
                     </li>
@@ -166,7 +180,7 @@ const projectSlick = () => {
                             color: projectDet !== "Applications" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
                             cursor: "pointer",
                         }}
-                        onClick={() => setProjectDet('Applications')}
+                        onClick={() => setDetails('Applications')}
                     >
                         Applications /
                     </li>
@@ -177,24 +191,57 @@ const projectSlick = () => {
                             color: projectDet !== "web" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
                             cursor: "pointer",
                         }}
-                        onClick={() => setProjectDet('web')}
+                        onClick={() => setDetails('web')}
                     >
                         Websites
                     </li>
                 </ul>
             </Box>
-            <Slider {...settings}>
-               {projectDetails.map((project, index) => {
-                return <Box className="project">
-                        <Image src={project.photo} alt="test"/>
-                        <Box className="swiper-info" sx={{mt:"24px"}}>
+            <Slider {...settings} ref={arrowRef}>
+                {details==="all" ? projectDetails.map((project, index) => {
+                    return <Box className="project" key={index}>
+                        <Image src={project.photo} alt="test" />
+                        <Box className="swiper-info" sx={{ mt: "24px" }}>
                             Since our inception, We have been striving to create your own sld of
                             digital Marketing, by providing all the digital services and
                             solutions you need to creaists in their field.
                         </Box>
+                    </Box>
+                }) : projectDetails.filter((project) => project.type === details).map((project, index) => {
+                    return <Box className="project" key={index}>
+                    <Image src={project.photo} alt="test" />
+                    <Box className="swiper-info" sx={{ mt: "24px" }}>
+                        Since our inception, We have been striving to create your own sld of
+                        digital Marketing, by providing all the digital services and
+                        solutions you need to creaists in their field.
+                    </Box>
                 </Box>
-               })}
+                })}
             </Slider>
+            <div className='slider-arrow'>
+                <button
+                    onClick={() => handlePrevClick()}
+                    className='back'><NavigateBeforeIcon /></button>
+                <button
+                    onClick={() => {
+                        if (arrowRef.current !== null) {
+                            arrowRef.current.slickNext()
+                        }
+                    }}
+                    className='next'><NavigateNextIcon /></button>
+            </div>
+            <Box
+                sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    mt: "38px",
+                    mb: "92px",
+                }}
+            >
+                <Link href="/projects">
+                    <MainButton text="View all Projects" />
+                </Link>
+            </Box>
         </div>
     )
 }
