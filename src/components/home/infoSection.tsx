@@ -55,7 +55,7 @@ const InfoSection = () => {
             {isXl &&
                 <Box className="row-info" sx={{mt:"20px"}}>
                     {infoData.map((info, index) => {
-                        return <div className="col-info" >
+                        return <div className="col-info" key={index}>
                         <Image src={info.image} alt="test" width={35} height={35} />
                         <Typography sx={{ pt: "20px", pb: "4px", color: "rgba(114, 112, 113, 1)" }}>{info.text}</Typography>
                         <Box sx={{ fontWeight: "700", color: "#252324", fontSize: "36px" }} className="fill">
