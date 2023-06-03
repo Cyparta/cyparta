@@ -13,6 +13,7 @@ import TopNav from '@/components/layout/topNav';
 import MapSection from '@/components/home/mapSection';
 import InfoTest from '@/components/home/InfoTest';
 import ProjectSlick from '@/components/home/projectSlick';
+import SocailSection from '@/components/home/socailSection';
 // import ProjectSlider from '@/components/home/projectSlider';
 // import TestSection from '@/components/home/testSection';
 
@@ -20,20 +21,16 @@ import ProjectSlick from '@/components/home/projectSlick';
 const Index = () => {
   return (
     <>
+    <SocailSection />
       <TopNav />
       <Navbar />
       <LandingPage />
       <Container>
-        {/* <Info /> */}
-        {/* <InfoTest /> */}
         <InfoSection />
         <AboutSection />
       </Container>
         <ServicesSection />
       <MapSection />
-      {/* <ProjectSection /> */}
-      {/* <ProjectSlider /> */}
-      {/* <TestSection /> */}
       <ProjectSlick />
       <Container>
         <ContactUs />

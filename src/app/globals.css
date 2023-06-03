@@ -143,6 +143,7 @@ select::-ms-expand {
   top: 0;
   left: 0;
   z-index: -1;
+  background-size: cover;
 }
 
 .swiper-button-next:after,
@@ -320,6 +321,15 @@ select::-ms-expand {
 }
 
 
+.service-swiper .swiper-button-next:after, .service-swiper .swiper-rtl .swiper-button-prev:after {
+  color:#fff !important
+}
+
+
+.service-swiper .swiper-button-prev:after, .service-swiper .swiper-rtl .swiper-button-prev:after {
+  color:#fff !important
+}
+
 .slick-list,
 .slick-slider,
 .slick-track {
@@ -333,6 +343,7 @@ select::-ms-expand {
 }
 .slick-center div .project {
   transform: scaleY(1.1);
+  /* height: 284px; */
   z-index:10000;
   transition: all 50ms ease-in-out;
 }
@@ -444,3 +455,31 @@ select::-ms-expand {
   }
 }
 
+.projects-hover {
+  position:relative;
+  overflow: hidden;
+}
+.projects-hover div {
+  position:absolute;
+  top:0;
+  height:100%;
+  background:#CCCCCC;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease-in-out 0.5s;
+  transform: translateY(-100px);
+  overflow: hidden;
+  border-radius: 10px;
+  perspective: 1000;
+}
+
+.projects-hover:hover div{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}

@@ -10,6 +10,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 
+import { Navigation } from "swiper";
+
 const ServicesSection = () => {
     const [serviceImage, setServiceImage] = useState(services);
     const isResb = useMediaQuery("(min-width:900px)");
@@ -123,7 +125,7 @@ const ServicesSection = () => {
             }
             {!isResb && (
                 <Box className="">
-                    <Swiper className="mySwiper">
+                    <Swiper className="service-swiper" navigation={true} modules={[Navigation]}>
                         <SwiperSlide>
                             <Box sx={{ position: "relative", lineHeight:"0" }}>
                                 <Image

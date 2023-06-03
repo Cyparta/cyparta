@@ -21,6 +21,9 @@ const ContactUs = () => {
         setAge(event.target.value as string);
     };
 
+    const options = ['Development', 'CRM systems', 'Social Media Management', 'Penetration Testing'];
+
+
     return (
         <Box>
             <Typography sx={{ fontSize: "24px", fontWeight: "500", textAlign: "center", mb: "24px" }}>Contact Us</Typography>
@@ -40,7 +43,7 @@ const ContactUs = () => {
                             </Box>
                             <Box sx={{ display: "flex", gap: "20px", flexWrap: { xs: "wrap", sm: "nowrap" } }}>
                                 <Box sx={{ width: "100%" }}>
-                                    <CustomSelect />
+                                    <CustomSelect options={options} defaultValue="Development"/>
                                 </Box>
 
                                 <Box sx={{ width: "100%" }}>

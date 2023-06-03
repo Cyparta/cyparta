@@ -135,8 +135,6 @@ const ProjectSlick = () => {
         }, 
     ];
 
-    const [projectDet, setProjectDet] = useState("all")
-
     return (
         <div style={{ position: "relative" }}>
             <Typography
@@ -166,7 +164,7 @@ const ProjectSlick = () => {
                     <li
                         style={{
                             fontSize: "16px", fontWeight: "500", cursor: "pointer",
-                            color: projectDet !== "all" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                            color: details !== "all" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
 
                         }}
                         onClick={() => setDetails('all')}
@@ -177,7 +175,7 @@ const ProjectSlick = () => {
                         style={{
                             fontSize: "16px",
                             fontWeight: "500",
-                            color: projectDet !== "Applications" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                            color: details !== "Applications" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
                             cursor: "pointer",
                         }}
                         onClick={() => setDetails('Applications')}
@@ -188,7 +186,7 @@ const ProjectSlick = () => {
                         style={{
                             fontSize: "16px",
                             fontWeight: "500",
-                            color: projectDet !== "web" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                            color: details !== "web" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
                             cursor: "pointer",
                         }}
                         onClick={() => setDetails('web')}

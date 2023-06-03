@@ -115,22 +115,28 @@ const Index = () => {
         </Box>
         <Grid container spacing={2} sx={{ mt: "24px" }}>
           {projectDet === "all" ? projectDetails.map((project, index) => (
-            <Grid item xs={12} sm={6} key={index}>
-              <Link href={`/projects/${index + 1}`}>
+            <Grid item xs={12} sm={6} key={index} sx={{ overflow: "hidden" }}>
+              <Box className="projects-hover">
+                <Image
+                  src={project.photo}
+                  width="500"
+                  height={282}
+                  style={{
+                    width: "100%",
+                    borderRadius: "10px",
+                    height: "100%",
+                  }}
+                  alt="project Name"
+                />
                 <Box>
-                  <Image
-                    src={project.photo}
-                    width="500"
-                    height={282}
-                    style={{
-                      width: "100%",
-                      borderRadius: "10px",
-                      height: "100%",
-                    }}
-                    alt="project Name"
-                  />
+                  <Typography sx={{ mb: "8px", fontWeight: "500" }}>Fe khidmetak</Typography>
+                  <Typography sx={{ mb: "32px" }}>Mobile app ,service all Egypt</Typography>
+                  <Link href={`/projects/${index + 1}`}>
+
+                    <button style={{ background: "rgba(37, 35, 36, 1)", color: "#fff", padding: "10px 30px", border: "2px solid #EC232B", borderRadius: "12px", cursor:"pointer" }}>see details</button>
+                  </Link>
                 </Box>
-              </Link>
+              </Box>
             </Grid>
           )) : projectDetails.filter((project) => project.type == projectDet).map((project, index) => (
             <Grid item xs={12} sm={6} key={index}>
