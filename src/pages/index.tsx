@@ -9,7 +9,7 @@ import ContactUs from '@/components/home/contactUs';
 import Client from '@/components/home/client';
 import Footer from '@/components/layout/Footer';
 import TopNav from '@/components/layout/topNav';
-import ProjectSection from '@/components/home/projectSection';
+// import ProjectSection from '@/components/home/projectSection';
 import MapSection from '@/components/home/mapSection';
 import InfoTest from '@/components/home/InfoTest';
 import ProjectSlick from '@/components/home/projectSlick';
@@ -31,7 +31,7 @@ const Index = () => {
       </Container>
         <ServicesSection />
       <MapSection />
-      <ProjectSection />
+      {/* <ProjectSection /> */}
       {/* <ProjectSlider /> */}
       {/* <TestSection /> */}
       <ProjectSlick />
