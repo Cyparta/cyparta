@@ -19,7 +19,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 
 
-const projectSlick = () => {
+const ProjectSlick = () => {
     const [details, setDetails] = useState('all');
 
     const arrowRef = useRef<Slider>(null);
@@ -246,4 +246,4 @@ const projectSlick = () => {
     )
 }
 
-export default projectSlick
+export default ProjectSlick
