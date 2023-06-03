@@ -5,6 +5,7 @@ import project2 from "../../assets/projects/project-2.png";
 import project3 from "../../assets/projects/project-3.png";
 import project4 from "../../assets/projects/project-4.png";
 import project5 from "../../assets/projects/project-5.png";
+import test from "../../assets/home/test.png";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -132,7 +133,7 @@ const ProjectSlick = () => {
             photo: project3,
             text: "Since our inception, We have been striving to create your own sld of digital Marketing, by providing all the digital services and solutions you need to creaists in their field.",
             type: "Applications",
-        }, 
+        },
     ];
 
     return (
@@ -196,7 +197,7 @@ const ProjectSlick = () => {
                 </ul>
             </Box>
             <Slider {...settings} ref={arrowRef}>
-                {details==="all" ? projectDetails.map((project, index) => {
+                {details === "all" ? projectDetails.map((project, index) => {
                     return <Box className="project" key={index}>
                         <Image src={project.photo} alt="test" />
                         <Box className="swiper-info" sx={{ mt: "24px" }}>
@@ -207,13 +208,14 @@ const ProjectSlick = () => {
                     </Box>
                 }) : projectDetails.filter((project) => project.type === details).map((project, index) => {
                     return <Box className="project" key={index}>
-                    <Image src={project.photo} alt="test" />
-                    <Box className="swiper-info" sx={{ mt: "24px" }}>
-                        Since our inception, We have been striving to create your own sld of
-                        digital Marketing, by providing all the digital services and
-                        solutions you need to creaists in their field.
+                        <Image src={project.photo} alt="test" />
+                        <Box>test</Box>
+                        <Box className="swiper-info" sx={{ mt: "24px" }}>
+                            Since our inception, We have been striving to create your own sld of
+                            digital Marketing, by providing all the digital services and
+                            solutions you need to creaists in their field.
+                        </Box>
                     </Box>
-                </Box>
                 })}
             </Slider>
             <div className='slider-arrow'>

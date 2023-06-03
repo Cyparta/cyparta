@@ -22,17 +22,18 @@ import Link from "next/link";
 import HeroPage from "@/components/commons/heroPage";
 const Index = () => {
   const [projectDet, setProjectDet] = useState("all");
+  const [filterOpt, setFilterOpt] = useState("latest");
 
   const projectDetails = [
-    { photo: project1, type: "web" },
-    { photo: project2, type: "applications" },
-    { photo: project3, type: "applications" },
-    { photo: project4, type: "web" },
-    { photo: project5, type: "web" },
-    { photo: project6, type: "applications" },
-    { photo: project7, type: "applications" },
-    { photo: project8, type: "web" },
-    { photo: project9, type: "applications" },
+    { photo: project1, type: "web", MeasureDate: "2019-02-01T00:01:01.001Z", name: "test" },
+    { photo: project2, type: "applications", MeasureDate: "2016-04-12T15:13:11.733Z", name: "yes" },
+    { photo: project3, type: "applications", MeasureDate: "2017-04-12T15:13:11.733Z", name:"asd" },
+    { photo: project4, type: "web", MeasureDate: "2012-04-12T15:13:11.733Z", name:"try" },
+    { photo: project5, type: "web", MeasureDate: "2013-04-12T15:13:11.733Z", },
+    { photo: project6, type: "applications", MeasureDate: "2020-04-12T15:13:11.733Z", },
+    { photo: project7, type: "applications", MeasureDate: "2015-04-12T15:13:11.733Z", },
+    { photo: project8, type: "web", MeasureDate: "2016-04-12T15:13:11.733Z" },
+    { photo: project9, type: "applications", MeasureDate: "2016-04-12T15:13:11.733Z" },
   ];
 
   return (
@@ -60,7 +61,10 @@ const Index = () => {
             }}
           >
             <li
-              style={{ fontSize: "16px", fontWeight: "500", cursor: "pointer" }}
+              style={{
+                fontSize: "16px", fontWeight: "500", cursor: "pointer",
+                color: projectDet !== "all" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+              }}
               onClick={() => setProjectDet("all")}
             >
               All /{" "}
@@ -69,8 +73,8 @@ const Index = () => {
               style={{
                 fontSize: "16px",
                 fontWeight: "500",
-                color: "rgba(164, 164, 164, 1)",
                 cursor: "pointer",
+                color: projectDet !== "applications" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
               }}
               onClick={() => setProjectDet("applications")}
             >
@@ -80,8 +84,8 @@ const Index = () => {
               style={{
                 fontSize: "16px",
                 fontWeight: "500",
-                color: "rgba(164, 164, 164, 1)",
                 cursor: "pointer",
+                color: projectDet !== "web" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
               }}
               onClick={() => setProjectDet("web")}
             >
@@ -105,11 +109,13 @@ const Index = () => {
               id="cars"
               style={{ border: "none", outline: "none" }}
               className="select"
+              onChange={(e) => {
+                console.log(e.taget.value)
+                setFilterOpt(e.target.value)
+              }}
             >
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
+              <option value="latest">Latest</option>
+              <option value="oldest">oldest</option>
             </select>
           </Box>
         </Box>
@@ -133,15 +139,14 @@ const Index = () => {
                   <Typography sx={{ mb: "32px" }}>Mobile app ,service all Egypt</Typography>
                   <Link href={`/projects/${index + 1}`}>
 
-                    <button style={{ background: "rgba(37, 35, 36, 1)", color: "#fff", padding: "10px 30px", border: "2px solid #EC232B", borderRadius: "12px", cursor:"pointer" }}>see details</button>
+                    <button style={{ background: "rgba(37, 35, 36, 1)", color: "#fff", padding: "10px 30px", border: "2px solid #EC232B", borderRadius: "12px", cursor: "pointer" }}>see details</button>
                   </Link>
                 </Box>
               </Box>
             </Grid>
           )) : projectDetails.filter((project) => project.type == projectDet).map((project, index) => (
-            <Grid item xs={12} sm={6} key={index}>
-              <Link href={`/projects/${index + 1}`}>
-                <Box>
+              <Grid item xs={12} sm={6} key={index} sx={{ overflow: "hidden" }}>
+                <Box className="projects-hover">
                   <Image
                     src={project.photo}
                     width="500"
@@ -153,10 +158,17 @@ const Index = () => {
                     }}
                     alt="project Name"
                   />
+                  <Box>
+                    <Typography sx={{ mb: "8px", fontWeight: "500" }}>Fe khidmetak</Typography>
+                    <Typography sx={{ mb: "32px" }}>Mobile app ,service all Egypt</Typography>
+                    <Link href={`/projects/${index + 1}`}>
+
+                      <button style={{ background: "rgba(37, 35, 36, 1)", color: "#fff", padding: "10px 30px", border: "2px solid #EC232B", borderRadius: "12px", cursor: "pointer" }}>see details</button>
+                    </Link>
+                  </Box>
                 </Box>
-              </Link>
-            </Grid>
-          ))}
+              </Grid>
+            ))}
 
         </Grid>
 
