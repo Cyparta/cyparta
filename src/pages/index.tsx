@@ -11,7 +11,6 @@ import Footer from '@/components/layout/Footer';
 import TopNav from '@/components/layout/topNav';
 // import ProjectSection from '@/components/home/projectSection';
 import MapSection from '@/components/home/mapSection';
-import InfoTest from '@/components/home/InfoTest';
 import ProjectSlick from '@/components/home/projectSlick';
 import SocailSection from '@/components/home/socailSection';
 // import ProjectSlider from '@/components/home/projectSlider';
