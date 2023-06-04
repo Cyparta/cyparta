@@ -23,24 +23,24 @@ import backTeam from "../../assets/team/background-team.png";
 import whatsIcon from "../../assets/team/ri_whatsapp-fill.png";
 const Team = () => {
   const teamInfoCol = [
-    { name: "mohamed Ayyad", job: "flutter developer", photo: team1 },
-    { name: "khaled el hadedy", job: "Founder & CEO", photo: team2 },
-    { name: "Eslam el hadedy", job: "software developer", photo: team3 },
-    { name: "Khaled Gamal", job: "FrontEnd developer", photo: team4 },
+    { name: "Mohamed", job: "flutter developer", photo: team1 },
+    { name: "Khaled", job: "Founder & CEO", photo: team2 },
+    { name: "Eslam", job: "cyber security manager", photo: team3 },
+    { name: "Khaled", job: "FrontEnd developer", photo: team4 },
   ]
 
   const teamInfoCol2 = [
-    { name: "Ali samer", job: "flutter developer", photo: team5 },
-    { name: "Maram Khaled", job: "Backend Developer", photo: team6 },
-    { name: "Nada Medhat", job: "UI & UX", photo: team7 },
-    { name: "Rawya Mokhtar", job: "Markting", photo: team8 },
-    { name: "Ahmed Ezzat", job: "flutter developer", photo: team9 },
+    { name: "Ali", job: "flutter developer", photo: team5 },
+    { name: "Maram", job: "Backend Developer", photo: team6 },
+    { name: "Nada", job: "UI & UX", photo: team7 },
+    { name: "Rawya", job: "Direct Sales", photo: team8 },
+    { name: "Ahmed", job: "flutter developer", photo: team9 },
   ]
 
   const teamInfoCol3 = [
-    { name: "Moaz Tarek", job: "Backend Developer", photo: team10 },
-    { name: "Mostafa Hassanen", job: "Graphic Designer", photo: team11 },
-    { name: "Hosam Salah", job: "FrontEnd Developer", photo: team12 },
+    { name: "Moaz", job: "Backend Developer", photo: team10 },
+    { name: "Mostafa", job: "Content Director", photo: team11 },
+    { name: "Hosam", job: "FrontEnd Developer", photo: team12 },
   ]
   return (
     <>
