@@ -209,7 +209,6 @@ const ProjectSlick = () => {
                 }) : projectDetails.filter((project) => project.type === details).map((project, index) => {
                     return <Box className="project" key={index}>
                         <Image src={project.photo} alt="test" />
-                        <Box>test</Box>
                         <Box className="swiper-info" sx={{ mt: "24px" }}>
                             Since our inception, We have been striving to create your own sld of
                             digital Marketing, by providing all the digital services and
