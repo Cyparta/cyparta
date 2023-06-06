@@ -7,7 +7,10 @@ import whatsIcon from "../../assets/icons/whats.png";
 import faceFooter from "../../assets/icons/face-footer.png";
 import whatsFooter from "../../assets/icons/whats-footer.png";
 import twitterFooter from "../../assets/icons/twitter-footer.png";
-import MainButton from "../commons/MainButton";
+// import MainButton from "../commons/MainButton";
+import { MainButton } from '@/style/style';
+
+
 const Footer = () => {
   return (
     <Box
@@ -299,7 +302,7 @@ const Footer = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent:"end",
+                justifyContent:"flex-end",
               }}
             >
               <button

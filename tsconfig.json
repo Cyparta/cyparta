@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/_app.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/_app.js", "src/components/dashboard/menuFilter.js", "src/components/dashboard/customContainer.jsx"],
   "exclude": ["node_modules"]
 }

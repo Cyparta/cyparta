@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Typography, Grid, TextField } from '@mui/material';
-import MainButton from '../commons/MainButton';
+// import MainButton from '../commons/MainButton';
+import { MainButton } from '@/style/style';
 import Image from 'next/image';
 import MapImage from '../../assets/home/map.png';
 import InputControl from '@/components/commons/InputControl'
@@ -54,7 +55,8 @@ const ContactUs = () => {
                                 <textarea style={{ width: "100%", height: "65px", border: "1px solid #E1E6EF", outline: "none", borderRadius: "10px", padding: "15px" }} placeholder='Write your question here'></textarea>
                             </Box>
                             <Box sx={{ display: "flex", justifyContent: "center" }}>
-                                <MainButton text="Send" />
+                                {/* <MainButton text="Send" /> */}
+                                <MainButton>Send</MainButton>
                             </Box>
                         </Box>
                     </Box>

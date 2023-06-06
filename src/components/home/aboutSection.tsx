@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
-import MainButton from "../commons/MainButton";
+// import MainButton from "../commons/MainButton";
+import {MainButton} from '../../style/style';
 import AboutImage from "../../assets/home/about-1.png";
 import AboutImage2 from "../../assets/home/about-2.png";
 import curvedImage from "../../assets/home/curved-arrow-.png";
@@ -108,7 +109,7 @@ const AboutSection = () => {
                         </Box>
                          */}
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
-                        <MainButton text="Download PDF" />
+                        <MainButton>Download PDF</MainButton>
                     </Box>
 
                     </Box>

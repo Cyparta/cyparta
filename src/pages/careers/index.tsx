@@ -18,7 +18,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import CustomSelect from "@/components/careers/customSelect";
-import MainButton from "@/components/commons/MainButton";
+// import MainButton from "@/components/commons/MainButton";
 import arrowIcon from '../../assets/icons/arrow-down-select.png';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 

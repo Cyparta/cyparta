@@ -7,7 +7,7 @@ import appIcon from "../../assets/home/app-icon.png";
 import dashIcon from "../../assets/home/dash-icon.png";
 
 // You'll need to download the json file from the docs site or you can create your own.
-import * as world from "./world.json";
+import * as world from "../../data/world.json";
 import Image from "next/image";
 
 

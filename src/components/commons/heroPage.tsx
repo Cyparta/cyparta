@@ -43,8 +43,7 @@ const HeroPage = ({ text, heading, imageCover }: HeroPageProps) => {
               width: {md:"502px"},
               margin: "0 auto",
               display: "inline-block",
-              fontWeight: "400",
-              
+              fontWeight: "400",          
             }}
           >
             {text}

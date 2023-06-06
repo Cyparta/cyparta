@@ -13,7 +13,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import MainButton from '../commons/MainButton';
+// import MainButton from '../commons/MainButton';
+import { MainButton } from '@/style/style';
+
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -238,7 +240,8 @@ const ProjectSlick = () => {
                 }}
             >
                 <Link href="/projects">
-                    <MainButton text="View all Projects" />
+                    {/* <MainButton text="View all Projects" /> */}
+                    <MainButton>View all Projects</MainButton>
                 </Link>
             </Box>
         </div>

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import services from "../../assets/home/services.png";
+import services from "../../assets/home/services.jpg";
 import services2 from "../../assets/home/services-2.jpg";
 import Image from "next/image";
 import { useState } from "react";

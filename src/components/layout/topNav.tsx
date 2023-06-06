@@ -2,7 +2,9 @@ import { Box, Container, Grid } from "@mui/material";
 import phoneIcon from "../../assets/icons/phone-nav.png";
 import messageIcon from "../../assets/icons/message-icon.png";
 import Image from "next/image";
-import MainButton from "../commons/MainButton";
+// import MainButton from "../commons/MainButton";
+import { MainButton } from '@/style/style';
+
 import Link from "next/link";
 const TopNav = () => {
   return (
@@ -53,7 +55,7 @@ const TopNav = () => {
           </Grid>
           <Grid item xs={6} textAlign={"right"}>
             <Link href="/offer">
-              <MainButton text="Offer Price" />
+              <MainButton>Offer Price</MainButton>
             </Link>
           </Grid>
         </Grid>

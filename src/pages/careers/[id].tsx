@@ -11,7 +11,9 @@ import siteIcon from "../../assets/icons/lap-icon.png";
 import locationIcon from "../../assets/icons/location-icon.png";
 import arrowIconsCareers from "../../assets/icons/arrow-icon-careers.png";
 import uploadIcon from '../../assets/icons/upload-icon.png';
-import MainButton from '@/components/commons/MainButton'
+// import MainButton from '@/components/commons/MainButton'
+import { MainButton } from '@/style/style';
+
 import Footer from '@/components/layout/Footer'
 import InputControl from '@/components/commons/InputControl'
 const CareerDetails = () => {
@@ -100,7 +102,7 @@ const CareerDetails = () => {
 
                             <Box sx={{ display: "flex", justifyContent: "space-between", flexWrap:"wrap", gap:"10px" }}>
                                 <Box sx={{ display: "flex", gap: "13px", }}>
-                                    <MainButton text="Apply now" />
+                                    <MainButton>Apply now</MainButton>
                                     <Box sx={{}}>
                                         <Box sx={{ border: "1px solid rgba(236, 35, 43, 1)", padding: "10px 15px", cursor: "pointer", borderRadius: "15px" }}>
                                             <Image src={uploadIcon} alt="upload" width="24" height="24" />
@@ -179,7 +181,7 @@ const CareerDetails = () => {
                                 <textarea style={{ width: "100%", height: "65px", border: "1px solid #E1E6EF", outline: "none", borderRadius: "10px", padding: "15px" }} placeholder='Summary about you'></textarea>
                             </Box>
                             <Box sx={{ display: "flex", justifyContent: "center" }}>
-                                <MainButton text="Send" />
+                                <MainButton>Send</MainButton>
                             </Box>
                         </Box>
                     </Box>

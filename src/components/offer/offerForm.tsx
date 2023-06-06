@@ -2,7 +2,9 @@ import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import InputControl from "../commons/InputControl";
 import Image from "next/image";
-import MainButton from "../commons/MainButton";
+// import MainButton from "../commons/MainButton";
+import { MainButton } from '@/style/style';
+
 
 const OfferForm = () => {
   return (
@@ -96,7 +98,7 @@ const OfferForm = () => {
               ></textarea>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <MainButton text="Send" />
+              <MainButton>Send</MainButton>
             </Box>
           </Box>
         </Box>

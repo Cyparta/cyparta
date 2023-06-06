@@ -7,7 +7,9 @@ import React from 'react'
 import cover from '../../assets/home/cover.gif';
 import landingAnimation from '@/assets/data.json'
 import { useTheme } from '@mui/material/styles';
-import MainButton from '../commons/MainButton';
+// import MainButton from '../commons/MainButton';
+import { MainButton } from '@/style/style';
+
 
 const LandingPage = () => {
     const theme = useTheme();
@@ -35,6 +37,7 @@ const LandingPage = () => {
                             Their <span style={{ color: danger.main, fontWeight: "700" }}>Ideas Alive</span>
                         </Typography>
                         <MainButton text='Hire Us' />
+                        <MainButton>Hire Us</MainButton>
                     </Box>
                 </Container> */}
 
