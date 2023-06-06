@@ -8,10 +8,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import person1 from "../../assets/dashboard/ahmed.png";
 import { Typography, Box, Link } from "@mui/material";
+import Image from "next/image";
 // import MenuFilter from "./menuFilter";
 import plus from "../../assets/dashboard/square-plus.svg";
 // import CustomModal from "./customModal";
-import CustomModal from './cutomModal';
+import CustomModal from "./cutomModal";
 import Stars from "./starts";
 import Checkbox from "@mui/material/Checkbox";
 
@@ -76,9 +77,10 @@ const CustomContainer = ({
               },
             }}
           >
-            {columns.map((ele) =>
+            {columns.map((ele, index) =>
               ele.type === "checkbox" ? (
                 <TableCell
+                  key={index}
                   align="center"
                   sx={{
                     color: "#312F30",
@@ -100,6 +102,7 @@ const CustomContainer = ({
                 </TableCell>
               ) : (
                 <TableCell
+                  key={index}
                   align="center"
                   sx={{
                     color: "#312F30",
@@ -116,8 +119,9 @@ const CustomContainer = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row, index) => (
             <TableRow
+            key={index}
               sx={{
                 "&:last-child td, &:last-child th": {
                   border: "1px solid #efefef",
@@ -130,6 +134,7 @@ const CustomContainer = ({
               {columns.map((col, index) =>
                 col.type === "text" ? (
                   <TableCell
+                  key={index}
                     style={{
                       color: col.color || "#282A3C",
                       fontSize: col.size || "16px",
@@ -146,7 +151,7 @@ const CustomContainer = ({
                     }}
                     align="center"
                   >
-                    {row[col.name]} 
+                    {row[col.name]}
                   </TableCell>
                 ) : col.type === "rating" ? (
                   <TableCell align="center">
@@ -167,14 +172,15 @@ const CustomContainer = ({
                 ) : col.type === "link" ? (
                   <TableCell align="center">
                     {row[col.name].image && (
-                      <img
-                        src="https://source.unsplash.com/gySMaocSdqs/180x180"
-                        alt={row[col.name]}
-                        m="0 10px"
-                        width="43px"
-                        height="43"
-                        className="rounded-circle"
-                      />
+                      // <img
+                      //   src="https://source.unsplash.com/gySMaocSdqs/180x180"
+                      //   alt={row[col.name]}
+                      //   m="0 10px"
+                      //   width="43px"
+                      //   height="43"
+                      //   className="rounded-circle"
+                      // />
+                      <Image src={"https://source.unsplash.com/gySMaocSdqs/180x180"} alt={row[col.name]} width="46" height="43" className="rounded-circle"/>
                     )}
                     {row[col.name].name && (
                       <Link
@@ -220,7 +226,8 @@ const CustomContainer = ({
                   </TableCell>
                 ) : (
                   <TableCell align="center">
-                    <img src={person1} alt={row[col.name]} m="0 10px" />
+                    {/* <img src={person1} alt={row[col.name]} /> */}
+                    <Image src={person1} alt={row[col.name]} style={{width:"40px", height:"40px", margin:"0 10px"}}/>
                     <Typography
                       variant="span"
                       sx={{
@@ -252,7 +259,8 @@ const CustomContainer = ({
               display: "inline-block",
             }}
           >
-            <img src={plus} alt="square plus" />
+            {/* <img src={plus} alt="square plus" /> */}
+            <Image src={plus} alt="square plus" width="" height=""/>
             <Typography
               variant="span"
               sx={{ display: "inline-block", margin: "2px 10px" }}
@@ -269,4 +277,3 @@ const CustomContainer = ({
 };
 
 export default CustomContainer;
-
