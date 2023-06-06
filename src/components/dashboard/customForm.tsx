@@ -86,7 +86,7 @@ interface Column {
 
 interface CustomFormProps {
     columns: Column[];
-    mbImg: string
+    mbImg?: string
 }
 
 const CustomForm = ({ columns = [], mbImg = "0" } : CustomFormProps) => {
