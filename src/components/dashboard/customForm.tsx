@@ -13,6 +13,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Image from "next/image";
 
 const settings = {
   dots: true,
@@ -219,7 +220,8 @@ const CustomForm = ({ columns = [], mbImg = "0" } : CustomFormProps) => {
                         },
                       }}
                     >
-                      <img src={imageSrc} alt="slide" width="100%" />
+                      {/* <img src={imageSrc} alt="slide" width="100%" /> */}
+                      <Image src={imageSrc} alt="slide" style={{width:"100%", height:"100%"}}/>
                     </Box>
                   ))}
                 </Slider>

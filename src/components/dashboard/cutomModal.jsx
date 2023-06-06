@@ -16,6 +16,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import SendIcon from "@mui/icons-material/Send";
 import Lottie from "lottie-react";
 import uploadAnimation from "../../assets/dashboard/upload.json";
+import Image from "next/image";
 const style = {
   position: "absolute",
   top: "50%",
@@ -142,7 +143,8 @@ const CustomModal = ({ handleClose, open }) => {
                 <Box>
                   <Box sx={{ mt: "40px" }}>
                     <Box sx={{ postion: "relative" }}>
-                      <img src={upload} alt="upload" />
+                      {/* <img src={upload} alt="upload" /> */}
+                      <Image src={upload} alt="upload"/>
                       <Box
                         sx={{
                           position: "absolute",
