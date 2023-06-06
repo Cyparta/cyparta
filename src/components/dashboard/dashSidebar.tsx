@@ -314,8 +314,10 @@ const DashSidebar = () => {
                             </Link>
                         </ListItemButton>
 
-                        {nestedList.map((item) => (
+                        {nestedList.map((item, index) => (
                             <NestedList
+
+                                key={index}
                                 listName={item.listName}
                                 listButtons={item.listButtons}
                             />
