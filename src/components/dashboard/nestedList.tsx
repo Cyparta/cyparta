@@ -34,7 +34,7 @@ export default function NestedList({ listName, listButtons } :any) {
            className={!pathCheck ? 'dash-nav': ""}  
         >
           {listButtons &&
-            listButtons.map((item:any) => <NestedListItem item={item} />)}
+            listButtons.map((item:any, index:number) => <NestedListItem item={item} key={index}/>)}
         </List>
       </Collapse>
     </List>

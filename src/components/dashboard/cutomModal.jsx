@@ -294,10 +294,12 @@ const CustomModal = ({ handleClose, open }) => {
                           Like
                         </Typography>{" "}
                         <Typography component="span" m="0 5px">
-                          <img src={line30} alt="test" />{" "}
+                          {/* <img src={line30} alt="test" />{" "} */}
+                          <Image src={line30} alt="test" />
                         </Typography>
                         <Typography component="span">
-                          <img src={arrowUp} alt="test" />{" "}
+                          {/* <img src={arrowUp} alt="test" />{" "} */}
+                          <Image src={arrowUp} alt="test" />
                         </Typography>
                         <Typography component="span" color="#ED1B24">
                           2 {""}

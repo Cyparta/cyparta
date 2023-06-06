@@ -96,11 +96,12 @@ const myproject = () => {
                             },
                         }}
                     >
-                        {progress.map((pro) => {
+                        {progress.map((pro, index) => {
                             return (
                                 <Link
                                     href="/dashboard/myprojects/123"
                                     style={{ textDecoration: "none" }}
+                                    key={index}
                                 >
                                     <Box
                                         overflow="hidden"

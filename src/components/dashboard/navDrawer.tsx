@@ -247,8 +247,8 @@ export default function DashNavbar() {
     >
       <List>
         <Box sx={{padding: "0 20px"}}>{logo}</Box>
-        {nestedList.map((item) => (
-          <NestedList listName={item.listName} listButtons={item.listButtons} />
+        {nestedList.map((item, index) => (
+          <NestedList listName={item.listName} listButtons={item.listButtons} key={index}/>
         ))}
       </List>
       <Divider />
