@@ -4,7 +4,7 @@ import React from "react";
 import PageName from "@/components/dashboard/pageName";
 import { Box, List, ListItem, Typography } from "@mui/material";
 import HeroPage from "@/components/commons/heroPage";
-import logo from "@/assets/Dashboard/logo.png";
+import logo from "@/assets/dashboard/logo.png";
 import Checkbox from "@mui/material/Checkbox";
 // make sure you include the timeline stylesheet or the timeline will not be styled
 import moment from 'moment';

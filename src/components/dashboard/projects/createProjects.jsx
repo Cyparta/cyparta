@@ -20,9 +20,9 @@ import "slick-carousel/slick/slick-theme.css";
 // import { Droppable } from "react-beautiful-dnd";
 // import TaskCard from "../../components/TaskCard";
 
-import person1 from "@/assets/Dashboard/person1.png";
-import person2 from "@/assets/Dashboard/person2.png";
-import person3 from "@/assets/Dashboard/person3.png";
+import person1 from "@/assets/dashboard/person1.png";
+import person2 from "@/assets/dashboard/person2.png";
+import person3 from "@/assets/dashboard/person3.png";
 
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
 import ArrowCircleRightRoundedIcon from "@mui/icons-material/ArrowCircleRightRounded";

@@ -3,11 +3,9 @@
 
 import React from "react";
 import { Box, Typography } from "@mui/material";
-// import PageName from "../../components/PageName";
 import PageName from "../pageName";
-// import HeroPage from "@/components/commons/heroPage";
 import CustomContainer from "../customContainer";
-import person4 from "@/assets/Dashboard/person3.png";
+import person4 from "@/assets/dashboard/person3.png";
 import Image from "next/image";
 const ProjectDetails = () => {
     // const columns = [
