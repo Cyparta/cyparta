@@ -2,8 +2,8 @@ import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import CustomContainer from "../customContainer";
 import EditIcon from "@mui/icons-material/Edit";
-import person2 from "@/assets/Dashboard/person2.png";
-import scan from "@/assets/Dashboard/scan.svg";
+import person2 from "@/assets/dashboard/person2.png";
+import scan from "@/assets/dashboard/scan.svg";
 import Image from "next/image";
 const Profile = () => {
   const columns = [
