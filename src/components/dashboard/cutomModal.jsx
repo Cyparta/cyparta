@@ -234,7 +234,8 @@ const CustomModal = ({ handleClose, open }) => {
                 {/* all comments */}
                 <Box sx={{ display: "flex" }}>
                   <Box>
-                    <img src={imgSize} alt="test" />
+                    {/* <img src={imgSize} alt="test" /> */}
+                    <Image src={imgSize} alt="test"/>
                   </Box>
                   <Box sx={{ marginLeft: "10px", flex: 1 }}>
                     <Typography component="span" fontWeight="600">
@@ -319,7 +320,8 @@ const CustomModal = ({ handleClose, open }) => {
                   }}
                 >
                   <Box mt="12px">
-                    <img src={imgSize} alt="comment" />
+                    {/* <img src={imgSize} alt="comment" /> */}
+                    <Image src={imgSize} alt="comment"/>
                   </Box>
                   <Box sx={{ width: "100%" }}>
                     <TextField
