@@ -34,10 +34,10 @@ const AboutSection = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    dotsClass: 'custom-dots',
-    customPaging: (index: number) => (
-      <div className="custom-dot"></div>
-    ),
+    // dotsClass: 'custom-dots',
+    // customPaging: (index: number) => (
+    //   <div className="custom-dot"></div>
+    // ),
   };
   return (
     <Box className="spad" sx={{ mb: "35px" }} id="about">
