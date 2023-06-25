@@ -34,6 +34,7 @@ const AboutSection = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
     // dotsClass: 'custom-dots',
     // customPaging: (index: number) => (
     //   <div className="custom-dot"></div>
