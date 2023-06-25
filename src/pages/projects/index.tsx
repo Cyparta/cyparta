@@ -23,7 +23,7 @@ import HeroPage from "@/components/commons/heroPage";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { RequestGetCollection } from "@/store/collections/collectionsSlice";
-import { RequestGetProducts, setFilter } from "@/store/products/productsSlice";
+import { RequestGetAllProducts, RequestGetProducts, setFilter } from "@/store/products/productsSlice";
 const Index = () => {
   const [projectDet, setProjectDet] = useState("all");
 
@@ -35,7 +35,7 @@ const Index = () => {
 
   useEffect(() => {
     // dispatch(RequestGetCollection())
-    dispatch(RequestGetProducts())
+    dispatch(RequestGetAllProducts())
   }, [])
 
   const handleFilter = ({ name, val }: { name: string; val: string }) => {
@@ -53,7 +53,8 @@ const Index = () => {
     title: string;
     type: string;
     id: number;
-    product_image: string
+    product_image: string;
+    main_image: string
   }
 
 
@@ -68,7 +69,7 @@ const Index = () => {
         imageCover={coverImage}
       />
       <Container>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
           <ul
             style={{
               listStyle: "none",
@@ -135,14 +136,14 @@ const Index = () => {
               <option value="-launched_at">{sort.oldest[lang]}</option>
             </select>
           </Box>
-        </Box>
+        </Box> */}
         {/* projectDetails.sort((a, b) => filterOpt === 'latest' ? a.date - b.date : b.date - a.date) */}
         <Grid container spacing={2} sx={{ mt: "24px" }}>
           {projectDet === "all" ? collection.map((project: Collection, index) => (
             <Grid item xs={12} sm={6} key={index} sx={{ overflow: "hidden" }}>
               <Box className="projects-hover">
                 <Image
-                  src={project.product_image}
+                  src={project.main_image}
                   width="500"
                   height={282}
                   style={{

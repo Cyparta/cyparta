@@ -123,7 +123,7 @@ const ProjectSlick = () => {
       >
         {heading[lang]}
       </Typography>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
         <ul
           style={{
             listStyle: "none",
@@ -178,7 +178,7 @@ const ProjectSlick = () => {
            {tab2[lang]}
           </li>
         </ul>
-      </Box>
+      </Box> */}
       <Slider {...settings} ref={arrowRef}>
         {details === "all"
           ? collection?.map((project: Collection, index) => {

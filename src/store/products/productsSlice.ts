@@ -31,13 +31,28 @@ export const RequestGetProducts = createAsyncThunk(
     try {
       const state:any = getState()
       const filter = state.products.filter
-      const response = await axios.get(`${BASEURL}apis/products/?type=${filter.type}&ordering=${filter.ordering}`);
+      const response = await axios.get(`${BASEURL}apis/products/?ordering=${filter.ordering}&type=${data}`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
     }
   }
 );
+
+export const RequestGetAllProducts = createAsyncThunk(
+  "RequestGetAllProducts",
+  async (data, {getState,rejectWithValue }) => {
+    try {
+      const state:any = getState()
+      const filter = state.products.filter
+      const response = await axios.get(`${BASEURL}apis/products/?ordering=${filter.ordering}`);
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 
 export const RequestGetProduct = createAsyncThunk(
   "RequestGetProduct",
@@ -90,6 +105,22 @@ export const projectsSlice = createSlice({
         state.col = action.payload;
       })
       .addCase(RequestGetProduct.rejected, (state, action: any) => {
+        state.loading = false;
+        state.error = false;
+      });
+
+      builder
+      .addCase(RequestGetAllProducts.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+        state.collection = [];
+      })
+      .addCase(RequestGetAllProducts.fulfilled, (state, action) => {
+        console.log(action);
+        state.loading = false;
+        state.collection = action.payload;
+      })
+      .addCase(RequestGetAllProducts.rejected, (state, action: any) => {
         state.loading = false;
         state.error = false;
       });

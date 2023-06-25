@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RequestGetProjects } from '@/store/projects/projectsSlice';
 import { AppDispatch, RootState } from '@/store/store';
 import { RequestGetCollection } from '@/store/collections/collectionsSlice';
-import { RequestGetProducts } from '@/store/products/productsSlice';
+import { RequestGetAllProducts, RequestGetProducts } from '@/store/products/productsSlice';
 
 // import ProjectSlider from '@/components/home/projectSlider';
 // import TestSection from '@/components/home/testSection';
@@ -27,7 +27,7 @@ const Index = () => {
   const dispatch = useDispatch<AppDispatch>()
   const lang = useSelector((state :RootState) => state.lang.value.lang)
   useEffect(() => {
-    dispatch(RequestGetProducts())
+    dispatch(RequestGetAllProducts())
   }, [])
   return (
     <>
