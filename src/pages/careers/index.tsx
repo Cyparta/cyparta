@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Box, Typography, Grid, Container, FormControl } from "@mui/material";
 import Navbar from "@/components/layout/navbar";
 import TopNav from "@/components/layout/topNav";
@@ -10,21 +10,18 @@ import siteIcon from "../../assets/icons/lap-icon.png";
 import arrowIconsCareers from "../../assets/icons/arrow-icon-careers.png";
 import Image from "next/image";
 import Checkbox from "@mui/material/Checkbox";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import InputBase from "@mui/material/InputBase";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import CustomSelect from "@/components/careers/customSelect";
 // import MainButton from "@/components/commons/MainButton";
-import arrowIcon from '../../assets/icons/arrow-down-select.png';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { BASEURL } from "@/data/APIS";
+
+
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
 const Index = () => {
 
   const lang = useSelector((state:RootState) => state.lang.value.lang)
@@ -35,6 +32,10 @@ const Index = () => {
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
   };
+
+  useEffect(() => {
+
+  }, [])
 
   const options = ["Option 1", "Option 2", "Option 3"];
   return (
@@ -598,18 +599,6 @@ const Index = () => {
   );
 };
 
-export async function getStaticProps() {
-  // Fetch data from the API endpoint
-  const response = await fetch(`${BASEURL}apis/careers/`);
-  const careers = await response.json();
 
-  // Pass the data as props to the component
-  return {
-    props: {
-      careers,
-    },
-    revalidate: 3600, // optional: set revalidation period in seconds
-  };
-}
 
 export default Index;
