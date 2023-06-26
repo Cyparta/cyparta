@@ -118,7 +118,7 @@ const Index = () => {
         {/* loop will be here  remove this and pust a comment */}
         <Grid container spacing={3} mt="32px">
           {careers.map((career:any) => {
-            return <Grid item xs={12} md={6}>
+            return <Grid item xs={12} md={6} key={career.id}>
               <Box
                 sx={{
                   background: "#FCFBFC",
