@@ -16,7 +16,7 @@ import { AppDispatch, RootState } from "@/store/store";
 import { RequestGetCollection } from "@/store/collections/collectionsSlice";
 import { RequestGetAllProducts, RequestGetProducts, setFilter } from "@/store/products/productsSlice";
 const Index = () => {
-  const [projectDet, setProjectDet] = useState("all");
+  const [projectDet, setProjectDet]: any = useState("");
 
   const { collection } = useSelector((state: RootState) => state.products)
   const lang = useSelector((state: RootState) => state.lang.value.lang)
@@ -34,6 +34,8 @@ const Index = () => {
     }
     dispatch(setFilter({ name, val }))
     dispatch(RequestGetProducts())
+
+    console.log(typeof projectDet)
   }
 
 
@@ -74,7 +76,7 @@ const Index = () => {
             <li
               style={{
                 fontSize: "16px", fontWeight: "500", cursor: "pointer",
-                color: projectDet !== "all" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                color: projectDet !== "" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
               }}
               onClick={() => handleFilter({ name: "type", val: "" })}
             >
@@ -85,7 +87,7 @@ const Index = () => {
                 fontSize: "16px",
                 fontWeight: "500",
                 cursor: "pointer",
-                color: projectDet !== "1" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                color: projectDet !== 1 ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
               }}
               onClick={() => handleFilter({ name: "type", val: 1 })}
             >
@@ -96,7 +98,7 @@ const Index = () => {
                 fontSize: "16px",
                 fontWeight: "500",
                 cursor: "pointer",
-                color: projectDet !== "2" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                color: projectDet !== 2 ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
               }}
               onClick={() => handleFilter({ name: "type", val: 2 })}
             >
