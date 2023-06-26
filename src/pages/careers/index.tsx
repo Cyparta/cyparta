@@ -21,24 +21,30 @@ import CustomSelect from "@/components/careers/customSelect";
 // import MainButton from "@/components/commons/MainButton";
 import arrowIcon from '../../assets/icons/arrow-down-select.png';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { BASEURL } from "@/data/APIS";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const Index = () => {
-  const [age, setAge] = React.useState("");
 
+  const lang = useSelector((state:RootState) => state.lang.value.lang)
+  const career = useSelector((state:RootState) => state.lang.value.careerPage)
+
+  const [age, setAge] = React.useState("");
+  
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
   };
 
   const options = ["Option 1", "Option 2", "Option 3"];
   return (
-    <Box>
+    <Box className={lang}>
       <TopNav />
       <Navbar />
       <Box sx={{ position: "relative" }}>
         <HeroPage
-          text="thinking you make a better decision more than choosing us !!"
-          heading="Careers"
+          text={career.text[lang]}
+          heading={career.heading[lang]}
           imageCover={coverImage}
         />
         <Box
@@ -83,7 +89,7 @@ const Index = () => {
                       height: "100%"
                     }}
                   >
-                    search
+                    {career.btnSearch[lang]}
                   </button>
                 </Grid>
               </Grid>
@@ -591,5 +597,19 @@ const Index = () => {
     </Box>
   );
 };
+
+export async function getStaticProps() {
+  // Fetch data from the API endpoint
+  const response = await fetch(`${BASEURL}apis/careers/`);
+  const careers = await response.json();
+
+  // Pass the data as props to the component
+  return {
+    props: {
+      careers,
+    },
+    revalidate: 3600, // optional: set revalidation period in seconds
+  };
+}
 
 export default Index;

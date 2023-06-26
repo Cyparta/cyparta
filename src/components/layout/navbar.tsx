@@ -40,13 +40,14 @@ export default function DrawerAppBar(props: Props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const lang = useSelector((state: RootState) => state.lang.value.lang);
-  const {home, projects, team} = useSelector((state: RootState) => state.lang.value.pages);
+  const {home, projects, team, career, blog} = useSelector((state: RootState) => state.lang.value.pages);
   
 
   const navItems = [
     { title: home[lang], to: "/" },
     { title: projects[lang], to: "/projects" },
-    // { title: "Careers", to: "/careers" },
+    { title: career[lang], to: "/careers" },
+    // { title: blog[lang], to: "/careers" },
     // { title: "Blog", to: "/blog" },
     { title: team[lang], to: "/team" },
   ];

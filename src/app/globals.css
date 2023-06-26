@@ -121,6 +121,15 @@ textarea {
   resize: none;
 }
 
+textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Poppins';
+  color:rgba(204, 204, 204, 1)
+}
+
+
+
 .services-img {
   background-image: url("../assets/home/services-1.jpg");
   width: 100%;

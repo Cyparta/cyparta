@@ -25,6 +25,14 @@ const initialState: LangState = {
         en: "team",
         ar: "الفريق",
       },
+      career: {
+        en: "careers",
+        ar: "الوظائف",
+      },
+      blog: {
+        en: "blogs",
+        ar: "المقالات",
+      },
     },
 
     // home page
@@ -337,6 +345,26 @@ const initialState: LangState = {
       }
      }
     },
+
+    // career page
+    careerPage : {
+      heading: {
+        en:"Careers",
+        ar:"الحياة المهنية"
+      },
+      text: {
+        en:"thinking you make a better decision more than choosing us !!",
+        ar:"التفكير بأنك تتخذ قراراً أفضل من اختيارك لنا !!"
+      },
+      btnSearch: {
+        en:"search",
+        ar:"بحث"
+      },
+      notice: {
+        en:"I need to be noticed if there is an empty position",
+        ar:"أحتاج إلى ملاحظة ما إذا كان هناك منصب شاغر"
+      }
+    }
     // Subscribe with us to stay up-to-date with the latest in the world of software.
   },
 };

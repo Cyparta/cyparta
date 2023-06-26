@@ -211,7 +211,7 @@ const ContactUs = () => {
                                             padding: "15px",
                                         }}
                                         placeholder="Write your question here"
-                                        name={contactUs.message[lang]}
+                                        name='summary'
                                         value={formik.values.summary}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 // import MainButton from "../commons/MainButton";
 import { MainButton } from "../../style/style";
@@ -13,18 +13,13 @@ import Image from "next/image";
 import Slider from "react-slick";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import axios from "axios";
+import { BASEURL } from "@/data/APIS";
+
+// /apis/files/
 // import Lottie from 'react-lottie';
 // import aboutAnimation from "../../assets/home/about-animation.json";
 
-// import { Swiper, SwiperSlide } from "swiper/react";
-
-// // Import Swiper styles
-// import "swiper/css";
-// import "swiper/css/pagination";
-
-
-// // import required modules
-// import { Pagination } from "swiper";
 const AboutSection = () => {
   const lang = useSelector((state: RootState) => state.lang.value.lang)
   const { heading, text, download } = useSelector((state: RootState) => state.lang.value.aboutUs)
@@ -40,6 +35,14 @@ const AboutSection = () => {
     //   <div className="custom-dot"></div>
     // ),
   };
+
+  const fetchData = () => {
+    const res = axios.get(`${BASEURL}apis/files/`)
+    return res
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
   return (
     <Box className="spad" sx={{ mb: "35px" }} id="about">
       <Grid container spacing={6}>

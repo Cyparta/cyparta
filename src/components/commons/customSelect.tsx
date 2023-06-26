@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import React, { useEffect, useState, useRef } from 'react';
 import selectIcon from '../../assets/icons/select-icon.png';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 interface CustomSelectProps {
   options: string[];
@@ -12,6 +14,8 @@ const CustomSelect = ({ options, defaultValue, handleSelect }: CustomSelectProps
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(defaultValue);
   const selectRef = useRef<HTMLDivElement>(null);
+
+  const lang = useSelector((state: RootState) => state.lang.value.lang)
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option);
@@ -43,7 +47,7 @@ const CustomSelect = ({ options, defaultValue, handleSelect }: CustomSelectProps
         {selectedOption || defaultValue}
       </div>
       <span
-        style={{ position: 'absolute', top: '8px', right: '15px', cursor: 'pointer' }}
+        style={{ position: 'absolute', top: '8px', right: lang === 'en' ? "15px" : "auto", left: lang === 'ar' ? "15px" : "auto", cursor: 'pointer' }}
         onClick={toggleSelect}
       >
         <Image src={selectIcon} alt="select icon" width="10" height="10" />
