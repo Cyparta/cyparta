@@ -10,7 +10,7 @@ export interface CareersState {
   loading: boolean;
   error: boolean;
   careers: [];
-  col: {};
+  career: {};
   filter: {
     type:string;
     ordering: string;
@@ -21,20 +21,35 @@ const initialState: CareersState = {
   loading: false,
   error: false,
   careers: [],
-  col: {},
+  career: {},
   filter: {
     type: "",
     ordering: "launched_at"
   }
 };
 
+// /apis/careers/2
+
+// get All Career
 export const RequestGetCareers = createAsyncThunk(
   "RequestGetCareers",
   async (data, {getState,rejectWithValue }) => {
     try {
       const state:any = getState()
-      const filter = state.products.filter
       const response = await axios.get(`${BASEURL}apis/careers/`);
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const RequestGetCareer = createAsyncThunk(
+  "RequestGetCareer",
+  async (id: any, {getState,rejectWithValue }) => {
+    try {
+      const state:any = getState()
+      const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/careers/1`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
@@ -64,6 +79,22 @@ export const careersSlice = createSlice({
         state.careers = action.payload;
       })
       .addCase(RequestGetCareers.rejected, (state, action: any) => {
+        state.loading = false;
+        state.error = false;
+      });
+
+      builder
+      .addCase(RequestGetCareer.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+        state.career = [];
+      })
+      .addCase(RequestGetCareer.fulfilled, (state, action) => {
+        console.log(action);
+        state.loading = false;
+        state.career = action.payload;
+      })
+      .addCase(RequestGetCareer.rejected, (state, action: any) => {
         state.loading = false;
         state.error = false;
       });

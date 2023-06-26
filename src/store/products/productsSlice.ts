@@ -27,11 +27,15 @@ const initialState: CollectionState = {
 
 export const RequestGetProducts = createAsyncThunk(
   "RequestGetProducts",
-  async (data, {getState,rejectWithValue }) => {
+  async (data :any, {getState,rejectWithValue }) => {
+    let params:any={}
+    if (data !==""){ 
+       params.type =data
+    }
     try {
       const state:any = getState()
       const filter = state.products.filter
-      const response = await axios.get(`${BASEURL}apis/products/?ordering=${filter.ordering}&type=${data}`);
+      const response = await axios.get(`${BASEURL}apis/products/?ordering=${filter.ordering}`,{params});
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);

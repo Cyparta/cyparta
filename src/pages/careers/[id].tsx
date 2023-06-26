@@ -2,7 +2,7 @@ import HeroPage from '@/components/commons/heroPage'
 import TopNav from '@/components/layout/topNav'
 import Navbar from '@/components/layout/navbar'
 import { Box, Container, Typography } from '@mui/material'
-import React from 'react'
+import React, {useEffect} from 'react'
 import coverImage from "../../assets/cover/careers-cover.png";
 import Image from 'next/image'
 import bagIcon from "../../assets/icons/bag-icon.png";
@@ -16,9 +16,26 @@ import { MainButton } from '@/style/style';
 
 import Footer from '@/components/layout/Footer'
 import InputControl from '@/components/commons/InputControl'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '@/store/store'
+import { RequestGetCareer } from '@/store/careers/careersSlice'
+import { useRouter } from 'next/router'
+import axios from 'axios'
+import { BASEURL } from '@/data/APIS'
 const CareerDetails = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
+    const lang = useSelector((state: RootState) => state.lang.value.lang);
+    const fetchData = () => {
+        const res = axios.get(`${BASEURL}apis/careers/1`)
+        return res
+    }
+    useEffect(() => {
+        fetchData()
+        // dispatch(RequestGetCareer(router.query.id))
+    }, [router.query.id])
     return (
-        <Box>
+        <Box className={lang}>
             <TopNav />
             <Navbar />
             <HeroPage

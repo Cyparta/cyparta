@@ -38,15 +38,15 @@ const Team = () => {
   );
 
   const teamInfoCol: TeamState[] = [
-    { name: { en: "Khaled", ar: "خالد" }, job: { en: "Founder & CEO", ar: "المؤسس والرئيس التنفيذي" }, photo: team2 },
+    { name: { en: "Khaled", ar: "خالد" }, job: { en: "Backend Developer", ar: "مطور مواقع" }, photo: team2 },
     { name: { en: "Eslam", ar: "اسلام" }, job: { en: "cyber security manager", ar: "مدير الأمن السيبراني" }, photo: team3 },
-    { name: { en: "Bahaa", ar: "بهاء" }, job: { en: "CEO & Project Manager", ar: "الرئيس التنفيذي ومدير المشروع" }, photo: team14 },
+    { name: { en: "Bahaa", ar: "بهاء" }, job: { en: "Partener", ar: "شريك" }, photo: team14 },
   ]
 
   const teamInfoCol2: TeamState[] = [
     { name: { en: "Mostafa", ar: "مصطفي" }, job: { en: "Content Director", ar: "كاتب محتوي" }, photo: team11 },
     { name: { en: "Maram", ar: "مرام" }, job: { en: "Backend Developer", ar: "مطور مواقع" }, photo: team6 },
-    { name: { en: "Rawiaa", ar: "راوية" }, job: { en: "Direct Sales", ar: "مبيعات مباشرة" }, photo: team8 },
+    { name: { en: "Rawiaa", ar: "راوية" }, job: { en: "UI & UX", ar: "واجهة المستخدم وتجربة المستخدم" }, photo: team8 },
     { name: { en: "ahmed", ar: "احمد" }, job: { en: "flutter developer", ar: "مطور تطبيقات موبايل" }, photo: team9 },
   ]
 
