@@ -43,7 +43,7 @@ const Index = () => {
       setProjectDet(val)
     }
     dispatch(setFilter({ name, val }))
-    dispatch(RequestGetProducts())
+    // dispatch(RequestGetProducts())
   }
 
 
