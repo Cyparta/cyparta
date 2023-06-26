@@ -50,8 +50,6 @@ const ProjectDetails = () => {
     const dispatch = useDispatch<AppDispatch>();
     const col: ProductState = useSelector((state: RootState) => state.products.col)
 
-    // console.log(router.query.project);
-
     useEffect(() => {
         dispatch(RequestGetProduct(router.query.id))
     }, [router.query.id])
@@ -67,7 +65,7 @@ const ProjectDetails = () => {
                         <Grid item xs={12} sm={12} md={6}>
                             <Box>
                                 <Box>
-                                    {col?.title_logo && <Image src={col.title_logo} alt="fikhdmtak" width="321" height="99" />}
+                                    {col?.title_logo && <img src={col.title_logo} alt="fikhdmtak" style={{ width: "20%", height: "100%" }} />}
                                     <Box sx={{ width: "321px", height: "1px", background: "rgba(204, 204, 204, 1)" }}></Box>
 
                                     <Box sx={{ display: "flex", gap: "32px", mt: "32px", flexWrap: "wrap" }}>
@@ -86,15 +84,15 @@ const ProjectDetails = () => {
                                     </Typography>
 
                                     <Box sx={{ display: "flex", gap: "16px", mt: "16px" }}>
-                                        <a href={`${col?.play_store}`} target='_blank'>
+                                        {col?.play_store && <a href={`${col?.play_store}`} target='_blank'>
                                             <Image src={playImage} alt="test" width="32" height="32" />
-                                        </a>
-                                        <a href={`${col?.app_store}`} target='_blank'>
+                                        </a>}
+                                        {col?.app_store && <a href={`${col?.app_store}`} target='_blank'>
                                             <Image src={adobeImage} alt="test" width="32" height="32" />
-                                        </a>
-                                        <a href={`${col?.web}`} target='_blank'>
+                                        </a>}
+                                        {col?.web && <a href={`${col?.web}`} target='_blank'>
                                             <Image src={linkProject} alt="test" width="32" height="32" />
-                                        </a>
+                                        </a>}
                                     </Box>
                                 </Box>
                             </Box>

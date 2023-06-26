@@ -44,7 +44,7 @@ const AboutSection = () => {
     fetchData()
   }, [])
   return (
-    <Box className="spad" sx={{ mb: "35px" }} id="about">
+    <Box className="spad" sx={{ mb: "35px", pt:{xs:"0px !important", md:"100px !important"} }} id="about">
       <Grid container spacing={6}>
         {/* old  */}
         {/* <Grid item xs={12} sm={12} md={5}>

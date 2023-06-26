@@ -9,9 +9,9 @@ export interface CollectionState {
   collection: [];
   col: {};
   filter: {
-    type:string;
+    type: string;
     ordering: string;
-  }
+  };
 }
 
 const initialState: CollectionState = {
@@ -21,23 +21,27 @@ const initialState: CollectionState = {
   col: {},
   filter: {
     type: "",
-    ordering: "launched_at"
-  }
+    ordering: "launched_at",
+  },
 };
 
 export const RequestGetProducts = createAsyncThunk(
   "RequestGetProducts",
-  async (data :any, {getState,rejectWithValue }) => {
-    // let params:any={}
-    // if (data !==""){ 
-    //    params.type =data
-    // }
+  async (data, { getState, rejectWithValue }) => {
+    const state: any = getState();
+    const filter = state.products.filter;
 
-    // {params}
+    let params: any = {};
+
+    if (filter.type !== "") {
+      params.type = filter.type;
+    }
+
     try {
-      const state:any = getState()
-      const filter = state.products.filter
-      const response = await axios.get(`${BASEURL}apis/products/?ordering=${filter.ordering}`);
+      const response = await axios.get(
+        `${BASEURL}apis/products/?ordering=${filter.ordering}`,
+        { params }
+      );
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
@@ -47,11 +51,13 @@ export const RequestGetProducts = createAsyncThunk(
 
 export const RequestGetAllProducts = createAsyncThunk(
   "RequestGetAllProducts",
-  async (data, {getState,rejectWithValue }) => {
+  async (data, { getState, rejectWithValue }) => {
     try {
-      const state:any = getState()
-      const filter = state.products.filter
-      const response = await axios.get(`${BASEURL}apis/products/?ordering=${filter.ordering}`);
+      const state: any = getState();
+      const filter = state.products.filter;
+      const response = await axios.get(
+        `${BASEURL}apis/products/?ordering=${filter.ordering}`
+      );
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
@@ -59,13 +65,14 @@ export const RequestGetAllProducts = createAsyncThunk(
   }
 );
 
-
 export const RequestGetProduct = createAsyncThunk(
   "RequestGetProduct",
-  async (id :any, ThunkApi) => {
-    console.log(id)
+  async (id: any, ThunkApi) => {
+    console.log(id);
     try {
-      const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/products/${id}/`);
+      const response = await axios.get(
+        `https://cyparta-backend-gf7qm.ondigitalocean.app/apis/products/${id}/`
+      );
       return response.data;
     } catch (error: any) {
       return ThunkApi.rejectWithValue(error.response.data);
@@ -78,8 +85,9 @@ export const projectsSlice = createSlice({
   initialState,
   reducers: {
     setFilter: (state, action: { payload: { name: string; val: string } }) => {
-      state.filter[action.payload.name as keyof typeof state.filter] = action.payload.val;
-    }
+      state.filter[action.payload.name as keyof typeof state.filter] =
+        action.payload.val;
+    },
   },
   extraReducers: (builder) => {
     // Get products
@@ -115,7 +123,7 @@ export const projectsSlice = createSlice({
         state.error = false;
       });
 
-      builder
+    builder
       .addCase(RequestGetAllProducts.pending, (state) => {
         state.loading = true;
         state.error = false;
@@ -134,6 +142,6 @@ export const projectsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setFilter } = projectsSlice.actions
+export const { setFilter } = projectsSlice.actions;
 
 export default projectsSlice.reducer;

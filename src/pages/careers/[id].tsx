@@ -27,13 +27,13 @@ const CareerDetails = () => {
     const router = useRouter();
     const lang = useSelector((state: RootState) => state.lang.value.lang);
     // const fetchData = () => {
-    //     const res = axios.get(`${BASEURL}apis/careers/1`)
+    //     const res = axios.get(`${BASEURL}apis/careers/1/`)
     //     return res
     // }
-    // useEffect(() => {
-    //     fetchData()
-    //     // dispatch(RequestGetCareer(router.query.id))
-    // }, [router.query.id])
+    useEffect(() => {
+        // fetchData()
+        dispatch(RequestGetCareer(router.query.id))
+    }, [router.query.id])
     return (
         <Box className={lang}>
             <TopNav />

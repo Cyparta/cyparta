@@ -28,7 +28,6 @@ const initialState: CareersState = {
   }
 };
 
-// /apis/careers/2
 
 // get All Career
 export const RequestGetCareers = createAsyncThunk(
@@ -44,18 +43,20 @@ export const RequestGetCareers = createAsyncThunk(
   }
 );
 
+// get career
 export const RequestGetCareer = createAsyncThunk(
   "RequestGetCareer",
   async (id: any, {getState,rejectWithValue }) => {
     try {
       const state:any = getState()
-      const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/careers/1`);
+      const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/careers/1/`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
     }
   }
 );
+
 
 export const careersSlice = createSlice({
   name: "careers",

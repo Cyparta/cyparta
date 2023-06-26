@@ -3,15 +3,6 @@ import TopNav from "@/components/layout/topNav";
 import Navbar from "@/components/layout/navbar";
 import { Container, Box, Typography, Grid } from "@mui/material";
 import coverImage from "../../assets/projects/cover.png";
-import project1 from "../../assets/projects/project-1.png";
-import project2 from "../../assets/projects/project-2.png";
-import project3 from "../../assets/projects/project-3.png";
-import project4 from "../../assets/projects/project-4.png";
-import project5 from "../../assets/projects/project-5.png";
-import project6 from "../../assets/projects/project-6.png";
-import project7 from "../../assets/projects/project-7.png";
-import project8 from "../../assets/projects/project-8.png";
-import project9 from "../../assets/projects/project-9.png";
 
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
@@ -34,16 +25,15 @@ const Index = () => {
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
-    // dispatch(RequestGetCollection())
-    dispatch(RequestGetAllProducts())
+    dispatch(RequestGetProducts())
   }, [])
 
-  const handleFilter = ({ name, val }: { name: string; val: string }) => {
+  const handleFilter = ({ name, val }: { name: string; val:any }) => {
     if (name === "type") {
       setProjectDet(val)
     }
     dispatch(setFilter({ name, val }))
-    // dispatch(RequestGetProducts())
+    dispatch(RequestGetProducts())
   }
 
 
@@ -69,7 +59,7 @@ const Index = () => {
         imageCover={coverImage}
       />
       <Container>
-        {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
           <ul
             style={{
               listStyle: "none",
@@ -95,9 +85,9 @@ const Index = () => {
                 fontSize: "16px",
                 fontWeight: "500",
                 cursor: "pointer",
-                color: projectDet !== "app" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                color: projectDet !== "1" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
               }}
-              onClick={() => handleFilter({ name: "type", val: "app" })}
+              onClick={() => handleFilter({ name: "type", val: 1 })}
             >
               {tabs.tab2[lang]} /
             </li>
@@ -106,9 +96,9 @@ const Index = () => {
                 fontSize: "16px",
                 fontWeight: "500",
                 cursor: "pointer",
-                color: projectDet !== "website" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
+                color: projectDet !== "2" ? "rgba(164, 164, 164, 1)" : "rgba(37, 35, 36, 1)",
               }}
-              onClick={() => handleFilter({ name: "type", val: "website" })}
+              onClick={() => handleFilter({ name: "type", val: 2 })}
             >
               {tabs.tab3[lang]}
             </li>
@@ -136,10 +126,10 @@ const Index = () => {
               <option value="-launched_at">{sort.oldest[lang]}</option>
             </select>
           </Box>
-        </Box> */}
+        </Box>
         {/* projectDetails.sort((a, b) => filterOpt === 'latest' ? a.date - b.date : b.date - a.date) */}
         <Grid container spacing={2} sx={{ mt: "24px" }}>
-          {projectDet === "all" ? collection.map((project: Collection, index) => (
+          {collection.map((project: Collection, index) => (
             <Grid item xs={12} sm={6} key={index} sx={{ overflow: "hidden" }}>
               <Box className="projects-hover">
                 <Image
@@ -158,29 +148,6 @@ const Index = () => {
                   <Typography sx={{ mb: "32px" }}>{project.type == "web" ? "website" : "Application"}</Typography>
                   <Link href={`/projects/${project.id}`}>
 
-                    <button style={{ background: "rgba(37, 35, 36, 1)", color: "#fff", padding: "10px 30px", border: "2px solid #EC232B", borderRadius: "12px", cursor: "pointer" }}>see details</button>
-                  </Link>
-                </Box>
-              </Box>
-            </Grid>
-          )) : collection.filter((project: Collection) => project.type == projectDet).map((project: Collection, index) => (
-            <Grid item xs={12} sm={6} key={index} sx={{ overflow: "hidden" }}>
-              <Box className="projects-hover">
-                <Image
-                  src={project.product_image}
-                  width="500"
-                  height={282}
-                  style={{
-                    width: "100%",
-                    borderRadius: "10px",
-                    height: "100%",
-                  }}
-                  alt="project Name"
-                />
-                <Box className="project-hover">
-                  <Typography sx={{ mb: "8px", fontWeight: "500" }}>{project.title}</Typography>
-                  <Typography sx={{ mb: "32px" }}>{project.type == "web" ? "website" : "Application"}</Typography>
-                  <Link href={`/projects/${project.id}`}>
                     <button style={{ background: "rgba(37, 35, 36, 1)", color: "#fff", padding: "10px 30px", border: "2px solid #EC232B", borderRadius: "12px", cursor: "pointer" }}>see details</button>
                   </Link>
                 </Box>

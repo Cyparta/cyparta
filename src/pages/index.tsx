@@ -27,7 +27,8 @@ const Index = () => {
   const dispatch = useDispatch<AppDispatch>()
   const lang = useSelector((state :RootState) => state.lang.value.lang)
   useEffect(() => {
-    dispatch(RequestGetAllProducts())
+    // dispatch(RequestGetAllProducts())
+    dispatch(RequestGetProducts())
   }, [])
   return (
     <>

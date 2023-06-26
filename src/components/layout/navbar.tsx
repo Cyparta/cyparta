@@ -46,7 +46,7 @@ export default function DrawerAppBar(props: Props) {
   const navItems = [
     { title: home[lang], to: "/" },
     { title: projects[lang], to: "/projects" },
-    { title: career[lang], to: "/careers" },
+    // { title: career[lang], to: "/careers" },
     // { title: blog[lang], to: "/careers" },
     // { title: "Blog", to: "/blog" },
     { title: team[lang], to: "/team" },
