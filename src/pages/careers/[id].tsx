@@ -21,8 +21,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { RequestGetCareer } from "@/store/careers/careersSlice";
 import { useRouter } from "next/router";
-import { useRouter as Router } from "next/navigation";
-
 import { BASEURL } from "@/data/APIS";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -67,13 +65,11 @@ const CareerDetails = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const router = useRouter();
-    const router2 = Router()
-
     const { id: careerID } = router.query
 
     const fileRef = useRef<any>(false);
     const shareRef = useRef<HTMLDivElement>(null)
-
+    
     // To READ PDF 
     const handleReadFile = (e: any) => {
         setSelectedFile(e.target.files[0])
@@ -171,11 +167,9 @@ const CareerDetails = () => {
     });
 
     useEffect(() => {
-    router2.refresh()
-
-        dispatch(RequestGetCareer(router.query.id));
-        console.log(router.isReady)
+        
         // fetchData()
+        dispatch(RequestGetCareer(router.query.id));
     }, [router.query.id]);
 
     return (
@@ -319,7 +313,7 @@ const CareerDetails = () => {
 
                             </Box>
                             <Typography sx={{ color: "rgba(114, 112, 113, 1)" }}>
-                                122 Applied sssss
+                                122 Applied
                             </Typography>
                         </Box>
                     </Box>
