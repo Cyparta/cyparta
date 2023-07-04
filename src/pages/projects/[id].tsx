@@ -45,14 +45,14 @@ interface ProductState {
     product_image2?: string;
     main_image?: string;
 }
-const ProjectDetails = ({col}: any) => {
+const ProjectDetails = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>();
-    // const col: ProductState = useSelector((state: RootState) => state.products.col)
+    const col: ProductState = useSelector((state: RootState) => state.products.col)
 
-    // useEffect(() => {
-    //     dispatch(RequestGetProduct(router.query.id))
-    // }, [router.query.id])
+    useEffect(() => {
+        dispatch(RequestGetProduct(router.query.id))
+    }, [router.query.id])
     return (
         <Box>
             <TopNav />
@@ -180,27 +180,27 @@ const ProjectDetails = ({col}: any) => {
 
 
 
-export async function getInitialProps({ query }: any) {
-    try {
-        const {  id } = query;
-        const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/products/${id}/`);
-        const col = response.data;
+// export async function getInitialProps({ query }: any) {
+//     try {
+//         const {  id } = query;
+//         const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/products/${id}/`);
+//         const col = response.data;
 
-        return {
-            props: {
-                col,
-            },
-        };
-    } catch (error) {
-        // Handle error case, such as redirecting to an error page
-        console.error('Error fetching product data:', error);
-        return {
-            props: {
-                col: {},
-            },
-        };
-    }
-}
+//         return {
+//             props: {
+//                 col,
+//             },
+//         };
+//     } catch (error) {
+//         // Handle error case, such as redirecting to an error page
+//         console.error('Error fetching product data:', error);
+//         return {
+//             props: {
+//                 col: {},
+//             },
+//         };
+//     }
+// }
 
 
 
