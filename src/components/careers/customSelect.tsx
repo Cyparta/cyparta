@@ -3,13 +3,16 @@ import React, { useState, useRef, useEffect } from 'react';
 import selectIcon from '../../assets/icons/select-icon.png'
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import { setFilter } from '@/store/careers/careersSlice';
 interface CustomSelectProps {
-    options: string[];
+    options: {title:string, val: string}[];
     defaultValue?: string;
-    icon: any
+    icon: any;
+    handleSelect?: any
+    type?: string;
 }
 
-const CustomSelect = ({ options, defaultValue, icon }: CustomSelectProps) => {
+const CustomSelect = ({ options, defaultValue, icon, type, handleSelect }: CustomSelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const selectRef = useRef<HTMLDivElement>(null);
@@ -19,8 +22,14 @@ const CustomSelect = ({ options, defaultValue, icon }: CustomSelectProps) => {
 
     // const options = ['Option 1', 'Option 2', 'Option 3'];
 
-    const handleOptionClick = (option: string) => {
-        setSelectedOption(option);
+    // const handleOptionClick = (option: string) => {
+    //     setSelectedOption(option);
+    //     setIsOpen(false);
+    // };
+
+    const handleOptionClick = (val: string, title: string) => {
+        setSelectedOption(title);
+        handleSelect(val)
         setIsOpen(false);
     };
 
@@ -43,7 +52,7 @@ const CustomSelect = ({ options, defaultValue, icon }: CustomSelectProps) => {
     }, []);
 
     return (
-        <div className={`custom-select ${isOpen ? 'open' : ''}`} style={{ position: "relative" }}>
+        <div className={`custom-select ${isOpen ? 'open' : ''}`} ref={selectRef} style={{ position: "relative" }}>
             <div className="selected-option" onClick={toggleSelect} style={{ height: "auto", padding: "20px" }}>
                 {selectedOption || defaultValue}
             </div>
@@ -55,8 +64,8 @@ const CustomSelect = ({ options, defaultValue, icon }: CustomSelectProps) => {
             {isOpen && (
                 <ul className="options">
                     {options.map((option) => (
-                        <li key={option} onClick={() => handleOptionClick(option)}>
-                            {option}
+                        <li key={option.val} onClick={() => handleOptionClick(option.val, option.title)}>
+                            {option.title}
                         </li>
                     ))}
                 </ul>

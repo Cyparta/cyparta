@@ -308,7 +308,7 @@ const Footer = () => {
                       cursor: "pointer",
                     }}
                   >
-                    {footer.link1[lang]}
+                    <Link href="/services/web">{footer.link1[lang]}</Link>
                   </li>
                   <li
                     style={{
@@ -318,7 +318,7 @@ const Footer = () => {
                       cursor: "pointer",
                     }}
                   >
-                    {footer.link2[lang]}
+                    <Link href="/services/mobile">{footer.link2[lang]}</Link>
                   </li>
                   <li
                     style={{
@@ -328,7 +328,7 @@ const Footer = () => {
                       cursor: "pointer",
                     }}
                   >
-                    {footer.link3[lang]}
+                    <Link href="/services/software">{footer.link3[lang]}</Link>
                   </li>
                   <li
                     style={{
@@ -338,7 +338,7 @@ const Footer = () => {
                       cursor: "pointer",
                     }}
                   >
-                    {footer.link4[lang]}
+                    <Link href="/services/techinecal">{footer.link4[lang]}</Link>
                   </li>
                 </ul>
               </Grid>

@@ -57,7 +57,6 @@ const ServicesSection = () => {
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services1)}
-                                onMouseLeave={() => console.log("no")}
                             >
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
@@ -72,7 +71,6 @@ const ServicesSection = () => {
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services2)}
-                                onMouseLeave={() => console.log("no")}
                             >
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
@@ -88,7 +86,6 @@ const ServicesSection = () => {
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services3)}
-                                onMouseLeave={() => console.log("no")}
                             >
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
@@ -105,7 +102,6 @@ const ServicesSection = () => {
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services4)}
-                                onMouseLeave={() => console.log("no")}
                             >
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
@@ -121,7 +117,6 @@ const ServicesSection = () => {
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services5)}
-                                onMouseLeave={() => console.log("no")}
                             >
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
@@ -136,7 +131,6 @@ const ServicesSection = () => {
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services6)}
-                                onMouseLeave={() => console.log("no")}
                             >
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>

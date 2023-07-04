@@ -12,8 +12,9 @@ export interface CareersState {
   careers: [];
   career: {};
   filter: {
-    type:string;
-    ordering: string;
+    work_from: string;
+    category: string;
+    jop_type:string;
   }
 }
 
@@ -23,8 +24,9 @@ const initialState: CareersState = {
   careers: [],
   career: {},
   filter: {
-    type: "",
-    ordering: "launched_at"
+    category: "",
+    jop_type: "",
+    work_from: ""
   }
 };
 
@@ -35,7 +37,8 @@ export const RequestGetCareers = createAsyncThunk(
   async (data, {getState,rejectWithValue }) => {
     try {
       const state:any = getState()
-      const response = await axios.get(`${BASEURL}apis/careers/`);
+      const {category, jop_type, work_from} = state.careers.filter
+      const response = await axios.get(`${BASEURL}apis/careers/?work_from=${work_from}&jop_type=${jop_type}&category=${category}`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);

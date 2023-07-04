@@ -30,19 +30,23 @@ const AboutSection = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    // dotsClass: 'custom-dots',
-    // customPaging: (index: number) => (
-    //   <div className="custom-dot"></div>
-    // ),
   };
 
-  const fetchData = () => {
-    const res = axios.get(`${BASEURL}apis/files/`)
-    return res
-  }
-  useEffect(() => {
-    fetchData()
-  }, [])
+  // const fetchData = () => {
+  //   const res = axios.get(`${BASEURL}apis/files/`, { responseType: 'arraybuffer' }).then(response => {
+  //     console.log(response)
+  //     const url = window.URL.createObjectURL(new Blob([response.data[0].pdf_1]));
+  //     const link = document.createElement('a');
+  //     link.href = url;
+  //     link.setAttribute('download', 'Cyparta_Eng_Portfolio_compressed.pdf')
+  //     document.body.appendChild(link)
+  //     link.click()
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
+  //   console.log(res)
+  //   return res
+  // }
   return (
     <Box className="spad" sx={{ mb: "35px", pt:{xs:"0px !important", md:"100px !important"} }} id="about">
       <Grid container spacing={6}>
@@ -115,26 +119,6 @@ const AboutSection = () => {
                 <Image src={AboutImage4} alt="test" style={{ width: "100%", height: "100%" }} />
               </div>
             </Slider>
-            {/* <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider> */}
           </Box>
         </Grid>
         <Grid item xs={12} sm={12} md={7} sx={{ position: "relative" }}>
@@ -170,11 +154,13 @@ const AboutSection = () => {
                          */}
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <a
-                href="https://sadakatcdn.cyparta.com/Portofolio%2Fmeetoor_14.pdf"
+                href="https://sadakatcdn.cyparta.com/Cyparta/PDF/Cyparta_Eng_Portfolio_compressed.pdf"
                 target="_blank"
+                download="Cyparta_Eng_Portfolio_compressed"
               >
                 <MainButton>{download[lang]}</MainButton>
               </a>
+                {/* <MainButton onClick={fetchData}>{download[lang]}</MainButton> */}
             </Box>
           </Box>
         </Grid>

@@ -124,11 +124,23 @@ textarea {
 textarea::placeholder {
   font-size: 16px;
   font-weight: 400;
-  font-family: 'Poppins';
-  color:rgba(204, 204, 204, 1)
+  font-family: "Poppins";
+  color: rgba(204, 204, 204, 1);
 }
 
+textarea {
+  resize: none;
+}
 
+textarea:focus, .main-button:focus {
+  outline: 2px solid rgba(188, 188, 188, 1) !important;
+}
+.main-button::placeholder {
+  color: rgba(188, 188, 188, 1);
+  font-weight: 400;
+}
+
+/* services */
 
 .services-img {
   background-image: url("../assets/home/services-1.jpg");
@@ -307,11 +319,6 @@ select::-ms-expand {
   display: block;
 }
 
-.main-button::placeholder {
-  color: rgba(188, 188, 188, 1);
-  font-weight: 400;
-}
-
 .no-arrows::-webkit-inner-spin-button,
 .no-arrows::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -413,7 +420,7 @@ select::-ms-expand {
   border: none !important;
   border-radius: 20px !important;
   background-color: rgba(204, 204, 204, 1) !important;
-  width:24px !important;
+  width: 24px !important;
   height: 4px !important;
 }
 

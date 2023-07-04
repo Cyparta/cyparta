@@ -277,20 +277,20 @@ const initialState: LangState = {
         ar: "الخدمات",
       },
       link1: {
-        en: "Design",
-        ar: "تصميم",
+        en: "Web Development",
+        ar: "تطوير الموقع",
       },
       link2: {
-        en: "Development",
-        ar: "تطوير",
+        en: "app development",
+        ar: "تطوير التطبيقات",
       },
       link3: {
-        en: "CRM systems",
-        ar: "أنظمة إدارة علاقات العملاء",
+        en: "S.W Management system",
+        ar: "نظام إدارة البرمجيات",
       },
       link4: {
-        en: "Social media mangment",
-        ar: "إدارة وسائل التواصل الاجتماعي",
+        en: "Technical consulting",
+        ar: "الاستشارات الفنية",
       },
     },
 

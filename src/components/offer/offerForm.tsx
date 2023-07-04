@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import InputControl from "../commons/InputControl";
 import Image from "next/image";
 // import MainButton from "../commons/MainButton";
@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { BASEURL } from "@/data/APIS";
+import OfferRequest from "./offerRequest";
 
 const OfferForm = () => {
   const [loading, setLoading] = useState(false)
@@ -40,9 +41,10 @@ const OfferForm = () => {
       // const { email } = values
       // dispatch(RequestPostSubscibe({ email: email }))
       setLoading(true)
-      axios.post(`${BASEURL}apis/offers/`, {...values})
+      axios.post(`${BASEURL}apis/offers/`, { ...values })
       setLoading(false)
       resetForm();
+      console.log(values)
     },
   });
 
@@ -138,11 +140,11 @@ const OfferForm = () => {
                   ) : null}
                 </Box>
                 <Box sx={{ width: "100%" }}>
-                  <InputControl type="text" placeholder="Phone number"
+                  <InputControl type="number" placeholder="Phone number"
                     name="phone"
                     value={formik.values.phone}
                     onChange={formik.handleChange}
-                    className="no-arrow"
+                    className="no-arrows"
                   />
                   {formik.touched.phone && formik.errors.phone ? (
                     <Typography
@@ -228,18 +230,18 @@ const OfferForm = () => {
                   placeholder="Write a brief about your services and products required on the site"
                 ></textarea>
                 {formik.touched.services && formik.errors.services ? (
-                    <Typography
-                      component="span"
-                      sx={{
-                        color: "red",
-                        mt: "",
-                        fontSize: "14px",
-                        padding: "0px 10px",
-                      }}
-                    >
-                      {formik.errors.services}
-                    </Typography>
-                  ) : null}
+                  <Typography
+                    component="span"
+                    sx={{
+                      color: "red",
+                      mt: "",
+                      fontSize: "14px",
+                      padding: "0px 10px",
+                    }}
+                  >
+                    {formik.errors.services}
+                  </Typography>
+                ) : null}
               </Box>
               <Box>
                 <textarea
@@ -257,18 +259,18 @@ const OfferForm = () => {
                   placeholder="What are the sites that you like and see fit for your idea of ​​design and programming"
                 ></textarea>
                 {formik.touched.sites && formik.errors.sites ? (
-                    <Typography
-                      component="span"
-                      sx={{
-                        color: "red",
-                        mt: "",
-                        fontSize: "14px",
-                        padding: "0px 10px",
-                      }}
-                    >
-                      {formik.errors.sites}
-                    </Typography>
-                  ) : null}
+                  <Typography
+                    component="span"
+                    sx={{
+                      color: "red",
+                      mt: "",
+                      fontSize: "14px",
+                      padding: "0px 10px",
+                    }}
+                  >
+                    {formik.errors.sites}
+                  </Typography>
+                ) : null}
               </Box>
               <Box>
                 <textarea
@@ -286,18 +288,18 @@ const OfferForm = () => {
                   placeholder="Other notes and additions"
                 ></textarea>
                 {formik.touched.additions && formik.errors.additions ? (
-                    <Typography
-                      component="span"
-                      sx={{
-                        color: "red",
-                        mt: "",
-                        fontSize: "14px",
-                        padding: "0px 10px",
-                      }}
-                    >
-                      {formik.errors.additions}
-                    </Typography>
-                  ) : null}
+                  <Typography
+                    component="span"
+                    sx={{
+                      color: "red",
+                      mt: "",
+                      fontSize: "14px",
+                      padding: "0px 10px",
+                    }}
+                  >
+                    {formik.errors.additions}
+                  </Typography>
+                ) : null}
               </Box>
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <MainButton type="submit" disabled={loading}>{loading ? "...loading" : "Send"}</MainButton>
@@ -306,6 +308,8 @@ const OfferForm = () => {
           </form>
         </Box>
       </Box>
+
+      {/* <OfferRequest /> */}
     </Box>
   );
 };
