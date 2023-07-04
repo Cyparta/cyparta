@@ -4,7 +4,7 @@ const nextConfig = {
     
     exportTrailingSlash: true,
     output: 'export',
-    distDir:"out",
+    distDir:"out", // _static
     // webpack5: false,
     images: {
         domains: ['cyparta-backend-gf7qm.ondigitalocean.app', '192.168.1.12', 'sadakatcdn.cyparta.com'],
