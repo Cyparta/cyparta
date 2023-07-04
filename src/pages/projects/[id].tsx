@@ -180,7 +180,7 @@ const ProjectDetails = ({col}: any) => {
 
 
 
-export async function getServerSideProps({ query }: any) {
+export async function getInitialProps({ query }: any) {
     try {
         const {  id } = query;
         const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/products/${id}/`);
