@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { RequestGetCollection } from "@/store/collections/collectionsSlice";
 import { RequestGetAllProducts, RequestGetProducts, setFilter } from "@/store/products/productsSlice";
+import dynamic from "next/dynamic";
 const Index = () => {
   const [projectDet, setProjectDet]: any = useState("");
 
@@ -180,4 +181,5 @@ const Index = () => {
   );
 };
 
-export default Index;
+
+export default dynamic(() => Promise.resolve(Index), { ssr: false });
