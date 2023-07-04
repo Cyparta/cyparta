@@ -167,8 +167,6 @@ const CareerDetails = () => {
     });
 
     useEffect(() => {
-        
-        // fetchData()
         dispatch(RequestGetCareer(router.query.id));
     }, [router.query.id]);
 
