@@ -19,6 +19,8 @@ import { AppDispatch, RootState } from '@/store/store';
 import { RequestGetCollection } from '@/store/collections/collectionsSlice';
 import { RequestGetAllProducts, RequestGetProducts } from '@/store/products/productsSlice';
 
+
+import dynamic from "next/dynamic";
 // import ProjectSlider from '@/components/home/projectSlider';
 // import TestSection from '@/components/home/testSection';
 
@@ -55,4 +57,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default dynamic(() => Promise.resolve(Index), { ssr: false });
