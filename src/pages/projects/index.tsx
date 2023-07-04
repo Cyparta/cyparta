@@ -92,7 +92,7 @@ const Index = () => {
               }}
               onClick={() => handleFilter({ name: "type", val: 1 })}
             >
-              {tabs.tab2[lang]} /
+              {tabs.tab2[lang]} ssssssssssssssss/
             </li>
             <li
               style={{
