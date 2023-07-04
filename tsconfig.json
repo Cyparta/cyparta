@@ -39,7 +39,8 @@
     "src/components/dashboard/customContainer.jsx",
     "src/components/dashboard/projects/createProjects.jsx",
     "src/components/dashboard/newContainer.jsx",
-    "_static/types/**/*.ts"
+    "_static/types/**/*.ts",
+    "out/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
