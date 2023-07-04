@@ -51,7 +51,7 @@ interface CareerState {
     posted_at?: null;
 }
 const CareerDetails = () => {
-    const imageLink = 'https://example.com/image.jpg';
+    const imageLink = 'https://cyparta.com/careers/1/';
     const [isShare, setIsShare] = useState(false);
     const [selectedFile, setSelectedFile] = useState<any>(null);
     const [dragging, setDragging] = useState(false);
@@ -167,9 +167,12 @@ const CareerDetails = () => {
     });
 
     useEffect(() => {
+        if (router.isReady) {
+
+            dispatch(RequestGetCareer(router.query.id));
+        }
         // fetchData()
-        dispatch(RequestGetCareer(router.query.id));
-    }, [router.query.id]);
+    }, [router.query.id, router.isReady]);
 
     return (
         <Box className={lang}>
@@ -312,7 +315,7 @@ const CareerDetails = () => {
 
                             </Box>
                             <Typography sx={{ color: "rgba(114, 112, 113, 1)" }}>
-                                122 Applied
+                                122 Applied sssss
                             </Typography>
                         </Box>
                     </Box>
