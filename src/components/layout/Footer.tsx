@@ -223,7 +223,7 @@ const Footer = () => {
 
       <Container>
         <Grid container sx={{ padding: "56px 10px" }} spacing={2}>
-          <Grid item xs={12} sm={12} md={6} spacing={1}>
+          <Grid item xs={12} sm={12} md={6}>
             <Box sx={{ textAlign: "center" }}>
               <Image
                 src={footerImage}
