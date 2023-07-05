@@ -23,6 +23,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { MainButton } from "@/style/style";
 
 interface Props {
   /**
@@ -40,8 +41,8 @@ export default function DrawerAppBar(props: Props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const lang = useSelector((state: RootState) => state.lang.value.lang);
-  const {home, projects, team, career, blog} = useSelector((state: RootState) => state.lang.value.pages);
-  
+  const { home, projects, team, career, blog } = useSelector((state: RootState) => state.lang.value.pages);
+  const offerPageButton = useSelector((state: RootState) => state.lang.value.offerPageButton)
 
   const navItems = [
     { title: home[lang], to: "/" },
@@ -84,6 +85,9 @@ export default function DrawerAppBar(props: Props) {
             </ListItem>
           </Link>
         ))}
+        <Link href="/offer">
+          <MainButton>{offerPageButton[lang]}</MainButton>
+        </Link>
       </List>
     </Box>
   );

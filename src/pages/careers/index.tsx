@@ -25,7 +25,7 @@ import arrowIcon from "../../assets/icons/arrow-down-select.png";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-import { RequestGetCareers, setFilter } from "@/store/careers/careersSlice";
+import { RequestGetCareers, RequestGetCategory, setFilter } from "@/store/careers/careersSlice";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const Index = () => {
@@ -33,6 +33,7 @@ const Index = () => {
 
   const lang = useSelector((state: RootState) => state.lang.value.lang);
   const careers = useSelector((state: RootState) => state.careers.careers);
+  const category = useSelector((state: RootState) => state.careers.category);
 
   const career = useSelector((state: RootState) => state.lang.value.careerPage);
 
@@ -43,14 +44,19 @@ const Index = () => {
   };
 
   const options = ["Option 1", "Option 2", "Option 3"];
-  const cateOpt = [{title:"Backend develop (Django)", val:"Backend develop (Django)"}];
+  // const cateOpt = [{title:"Backend develop", val:"Backend develop"}];
   const workOpt = [{title:"Site", val:"S"}, {title:"Remote", val:"R"}, {title:"Hyprid", val: "F"}];
   const jobOpt = [{title:"Full time", val:"F"}, {title:"part time", val:"P"}];
 
   // const jobOpt = [{title:"Full time", name:"jop_type", val:"F"}, {title:"Full time", name:"jop_type", val:"F"}];
+  const cateOpt = category.map((careerID:any) => {
+    return {title:careerID.category, val: careerID.category}
+  })
 
+  console.log(cateOpt)
   useEffect(() => {
     dispatch(RequestGetCareers());
+    dispatch(RequestGetCategory())
   }, []);
   return (
     <Box className={lang}>

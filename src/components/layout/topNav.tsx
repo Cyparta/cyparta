@@ -10,6 +10,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 const TopNav = () => {
   const lang = useSelector((state: RootState) => state.lang.value.lang)
+  const offerPageButton = useSelector((state: RootState) => state.lang.value.offerPageButton)
+
   return (
     <Box
       className="top-nav"
@@ -58,7 +60,7 @@ const TopNav = () => {
           </Grid>
           <Grid item xs={6} textAlign={lang  === "en"? "right" : "left"}>
             <Link href="/offer">
-              <MainButton>{typeof window !== 'undefined' && lang === 'en' ? "Offer Price" : "سعر العرض"}</MainButton>
+              <MainButton>{offerPageButton[lang]}</MainButton>
             </Link>
           </Grid>
         </Grid>

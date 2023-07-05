@@ -364,8 +364,13 @@ const initialState: LangState = {
         en:"I need to be noticed if there is an empty position",
         ar:"أحتاج إلى ملاحظة ما إذا كان هناك منصب شاغر"
       }
-    }
+    },
     // Subscribe with us to stay up-to-date with the latest in the world of software.
+
+    offerPageButton: {
+      en:"Offer Price",
+      ar:"سعر العرض"
+    }
   },
 };
 

@@ -146,7 +146,7 @@ const CareerDetails = () => {
             cv: Yup.mixed()
                 .required('A PDF file is required')
         }),
-        onSubmit: (values, { resetForm, setSubmitting }) => {
+        onSubmit: async (values, { resetForm, setSubmitting }) => {
             const { name, email, development, phone_number, summary, cv } = values;
             // console.log(values)
             // console.log(cv)
@@ -154,8 +154,9 @@ const CareerDetails = () => {
             
             const formData = { name, email, development, phone_number, summary, cv: selectedFile }
             
+            setSubmitting(true)
             try {
-                const response = axios.post(`${BASEURL}apis/careers/${careerID}/cvs/`, formData, {
+                const response = await axios.post(`${BASEURL}apis/careers/${careerID}/cvs/`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
@@ -165,15 +166,15 @@ const CareerDetails = () => {
                 console.error(error);
             }
 
-            toast.success('your cv sent successfully')
-            // setSubmitting(false);
-            setLoading(false)
+            setSubmitting(false)
+            console.log(formik.isSubmitting)
+            if (formik.isSubmitting) {
+                toast.success('your cv sent successfully')
+            }
             setSelectedFile("")
             resetForm()
         },
     });
-
-    console.log(loading)
 
     useEffect(() => {
         dispatch(RequestGetCareer(router.query.id));
@@ -576,7 +577,7 @@ const CareerDetails = () => {
                                     ) : null}
                                 </Box>
                                 <Box sx={{ display: "flex", justifyContent: "center" }}>
-                                    <MainButton type="submit">{loading ? "...loading" : "Apply"}</MainButton>
+                                    <MainButton type="submit">{formik.isSubmitting ? "...loading" : "Apply"}</MainButton>
                                 </Box>
                             </Box>
                         </form>
