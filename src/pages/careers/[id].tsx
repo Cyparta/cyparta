@@ -49,9 +49,12 @@ interface CareerState {
     jop_description?: string;
     location?: string;
     posted_at?: null;
+    apply_count?:string;
+    
 }
 const CareerDetails = () => {
     const imageLink = 'https://cyparta.com/careers/1/';
+    const [loading, setLoading] = useState(false);
     const [isShare, setIsShare] = useState(false);
     const [selectedFile, setSelectedFile] = useState<any>(null);
     const [dragging, setDragging] = useState(false);
@@ -143,28 +146,34 @@ const CareerDetails = () => {
             cv: Yup.mixed()
                 .required('A PDF file is required')
         }),
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: (values, { resetForm, setSubmitting }) => {
             const { name, email, development, phone_number, summary, cv } = values;
-            console.log(values)
-            console.log(cv)
+            // console.log(values)
+            // console.log(cv)
 
+            
             const formData = { name, email, development, phone_number, summary, cv: selectedFile }
-
+            
             try {
                 const response = axios.post(`${BASEURL}apis/careers/${careerID}/cvs/`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
+                setLoading(true)
             } catch (error) {
                 console.error(error);
             }
 
+            toast.success('your cv sent successfully')
             // setSubmitting(false);
+            setLoading(false)
             setSelectedFile("")
             resetForm()
         },
     });
+
+    console.log(loading)
 
     useEffect(() => {
         dispatch(RequestGetCareer(router.query.id));
@@ -311,7 +320,7 @@ const CareerDetails = () => {
 
                             </Box>
                             <Typography sx={{ color: "rgba(114, 112, 113, 1)" }}>
-                                122 Applied
+                                {career?.apply_count} Applied
                             </Typography>
                         </Box>
                     </Box>
@@ -567,7 +576,7 @@ const CareerDetails = () => {
                                     ) : null}
                                 </Box>
                                 <Box sx={{ display: "flex", justifyContent: "center" }}>
-                                    <MainButton type="submit">Apply</MainButton>
+                                    <MainButton type="submit">{loading ? "...loading" : "Apply"}</MainButton>
                                 </Box>
                             </Box>
                         </form>

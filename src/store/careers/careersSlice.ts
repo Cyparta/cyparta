@@ -52,7 +52,7 @@ export const RequestGetCareer = createAsyncThunk(
   async (id: any, {getState,rejectWithValue }) => {
     try {
       const state:any = getState()
-      const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/careers/1/`);
+      const response = await axios.get(`https://cyparta-backend-gf7qm.ondigitalocean.app/apis/careers/${id}/`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
