@@ -39,18 +39,19 @@ const InfoSection = () => {
       {!isXl && (
         <Box
           sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "auto",
-              sm: "1fr 1fr",
-              md: "1fr 1fr 1fr",
-              lg: "1fr 1fr 1fr 1fr",
-            },
-            gap: "20px",
-            justifyContent: "center",
-            mt: "24px",
+            // display: "grid",
+            // gridTemplateColumns: {
+            //   xs: "1fr 1fr",
+            //   sm: "1fr 1fr",
+            //   md: "1fr 1fr 1fr",
+            //   lg: "1fr 1fr 1fr 1fr",
+            // },
+            // gap: "20px",
+            // justifyContent: "center",
+            // mt: "24px",
           }}
           id="serivers"
+          className="rows-info"
         >
           {infoData.map((info, index) => {
             return (
@@ -64,6 +65,7 @@ const InfoSection = () => {
                   textAlign: "center",
                 }}
                 key={index}
+                className="col-info"
               >
                 <Image src={info.image} alt="test" width={35} height={35} />
                 <Typography

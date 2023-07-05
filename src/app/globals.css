@@ -587,6 +587,52 @@ select::-ms-expand {
   padding: 28px 10px;
 }
 
+.rows-info {
+   display: grid;
+   /* gridTemplateColumns: {
+     xs: "1fr 1fr",
+     sm: "1fr 1fr",
+     md: "1fr 1fr 1fr",
+     lg: "1fr 1fr 1fr 1fr",
+   }, */
+   gap: 20px;
+   justify-content: center;
+   margin-top: 24px;
+}
+
+@media (max-width:375px) {
+  .rows-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width:375px) and (max-width:576px) {
+  .rows-info {
+    grid-template-columns: 1fr 1fr;
+  }
+  .col-info {
+    padding:18px 10px !important
+  }
+}
+
+@media (min-width:576px) and (max-width:768px) {
+  .rows-info {
+    grid-template-columns: 1fr 1fr;
+  }
+  .col-info {
+    padding:18px 10px !important
+  }
+}
+
+@media (min-width:768px)  {
+  .rows-info {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .col-info {
+    padding:18px 10px !important
+  }
+}
+
 /* clients */
 .swiper-wrapper {
   align-items: center;
