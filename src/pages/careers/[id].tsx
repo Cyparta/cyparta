@@ -40,6 +40,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { toast } from "react-toastify";
 
+import ReactMarkdown from 'react-markdown'
+import ReactDom from 'react-dom'
 
 interface CareerState {
     work_from?: string;
@@ -49,8 +51,8 @@ interface CareerState {
     jop_description?: string;
     location?: string;
     posted_at?: null;
-    apply_count?:string;
-    
+    apply_count?: string;
+
 }
 const CareerDetails = () => {
     const imageLink = 'https://cyparta.com/careers/1/';
@@ -72,7 +74,7 @@ const CareerDetails = () => {
 
     const fileRef = useRef<any>(false);
     const shareRef = useRef<HTMLDivElement>(null)
-    
+
     // To READ PDF 
     const handleReadFile = (e: any) => {
         setSelectedFile(e.target.files[0])
@@ -151,9 +153,9 @@ const CareerDetails = () => {
             // console.log(values)
             // console.log(cv)
 
-            
+
             const formData = { name, email, development, phone_number, summary, cv: selectedFile }
-            
+
             setSubmitting(true)
             try {
                 const response = await axios.post(`${BASEURL}apis/careers/${careerID}/cvs/`, formData, {
@@ -340,7 +342,12 @@ const CareerDetails = () => {
                         Job Description
                     </Typography>
                     <Typography sx={{ color: "rgba(114, 112, 113, 1)" }}>
-                        {career.jop_description}
+                        {/* {career.jop_description} */}
+                        {career.jop_description &&
+                            <div dangerouslySetInnerHTML={{ __html: career.jop_description }} style={{padding:"0 20px"}}></div>
+                        }
+                        {/* <ReactMarkdown children={career.jop_description}/> */}
+
                     </Typography>
                     {/* <ul style={{ padding: "12px 30px", color: "rgba(114, 112, 113, 1)" }}>
                         <li>
