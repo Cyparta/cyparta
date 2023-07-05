@@ -451,16 +451,6 @@ const Footer = () => {
               >
                 Arabic
               </button>
-              {/* <Typography
-                sx={{
-                  fontSize: "14px",
-                  ml: "32px",
-                  color: "rgba(83, 83, 83, 1)",
-                }}
-                onClick={() => handleToggleLangto("ar")}
-              >
-                Arabic
-              </Typography> */}
             </Box>
           </Grid>
         </Grid>

@@ -21,9 +21,10 @@ import TopNav from "./topNav";
 import Link from "next/link";
 
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
 import { MainButton } from "@/style/style";
+import { toggleLang } from "@/store/langSlice.ts/langSlice";
 
 interface Props {
   /**
@@ -35,7 +36,31 @@ interface Props {
 
 const drawerWidth = 240;
 
-// const navItems = ['Home', 'projects', 'Contact Us', 'Team'];
+const activeClass = {
+  background: "rgba(236, 35, 43, 1)",
+  color: "rgba(255, 255, 255, 1)",
+  borderRadius: "12px",
+  padding: "14px 15px",
+  border: "none",
+  cursor: "pointer",
+  fontSize: "16px",
+  fontWeight: "500",
+  width: "75%"
+}
+
+const notActive = {
+  background: "transparent",
+  color: "rgba(83, 83, 83, 1)",
+  borderRadius: "12px",
+  // padding: "14px 15px",
+  border: "none",
+  cursor: "pointer",
+  // fontSize: "16px",
+  fontFamily: "'Poppins',sans-serif",
+  fontWeight: "400",
+  fontSize: "14px",
+  // marginLeft: "32px",
+}
 
 export default function DrawerAppBar(props: Props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -43,6 +68,9 @@ export default function DrawerAppBar(props: Props) {
   const lang = useSelector((state: RootState) => state.lang.value.lang);
   const { home, projects, team, career, blog } = useSelector((state: RootState) => state.lang.value.pages);
   const offerPageButton = useSelector((state: RootState) => state.lang.value.offerPageButton)
+
+  const [toggleLangto, setToggle] = React.useState(lang);
+  const dispatch = useDispatch<AppDispatch>();
 
   const navItems = [
     { title: home[lang], to: "/" },
@@ -60,6 +88,13 @@ export default function DrawerAppBar(props: Props) {
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const handleToggleLangto = (val: string) => {
+    console.log(val);
+    localStorage.setItem("lang", val);
+    setToggle(localStorage.getItem("lang"));
+    dispatch(toggleLang(localStorage.getItem("lang")));
   };
 
   const drawer = (
@@ -86,9 +121,45 @@ export default function DrawerAppBar(props: Props) {
           </Link>
         ))}
         <Link href="/offer">
-          <MainButton>{offerPageButton[lang]}</MainButton>
+          <ListItem disablePadding>
+            <ListItemButton sx={{}}>
+              <ListItemText
+                primary={offerPageButton[lang]}
+                style={{
+                  color:
+                    router.pathname === "/offer"
+                      ? "rgba(37, 35, 36, 1)"
+                      : "rgba(133, 133, 133, 1)",
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
         </Link>
       </List>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          mt: "20px",
+          gap: "20px",
+          alignItems: "center"
+        }}
+      >
+        <button
+          style={
+            lang === "ar" ? notActive : activeClass
+          }
+          onClick={() => handleToggleLangto("en")}
+        >
+          English
+        </button>
+        <button
+          style={lang === "ar" ? activeClass : notActive}
+          onClick={() => handleToggleLangto("ar")}
+        >
+          Arabic
+        </button>
+      </Box>
     </Box>
   );
 

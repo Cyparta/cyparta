@@ -285,10 +285,10 @@ const ContactUs = () => {
                                 >
                                     {contactInfo.phone[lang]}
                                 </Typography>
-                                <div style={{ fontSize: "16px", fontWeight: "400" }}>
+                                <Box sx={{ fontSize: "16px", fontWeight: "400", direction:"ltr", textAlign: lang==="en" ? "start" : "end"}}>
                                     +20 0101 720 4584 <br />
                                     +1 (312) 270-0815
-                                </div>
+                                </Box>
                             </Box>
                         </Box>
                     </Grid>

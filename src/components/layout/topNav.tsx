@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 const TopNav = () => {
   const lang = useSelector((state: RootState) => state.lang.value.lang)
+  const topNavLang = useSelector((state: RootState) => state.lang.value.topNavLang)
   const offerPageButton = useSelector((state: RootState) => state.lang.value.offerPageButton)
 
   return (
@@ -36,7 +37,7 @@ const TopNav = () => {
                 <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Image src={phoneIcon} alt="phone" width={20} height={20} />
                   <a href="tel:+1 (312) 270-0815" style={{ cursor: "pointer", fontSize: "14px" }}>
-                    +1 (312) 270-0815
+                    {topNavLang.number1[lang]}
                   </a>
                 </Box>
               </Grid>
@@ -44,7 +45,7 @@ const TopNav = () => {
                 <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Image src={phoneIcon} alt="phone" width={20} height={20} />
                   <a href="tel:20 0101 720 4584" style={{ cursor: "pointer", fontSize: "14px" }}>
-                    +20 0101 720 4584
+                    {topNavLang.number2[lang]}
                   </a>
                 </Box>
               </Grid>

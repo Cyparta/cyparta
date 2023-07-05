@@ -58,6 +58,7 @@ const Client = () => {
             <Swiper
                 // install Swiper modules
                 modules={[A11y, Autoplay]}
+                // loop={true}
                 spaceBetween={50}
                 slidesPerView={6}
                 autoplay={{

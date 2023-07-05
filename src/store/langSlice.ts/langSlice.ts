@@ -196,6 +196,10 @@ const initialState: LangState = {
         en: "phone",
         ar: "هاتف",
       },
+      phoneNumber: {
+        en: "+20 0101 720 4584",
+        ar: "هاتف",
+      },
       message: {
         en: "write your question here",
         ar: "اكتب سؤالك هنا",
@@ -370,6 +374,17 @@ const initialState: LangState = {
     offerPageButton: {
       en:"Offer Price",
       ar:"سعر العرض"
+    },
+
+    topNavLang: {
+      number1: {
+        en:"+1 (312) 270-0815",
+        ar:"+۱ (۳۱۲) ۲۷۰-۰۸۱٥"
+      },
+      number2: {
+        en:"+1 (312) 270-0815",
+        ar:"+۲۰ ۰۱۰۱ ۷۲۰ ٤٥۸٤ "
+      },
     }
   },
 };
