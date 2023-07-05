@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta
           name="description"
-          content="Software Development - Information Technology Solutions"
+          content="This is Cyparta, a software development company with a talented team dedicated to crafting innovative solutions. Despite our short journey, we have already ..."
         />
         <meta
           name="keywords"
