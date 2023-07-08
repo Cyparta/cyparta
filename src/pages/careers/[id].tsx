@@ -304,10 +304,6 @@ const CareerDetails = () => {
                                             <TwitterIcon sx={{ color: "rgba(29, 161, 242, 1)" }} />
                                         </TwitterShareButton>
 
-                                        {/* <LinkedinShareButton url={imageLink}>
-                                            <LinkedInIcon />
-                                        </LinkedinShareButton> */}
-
                                         <WhatsappShareButton url={imageLink} onClick={() => setIsShare((old) => !old)}>
                                             <WhatsAppIcon sx={{ color: "rgba(37, 211, 102, 1)" }} />
                                         </WhatsappShareButton>

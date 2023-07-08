@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import offerLine from '../../assets/offer/1.png'
 import qrCode from '../../assets/offer/qrcode.png'
@@ -11,6 +11,8 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+
 const OfferRequest = () => {
     return (
         <Box>
@@ -98,18 +100,18 @@ const OfferRequest = () => {
                     <Box sx={{ alignSelf: "end" }}>
                         <Box sx={{ display: "flex", gap: "16px" }}>
                             <a href="https://meetoor.com/profile/?p=cyparta7773389">
-                                <Box sx={{ width: "40px", height: "40px", border:"1px solid rgba(204, 204, 204, 1)", borderRadius:"50%", display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
-                                    <FacebookOutlinedIcon sx={{color:"rgba(59, 89, 152, 1)"}}/>
+                                <Box sx={{ width: "40px", height: "40px", border: "1px solid rgba(204, 204, 204, 1)", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", padding: "10px" }}>
+                                    <FacebookOutlinedIcon sx={{ color: "rgba(59, 89, 152, 1)" }} />
                                 </Box>
                             </a>
                             <a href="https://wa.me/+2001017204584/?text=HiCyparta">
-                                <Box sx={{ width: "40px", height: "40px", border:"1px solid rgba(204, 204, 204, 1)", borderRadius:"50%", display:"flex", justifyContent:"center", alignItems:"center", padding:"10px" }}>
-                                    <WhatsAppIcon sx={{color:"rgba(37, 211, 102, 1)"}}/>
+                                <Box sx={{ width: "40px", height: "40px", border: "1px solid rgba(204, 204, 204, 1)", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", padding: "10px" }}>
+                                    <WhatsAppIcon sx={{ color: "rgba(37, 211, 102, 1)" }} />
                                 </Box>
                             </a>
                             <a href="https://www.linkedin.com/company/cyparta/">
-                                <Box sx={{ width: "40px", height: "40px", border:"1px solid rgba(204, 204, 204, 1)", borderRadius:"50%", display:"flex", justifyContent:"center", alignItems:"center", padding:"10px" }}>
-                                    <LinkedInIcon sx={{color:"rgba(0, 119, 181, 1)"}}/>
+                                <Box sx={{ width: "40px", height: "40px", border: "1px solid rgba(204, 204, 204, 1)", borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center", padding: "10px" }}>
+                                    <LinkedInIcon sx={{ color: "rgba(0, 119, 181, 1)" }} />
                                 </Box>
                             </a>
                         </Box>
@@ -145,7 +147,6 @@ const OfferRequest = () => {
                     </Box>
                 </Grid>
             </Grid>
-
         </Box>
     )
 }

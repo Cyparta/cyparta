@@ -9,6 +9,7 @@ import productsSlice from './products/productsSlice'
 import contactSlice from './contact/contactSlice'
 import langSlice from './langSlice.ts/langSlice'
 import careersSlice from './careers/careersSlice'
+import blogsSlice from './blogs/blogsSlice'
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
@@ -20,7 +21,8 @@ export const store = configureStore({
     products: productsSlice,
     contact: contactSlice,
     lang: langSlice,
-    careers: careersSlice
+    careers: careersSlice,
+    blogs:blogsSlice
   },
 })
 

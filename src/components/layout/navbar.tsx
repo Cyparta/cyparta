@@ -26,6 +26,12 @@ import { AppDispatch, RootState } from "@/store/store";
 import { MainButton } from "@/style/style";
 import { toggleLang } from "@/store/langSlice.ts/langSlice";
 
+import navbarIcon1 from '@/assets/navbar/home.png'
+import navbarIcon2 from '@/assets/navbar/projectmanger.png'
+import navbarIcon3 from '@/assets/navbar/career.png'
+import navbarIcon4 from '@/assets/navbar/blogging.png'
+import navbarIcon5 from '@/assets/navbar/referral.png'
+
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -73,12 +79,12 @@ export default function DrawerAppBar(props: Props) {
   const dispatch = useDispatch<AppDispatch>();
 
   const navItems = [
-    { title: home[lang], to: "/" },
-    { title: projects[lang], to: "/projects" },
-    { title: career[lang], to: "/careers" },
+    { title: home[lang], to: "/", icon: navbarIcon1 },
+    { title: projects[lang], to: "/projects", icon: navbarIcon2 },
+    { title: career[lang], to: "/careers", icon: navbarIcon3 },
     // { title: blog[lang], to: "/careers" },
     // { title: "Blog", to: "/blog" },
-    { title: team[lang], to: "/team" },
+    { title: team[lang], to: "/team", icon: navbarIcon4 },
   ];
   // console.log(pages)
 
@@ -106,7 +112,7 @@ export default function DrawerAppBar(props: Props) {
         {navItems.map((item, index) => (
           <Link href={`${item.to}`} key={index}>
             <ListItem disablePadding>
-              <ListItemButton sx={{}}>
+              <ListItemButton sx={{ direction: lang === 'en' ? "rtl" : "ltr" }}>
                 <ListItemText
                   primary={item.title}
                   style={{
@@ -114,15 +120,20 @@ export default function DrawerAppBar(props: Props) {
                       router.pathname === item.to
                         ? "rgba(37, 35, 36, 1)"
                         : "rgba(133, 133, 133, 1)",
+                    textAlign: lang === 'en' ? "left" : "right",
+                    padding: "10px"
+
                   }}
                 />
+                <Image src={item.icon} alt="upload" />
+
               </ListItemButton>
             </ListItem>
           </Link>
         ))}
         <Link href="/offer">
           <ListItem disablePadding>
-            <ListItemButton sx={{}}>
+            <ListItemButton sx={{ direction: lang === 'en' ? "rtl" : "ltr" }}>
               <ListItemText
                 primary={offerPageButton[lang]}
                 style={{
@@ -130,8 +141,12 @@ export default function DrawerAppBar(props: Props) {
                     router.pathname === "/offer"
                       ? "rgba(37, 35, 36, 1)"
                       : "rgba(133, 133, 133, 1)",
+                  textAlign: lang === 'en' ? "left" : "right",
+                  padding: "10px"
                 }}
               />
+              <Image src={navbarIcon5} alt="upload" />
+
             </ListItemButton>
           </ListItem>
         </Link>
@@ -231,6 +246,7 @@ export default function DrawerAppBar(props: Props) {
                       textTransform: "capitalize",
                       fontSize: "16px",
                     }}
+
                   >
                     {item.title}
                   </Button>
@@ -240,7 +256,7 @@ export default function DrawerAppBar(props: Props) {
           </Toolbar>
         </Container>
       </AppBar>
-      <Box component="nav">
+      <Box component="nav" className="ar">
         <Drawer
           container={container}
           variant="temporary"
@@ -249,8 +265,10 @@ export default function DrawerAppBar(props: Props) {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
+          anchor={lang === "en" ? "left" : "right"}
           sx={{
             display: { xs: "block", sm: "block", md: "none" },
+            direction: "rtl",
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

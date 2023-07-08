@@ -1,5 +1,5 @@
-import { Box, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import React, { useState, useRef } from "react";
 import InputControl from "../commons/InputControl";
 import Image from "next/image";
 // import MainButton from "../commons/MainButton";
@@ -9,16 +9,23 @@ import * as Yup from "yup";
 import axios from "axios";
 import { BASEURL } from "@/data/APIS";
 import OfferRequest from "./offerRequest";
+import { countries } from '@/data/countries';
+import CustomSelect from "../offer/customSelect";
+
+import ReactToPrint from 'react-to-print';
+
 
 const OfferForm = () => {
   const [loading, setLoading] = useState(false)
+  const componentRef = useRef<any>();
+
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       development: "",
       phone: "",
-      country: "",
+      country: "Egypt",
       budget: "",
       services: "",
       sites: "",
@@ -44,7 +51,6 @@ const OfferForm = () => {
       axios.post(`${BASEURL}apis/offers/`, { ...values })
       setLoading(false)
       resetForm();
-      console.log(values)
     },
   });
 
@@ -169,12 +175,54 @@ const OfferForm = () => {
                 }}
               >
                 <Box sx={{ width: "100%" }}>
-                  <InputControl
+                  {/* <InputControl
                     type="text"
                     placeholder="Country"
                     value={formik.values.country}
                     onChange={formik.handleChange}
                     name="country"
+                  /> */}
+                  {/* <FormControl fullWidth>
+                    <InputLabel id="country">country</InputLabel>
+                    <Select
+                      labelId="country"
+                      label="country"
+                      id="country"
+                      name="country"
+                      // disabled={checked}
+                      value={formik.values.country}
+                      onChange={formik.handleChange}
+                      sx={{
+                        ".Mui-focused .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#6E2E02",
+                        },
+                        ".MuiOutlinedInput-notchedOutline": {
+                          border: "1px solid #C1C1C1",
+                        },
+                        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#6E2E02",
+                        },
+                        "&:hover .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#6E2E02",
+                        },
+                      }}
+                    >
+                      <MenuItem value={"US"}>USA</MenuItem>
+                      {countries?.map((ele, index) => {
+                        return (
+                          <MenuItem value={Object.keys(ele)[0]} key={index}>
+                            {ele[Object.keys(ele)].country}
+                          </MenuItem>
+                        );
+                      })}
+                    </Select>
+                  </FormControl> */}
+
+                  <CustomSelect
+                    defaultValue="Egypt"
+                    handleSelect={(option: string) => {
+                      formik.setFieldValue("country", option)
+                    }}
                   />
                   {formik.touched.country && formik.errors.country ? (
                     <Typography
