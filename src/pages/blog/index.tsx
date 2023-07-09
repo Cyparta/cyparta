@@ -110,7 +110,7 @@ const Page = () => {
           <Grid container spacing={5}>
             <Grid item xs={12} sm={12} md={6}>
               <Box>
-                {blogs[0]?.image && <img src={blogs[0].image} alt="test" style={{ width: "100%", height: "320px", objectFit: "cover" }} />}
+                {blogs[0]?.image && <img src={blogs[0]?.image} alt="test" style={{ width: "100%", height: "320px", objectFit: "cover" }} />}
                 {/* <Image src={blogImage} alt="test" style={{ width: "100%" }} /> */}
                 <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                   <MainCategory text="Design" />
@@ -138,7 +138,7 @@ const Page = () => {
             {/* side Article */}
             <Grid item xs={12} sm={12} md={6}>
               {blogs.map((blog: blogState) => {
-                return <Box sx={{ display: "flex", gap: "16px", mb: "24px" }} key={blog.id}>
+                return <Box sx={{ display: "flex", gap: "16px", mb: "24px", flexWrap:"wrap"}} key={blog.id}>
                   <Box sx={{}}>
                     {blog.image &&
                       <img src={blog.image} alt="test" style={{ width: "201px", height: "111px" }} />

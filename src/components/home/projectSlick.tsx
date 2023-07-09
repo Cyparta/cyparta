@@ -107,6 +107,7 @@ const ProjectSlick = () => {
     title: string;
     type: string
     main_image: string
+    id:number
   }
 
   return (
@@ -184,6 +185,7 @@ const ProjectSlick = () => {
           ? collection?.map((project: Collection, index) => {
             return (
               <>
+              <Link href={`/projects/${project?.id}`}>
                 <Box className="project" key={index}>
                   {project.main_image ? <img
                     src={project.main_image}
@@ -199,6 +201,7 @@ const ProjectSlick = () => {
                       : project.description}
                   </Box>
                 </Box>
+                </Link>
               </>
             );
           })

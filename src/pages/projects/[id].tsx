@@ -117,7 +117,7 @@ const ProjectDetails = () => {
                         <Typography sx={{ color: "rgba(0, 0, 0, 0.8)", mb: "22px" }}>{col?.tools_description}</Typography>
                         <Box sx={{ display: "flex", justifyContent: "center", gap: "32px", mt: "22px", flexWrap: "wrap" }}>
                             {col?.tech_tools?.map((tech: { id: number; image: string }) => {
-                                return <Box key={tech.id} sx={{ background: "rgba(37, 35, 36, 1)", padding: "20px", border: "2px solid rgba(236, 35, 43, 1)", borderRadius: "10px" }}><Image src={tech?.image} alt="tool 1" width="72" height="32" style={{ width: "100%", height: "100%" }} /></Box>
+                                return <Box key={tech.id} sx={{  padding: "20px" }}><Image src={tech?.image} alt="tool 1" width="72" height="32" style={{ width: "100%", height: "100%" }} /></Box>
                             })}
                         </Box>
                     </Box>
@@ -165,7 +165,9 @@ const ProjectDetails = () => {
                             })}
                         </Swiper>
                     </Box>}
+                    
 
+                    {/* wimages */}
 
                 </Container>
                 {/* <Box className="curve-line"></Box> */}

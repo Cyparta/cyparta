@@ -11,7 +11,7 @@ const SocailSection = () => {
 
     // https://www.facebook.com/CypartaCompany
     return (
-        <Box sx={{ position: 'fixed', top: "50%", left: "-93px", display: "flex", zIndex: 800, alignItems: "center", transform: "rotate(-90deg)" }}>
+        <Box sx={{ position: 'fixed', top: "50%", left: "-93px", display: {xs:"none", md:"flex"}, zIndex: 800, alignItems: "center", transform: "rotate(-90deg)" }}>
             <Box sx={{ mr: "10px" }}>
                 <a href="https://twitter.com/CypartaCompany" target='_blank'>
                     <Image src={twitter} width={24} height={24} alt="twitter" />
