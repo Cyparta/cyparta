@@ -123,13 +123,13 @@ const Page = () => {
                   </Box>
                 </Box>
                 <Box sx={{ display: "flex", gap: "16px", mt: "24px" }}>
-                  {blogs[0].publisher_name && <Box>
-                    <Image src={blogs[0].publisher_name} alt="person" />
+                  {blogs[0]?.publisher_name && <Box>
+                    <img src={blogs[0].publisher_name} alt="person" />
                   </Box>}
 
                   <Box>
-                    <Typography sx={{ fontSize: "14px", color: "rgba(37, 35, 36, 1)", mb: "5px" }}>{blogs[0].publisher_name}</Typography>
-                    <Typography sx={{ fontSize: "12px", color: "rgba(204, 204, 204, 1)" }}>{blogs[0].publisher_job}</Typography>
+                    <Typography sx={{ fontSize: "14px", color: "rgba(37, 35, 36, 1)", mb: "5px" }}>{blogs[0]?.publisher_name}</Typography>
+                    <Typography sx={{ fontSize: "12px", color: "rgba(204, 204, 204, 1)" }}>{blogs[0]?.publisher_job}</Typography>
                   </Box>
                 </Box>
               </Box>
