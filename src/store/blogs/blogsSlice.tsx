@@ -10,6 +10,7 @@ export interface BlogsState {
   error: boolean;
   blogs: [];
   blog: {};
+  cate: [];
   filter: {
     type: string;
     ordering: string;
@@ -21,11 +22,27 @@ const initialState: BlogsState = {
   error: false,
   blogs: [],
   blog: {},
+  cate: [],
   filter: {
     type: "",
     ordering: "launched_at",
   },
 };
+
+
+export const RequestGetBlogsCate = createAsyncThunk(
+  "RequestGetBlogsCate",
+  async (data, { getState, rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `${BASEURL}apis/category/`
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 export const RequestGetBlogs = createAsyncThunk(
   "RequestGetBlogs",
@@ -94,6 +111,20 @@ export const blogsSlice = createSlice({
         state.blog = action.payload;
       })
       .addCase(RequestGetBlog.rejected, (state, action: any) => {
+        state.loading = false;
+        state.error = false;
+      });
+      // Get Blog
+      builder
+      .addCase(RequestGetBlogsCate.pending, (state) => {
+        state.error = false;
+        state.cate = [];
+      })
+      .addCase(RequestGetBlogsCate.fulfilled, (state, action) => {
+        state.loading = false;
+        state.cate = action.payload;
+      })
+      .addCase(RequestGetBlogsCate.rejected, (state, action: any) => {
         state.loading = false;
         state.error = false;
       });

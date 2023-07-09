@@ -18,7 +18,7 @@ import Image from "next/image";
 import personImage from "../../assets/blogs/person1.png";
 import MainCategory from "@/components/blogs/mainCategory";
 import { useDispatch, useSelector } from "react-redux";
-import { RequestGetBlogs } from "@/store/blogs/blogsSlice";
+import { RequestGetBlogs, RequestGetBlogsCate } from "@/store/blogs/blogsSlice";
 import { AppDispatch, RootState } from "@/store/store";
 import BlogCard from "@/components/blogs/blogCard";
 
@@ -29,12 +29,16 @@ const Page = () => {
   const blogs: blogProps[] = useSelector(
     (state: RootState) => state.blogs.blogs
   );
+  const cate: categoryProps[] = useSelector(
+    (state: RootState) => state.blogs.cate
+  );
 
   // const mainBlog:blogState = blogs[0]
 
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(RequestGetBlogs());
+    dispatch(RequestGetBlogsCate());
   }, []);
 
   return (
@@ -109,129 +113,97 @@ const Page = () => {
             >
               All
             </Box>
-            <Box
+            {cate.map(item => {
+              return <Box
               sx={{
                 color: "rgba(204, 204, 204, 1)",
                 fontWeight: "500",
                 fontSize: "16px",
               }}
             >
-              Design
+              {item.name}
             </Box>
-            <Box
-              sx={{
-                color: "rgba(204, 204, 204, 1)",
-                fontWeight: "500",
-                fontSize: "16px",
-              }}
-            >
-              Mobile Development
-            </Box>
-            <Box
-              sx={{
-                color: "rgba(204, 204, 204, 1)",
-                fontWeight: "500",
-                fontSize: "16px",
-              }}
-            >
-              web Development
-            </Box>
-            <Box
-              sx={{
-                color: "rgba(204, 204, 204, 1)",
-                fontWeight: "500",
-                fontSize: "16px",
-              }}
-            >
-              technical Consulting
-            </Box>
-            <Box
-              sx={{
-                color: "rgba(204, 204, 204, 1)",
-                fontWeight: "500",
-                fontSize: "16px",
-              }}
-            >
-              Software management system
-            </Box>
+            })}
           </Box>
 
           {/* main blogs */}
           <Grid container spacing={5}>
             <Grid item xs={12} sm={12} md={6}>
               <Link href={`/blog/${blogs[0]?.id}`}>
-              <Box>
-                {blogs[0]?.image && (
-                  <img
-                    src={blogs[0]?.image}
-                    alt="test"
-                    style={{
-                      width: "100%",
-                      height: "320px",
-                      objectFit: "cover",
-                      marginBottom: "10px",
-                      borderRadius: "15px",
-                    }}
-                  />
-                )}
-                {/* <Image src={blogImage} alt="test" style={{ width: "100%" }} /> */}
-                <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                  {blogs[0]?.category?.map((cate: categoryProps) => {
-                    return <MainCategory key={cate.id} text={cate.name} />;
-                  })}
-                </Box>
-                <Box mt="15px">
-                  <Typography
-                    sx={{
-                      color: "rgba(37, 35, 36, 1)",
-                      fontWeight: "500",
-                      fontSize: "24px",
-                      mb: "8px",
-                    }}
-                  >
-                    {blogs[0]?.title}
-                  </Typography>
-                  <Box
-                    sx={{
-                      color: "rgba(157, 157, 157, 1)",
-                      lineHeight: "24px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: `${blogs[0]?.text?.slice(0, 200)}...`,
+                <Box>
+                  {blogs[0]?.image && (
+                    <img
+                      src={blogs[0]?.image}
+                      alt="test"
+                      style={{
+                        width: "100%",
+                        height: "320px",
+                        objectFit: "cover",
+                        marginBottom: "10px",
+                        borderRadius: "15px",
                       }}
-                    ></div>
-                  </Box>
-                </Box>
-                <Box sx={{ display: "flex", gap: "16px", mt: "24px" }}>
-                  {blogs[0]?.publisher_image && (
-                    <Box>
-                      <img src={blogs[0]?.publisher_image} alt="person" />
-                    </Box>
+                    />
                   )}
-
-                  <Box>
+                  {/* <Image src={blogImage} alt="test" style={{ width: "100%" }} /> */}
+                  <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                    {blogs[0]?.category?.map((cate: categoryProps) => {
+                      return <MainCategory key={cate.id} text={cate.name} />;
+                    })}
+                  </Box>
+                  <Box mt="15px">
                     <Typography
                       sx={{
-                        fontSize: "14px",
                         color: "rgba(37, 35, 36, 1)",
-                        mb: "5px",
+                        fontWeight: "500",
+                        fontSize: "24px",
+                        mb: "8px",
                       }}
                     >
-                      {blogs[0]?.publisher_name}
+                      {blogs[0]?.title}
                     </Typography>
-                    <Typography
-                      sx={{ fontSize: "12px", color: "rgba(204, 204, 204, 1)" }}
+                    <Box
+                      sx={{
+                        color: "rgba(157, 157, 157, 1)",
+                        lineHeight: "24px",
+                        fontWeight: "500",
+                      }}
                     >
-                      {blogs[0]?.publisher_job}
-                    </Typography>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: `${blogs[0]?.text?.slice(0, 200)}...`,
+                        }}
+                      ></div>
+                    </Box>
+                  </Box>
+                  <Box sx={{ display: "flex", gap: "16px", mt: "24px" }}>
+                    {blogs[0]?.publisher_image && (
+                      <Box>
+                        <img src={blogs[0]?.publisher_image} alt="person" />
+                      </Box>
+                    )}
+
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: "14px",
+                          color: "rgba(37, 35, 36, 1)",
+                          mb: "5px",
+                        }}
+                      >
+                        {blogs[0]?.publisher_name}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          color: "rgba(204, 204, 204, 1)",
+                        }}
+                      >
+                        {blogs[0]?.publisher_job}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
               </Link>
-
             </Grid>
 
             {/* side Article */}
