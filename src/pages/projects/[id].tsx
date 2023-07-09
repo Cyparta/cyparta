@@ -44,6 +44,7 @@ interface ProductState {
     product_image?: string;
     product_image2?: string;
     main_image?: string;
+    wimages?:any
 }
 const ProjectDetails = () => {
     const router = useRouter();
@@ -123,7 +124,7 @@ const ProjectDetails = () => {
                     </Box>
 
                     {/* moreScreen */}
-                    {col?.more_description && <Box sx={{ textAlign: "center", mt: "70px" }} className="tool-swiper">
+                    {col?.images?.length > 0 && <Box sx={{ textAlign: "center", mt: "70px" }} className="tool-swiper">
                         <Typography sx={{ fontSize: "32px", mb: "15px", fontWeight: "400" }}>More Screens</Typography>
                         <Typography sx={{ color: "rgba(0, 0, 0, 0.8)", mb: "32px" }}>{col?.more_description}</Typography>
 
@@ -166,7 +167,49 @@ const ProjectDetails = () => {
                         </Swiper>
                     </Box>}
                     
+                    
+                    {col?.wimages?.length > 0 && <Box sx={{ textAlign: "center", mt: "70px" }} className="tool-swiper">
+                        <Typography sx={{ fontSize: "32px", mb: "15px", fontWeight: "400" }}>More Screens</Typography>
+                        <Typography sx={{ color: "rgba(0, 0, 0, 0.8)", mb: "32px" }}>{col?.more_description}</Typography>
 
+                        <Swiper
+                            navigation={true}
+                            modules={[Navigation]}
+                            slidesPerView={6}
+                            spaceBetween={10}
+                            className="mySwiper"
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            breakpoints={{
+                                1: {
+                                    width: 1,
+                                    slidesPerView: 1
+                                },
+                                300: {
+                                    width: 300,
+                                    slidesPerView: 2
+                                },
+                                575: {
+                                    width: 575,
+                                    slidesPerView: 3,
+                                },
+                                991: {
+                                    width: 991,
+                                    slidesPerView: 6,
+                                },
+                            }}
+                        >
+                            {col?.images?.map((item: { id: number; image: string }) => {
+                                return <SwiperSlide key={item.id} style={{ color: "#000" }}>
+                                    <Box>
+                                        <Image src={item?.image} alt="test" width="151" height="326" />
+                                    </Box>
+                                </SwiperSlide>
+                            })}
+                        </Swiper>
+                    </Box>}
                     {/* wimages */}
 
                 </Container>

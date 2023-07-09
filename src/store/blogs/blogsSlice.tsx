@@ -31,10 +31,22 @@ export const RequestGetBlogs = createAsyncThunk(
   "RequestGetBlogs",
   async (data, { getState, rejectWithValue }) => {
     try {
-      const state: any = getState();
-      const filter = state.products.filter;
       const response = await axios.get(
         `${BASEURL}apis/blogs/`
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const RequestGetBlog = createAsyncThunk(
+  "RequestGetBlog",
+  async (id: string | string[] | undefined, { getState, rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `${BASEURL}apis/blogs/${id}/`
       );
       return response.data;
     } catch (error: any) {
@@ -66,6 +78,22 @@ export const blogsSlice = createSlice({
         state.blogs = action.payload;
       })
       .addCase(RequestGetBlogs.rejected, (state, action: any) => {
+        state.loading = false;
+        state.error = false;
+      });
+    // Get Blog
+      builder
+      .addCase(RequestGetBlog.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+        state.blog = [];
+      })
+      .addCase(RequestGetBlog.fulfilled, (state, action) => {
+        console.log(action);
+        state.loading = false;
+        state.blog = action.payload;
+      })
+      .addCase(RequestGetBlog.rejected, (state, action: any) => {
         state.loading = false;
         state.error = false;
       });

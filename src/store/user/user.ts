@@ -3,6 +3,20 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 import axios from "axios";
 
+export interface UserState {
+  loading: boolean;
+  error: boolean;
+  user: any;
+  errorMsg: String
+}
+
+const initialState: UserState = {
+  loading: false,
+  user: [],
+  error: false,
+  errorMsg: ""
+}
+
 
 export const RequestPostRegister = createAsyncThunk(
     "RequestPostRegister",
@@ -37,19 +51,6 @@ export const RequestPostRegister = createAsyncThunk(
       }
     }
   );
-export interface UserState {
-  loading: boolean;
-  error: boolean;
-  user: any;
-  errorMsg: String
-}
-
-const initialState: UserState = {
-  loading: false,
-  user: [],
-  error: false,
-  errorMsg: ""
-}
 
 export const userSlice = createSlice({
   name: 'user',

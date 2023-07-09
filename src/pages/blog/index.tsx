@@ -17,22 +17,11 @@ import { RequestGetBlogs } from '@/store/blogs/blogsSlice'
 import { AppDispatch, RootState } from '@/store/store'
 import BlogCard from '@/components/blogs/blogCard'
 
-interface blogState {
-  id: number;
-  created_at: string;
-  image: null | string;
-  likes_count: number;
-  publisher: number;
-  text: string;
-  title: string;
-  publisher_image: string;
-  publisher_name: string;
-  publisher_job: string
-}
+import { blogProps } from '@/types/blog'
 
 const Page = () => {
   const lang = useSelector(((state: RootState) => state.lang.value.lang));
-  const blogs: blogState[] = useSelector((state: RootState) => state.blogs.blogs)
+  const blogs: blogProps[] = useSelector((state: RootState) => state.blogs.blogs)
 
   // const mainBlog:blogState = blogs[0]
 
@@ -137,7 +126,7 @@ const Page = () => {
 
             {/* side Article */}
             <Grid item xs={12} sm={12} md={6}>
-              {blogs.map((blog: blogState) => {
+              {blogs.map((blog: blogProps) => {
                 return <Box sx={{ display: "flex", gap: "16px", mb: "24px", flexWrap:"wrap"}} key={blog.id}>
                   <Box sx={{}}>
                     {blog.image &&
@@ -153,7 +142,7 @@ const Page = () => {
                       {blog.title}
                     </Typography>
                     <Box sx={{ color: "rgba(157, 157, 157, 1)" }}>
-                      <div dangerouslySetInnerHTML={{ __html: `${blog.text.slice(0, 47)}...` }} ></div>
+                      <div dangerouslySetInnerHTML={{ __html: `${blog?.text?.slice(0, 47)}...` }} ></div>
                     </Box>
                   </Box>
                 </Box>
@@ -165,7 +154,7 @@ const Page = () => {
           <Box sx={{ width: "100%", height: "1px", background: "rgba(204, 204, 204, 1)", mt: "32px", mb: "32px" }}></Box>
 
           <Grid container spacing={2}>
-            {blogs.map((blog: blogState) => {
+            {blogs.map((blog: blogProps) => {
               return <Grid item xs={12} md={3} key={blog.id}>
                 <Box>
                   {blog.image && <img src={blog.image} alt="test" style={{ width: "100%", height: "292px" }} />}
@@ -176,7 +165,7 @@ const Page = () => {
                   <Box mt="15px">
                     <Typography sx={{ color: "rgba(37, 35, 36, 1)", fontWeight: "500", fontSize: "24px", mb: "8px" }}>{blog.title}</Typography>
                     <Box sx={{ color: "rgba(157, 157, 157, 1)", lineHeight: "24px", fontWeight: "500" }}>
-                      <div dangerouslySetInnerHTML={{ __html: `${blog.text.slice(0, 80)}...` }} ></div>
+                      <div dangerouslySetInnerHTML={{ __html: `${blog?.text?.slice(0, 80)}...` }} ></div>
                     </Box>
                   </Box>
                   <Box sx={{ display: "flex", gap: "16px", mt: "24px" }}>
