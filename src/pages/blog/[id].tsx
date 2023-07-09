@@ -32,7 +32,6 @@ const Test = () => {
   const blogs: blogProps[] = useSelector(
     (state: RootState) => state.blogs.blogs
   );
-  const formattedDate = moment('2023-07-08T14:00:07.769080Z').format('D MMM, YYYY');
 
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
