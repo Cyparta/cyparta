@@ -61,11 +61,14 @@ const Test = () => {
           </Box> */}
         </Box>
         <Box sx={{ position: "relative" }}>
-          <img
-            src={blog.image}
-            alt="Blog"
-            style={{ width: "100%", maxHeight: "500px" }}
-          />
+          {blog.image && (
+            <img
+              src={blog.image}
+              alt="Blog"
+              style={{ width: "100%", maxHeight: "500px" }}
+            />
+          )}
+
           <Box sx={{ position: "absolute", top: "50%", left: "10%" }}>
             <Box
               sx={{
@@ -193,7 +196,9 @@ const Test = () => {
                     >
                       {blog.text && (
                         <div
-                          dangerouslySetInnerHTML={{ __html: blog.text.slice(0, 200) }}
+                          dangerouslySetInnerHTML={{
+                            __html: blog.text.slice(0, 200),
+                          }}
                         ></div>
                       )}
                     </Box>
