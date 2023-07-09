@@ -238,7 +238,7 @@ const Page = () => {
             <Grid item xs={12} sm={12} md={6}>
               {blogs.map((blog: blogProps) => {
                 return (
-                  <Link href={`/blog/${blog.id}`}>
+                  <Link href={`/blog/${blog.id}`} key={blog.id}>
                     <Box
                       sx={{ display: "flex", gap: "16px", mb: "24px" }}
                       key={blog.id}
