@@ -42,7 +42,7 @@ const Page = () => {
   }, [])
 
   return (
-    <Box>
+    <Box className={lang}>
       <TopNav />
       <Navbar />
       <Box sx={{ padding: { xs: "20px", lg: "20px 100px" } }}>
