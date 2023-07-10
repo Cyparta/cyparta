@@ -22,7 +22,6 @@ const Index = () => {
         heading={main.heading[lang]}
         imageCover={coverImage}
       />
-
       <Container>
         <OfferForm />
       </Container>

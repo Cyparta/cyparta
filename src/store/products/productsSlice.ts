@@ -40,8 +40,8 @@ export const RequestGetProducts = createAsyncThunk(
 
     const productsLang =
       lang === "en"
-        ? `apis/products/?ordering=${filter.ordering}/`
-        : `ar/apis/products/?ordering=${filter.ordering}/`;
+        ? `apis/products/?ordering=${filter.ordering}`
+        : `ar/apis/products/?ordering=${filter.ordering}`;
 
     try {
       const response = await axios.get(`${BASEURL}${productsLang}`, { params });
