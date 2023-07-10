@@ -57,7 +57,7 @@ const ProjectDetails = () => {
     dispatch(RequestGetProduct(router.query.id));
   }, [router.query.id, lang]);
   return (
-    <Box>
+    <Box className={lang}>
       <TopNav />
       <Navbar />
 
