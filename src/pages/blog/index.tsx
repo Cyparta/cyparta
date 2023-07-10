@@ -122,6 +122,7 @@ const Page = () => {
             {cate.map((item) => {
               return (
                 <Box
+                key={item.id}
                   className={`${
                     filter.category === item.id
                       ? styles.active
