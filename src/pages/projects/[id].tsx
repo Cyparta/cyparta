@@ -51,10 +51,11 @@ const ProjectDetails = () => {
   const col: ProductState = useSelector(
     (state: RootState) => state.products.col
   );
+  const lang = useSelector((state:RootState) => state.lang.value.lang)
 
   useEffect(() => {
     dispatch(RequestGetProduct(router.query.id));
-  }, [router.query.id]);
+  }, [router.query.id, lang]);
   return (
     <Box>
       <TopNav />

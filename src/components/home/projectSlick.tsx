@@ -1,17 +1,5 @@
 import React, { useState, useRef } from "react";
 import Slider from "react-slick";
-import project1 from "../../assets/projects/project-1.png";
-import project2 from "../../assets/projects/project-2.png";
-import project3 from "../../assets/projects/project-3.png";
-import project4 from "../../assets/projects/project-4.png";
-import project5 from "../../assets/projects/project-5.png";
-import project6 from "../../assets/projects/project-6.png";
-import project7 from "../../assets/projects/project-7.png";
-import project8 from "../../assets/projects/project-8.png";
-import project9 from "../../assets/projects/project-9.png";
-import project10 from "../../assets/projects/project-10.png";
-import project11 from "../../assets/projects/project-11.png";
-import test from "../../assets/home/test.png";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -196,9 +184,9 @@ const ProjectSlick = () => {
 
 
                   <Box className="swiper-info" sx={{ mt: "24px" }}>
-                    {project.description.length > 200
-                      ? project.description.slice(0, 200) + "..."
-                      : project.description}
+                    {project?.description?.length > 200
+                      ? project?.description?.slice(0, 200) + "..."
+                      : project?.description}
                   </Box>
                 </Box>
                 </Link>

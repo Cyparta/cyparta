@@ -30,6 +30,7 @@ export const RequestGetProducts = createAsyncThunk(
   async (data, { getState, rejectWithValue }) => {
     const state: any = getState();
     const filter = state.products.filter;
+    const lang = state.lang.value.lang;
 
     let params: any = {};
 
@@ -37,11 +38,13 @@ export const RequestGetProducts = createAsyncThunk(
       params.type = filter.type;
     }
 
+    const productsLang =
+      lang === "en"
+        ? `apis/products/?ordering=${filter.ordering}/`
+        : `ar/apis/products/?ordering=${filter.ordering}/`;
+
     try {
-      const response = await axios.get(
-        `${BASEURL}apis/products/?ordering=${filter.ordering}`,
-        { params }
-      );
+      const response = await axios.get(`${BASEURL}${productsLang}`, { params });
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
@@ -55,6 +58,7 @@ export const RequestGetAllProducts = createAsyncThunk(
     try {
       const state: any = getState();
       const filter = state.products.filter;
+
       const response = await axios.get(
         `${BASEURL}apis/products/?ordering=${filter.ordering}`
       );
@@ -67,15 +71,22 @@ export const RequestGetAllProducts = createAsyncThunk(
 
 export const RequestGetProduct = createAsyncThunk(
   "RequestGetProduct",
-  async (id: any, ThunkApi) => {
-    console.log(id);
+  async (id: any, {getState, rejectWithValue}) => {
     try {
+      const state: any = getState();
+      const lang = state.lang.value.lang;
+
+      const productsLang =
+      lang === "en"
+        ? `apis/products/${id}/`
+        : `ar/apis/products/${id}/`;
+
       const response = await axios.get(
-        `https://cyparta-backend-gf7qm.ondigitalocean.app/apis/products/${id}/`
+        `${BASEURL}${productsLang}`
       );
       return response.data;
     } catch (error: any) {
-      return ThunkApi.rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data);
     }
   }
 );

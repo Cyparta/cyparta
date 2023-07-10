@@ -23,16 +23,21 @@ import { AppDispatch, RootState } from "@/store/store";
 import BlogCard from "@/components/blogs/blogCard";
 
 import { blogProps, categoryProps } from "@/types/blog";
+import { setFilter } from "@/store/blogs/blogsSlice";
+import styles from "@/app/Blogs.module.css";
 
 const Page = () => {
   const lang = useSelector((state: RootState) => state.lang.value.lang);
   const blogs: blogProps[] = useSelector(
     (state: RootState) => state.blogs.blogs
   );
+  const loading = useSelector(
+    (state: RootState) => state.blogs.loading
+  );
   const cate: categoryProps[] = useSelector(
     (state: RootState) => state.blogs.cate
   );
-
+  const filter = useSelector((state: RootState) => state.blogs.filter);
   // const mainBlog:blogState = blogs[0]
 
   const dispatch = useDispatch<AppDispatch>();
@@ -40,7 +45,6 @@ const Page = () => {
     dispatch(RequestGetBlogs());
     dispatch(RequestGetBlogsCate());
   }, []);
-
   return (
     <Box className={lang}>
       <TopNav />
@@ -98,31 +102,41 @@ const Page = () => {
             sx={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "16px",
+              gap: "32px",
               alignItems: "center",
               mb: "49px",
             }}
           >
             <Box
-              sx={{
-                borderRadius: "12px",
-                background: "rgba(236, 35, 43, 1)",
-                color: "#fff",
-                padding: "10px 16px",
+              className={`${
+                filter.category === "" ? styles.active : styles.not_active
+              }`}
+              sx={{cursor:"pointer"}}
+              onClick={() => {
+                dispatch(setFilter({ name: "category", val: "" }));
+                dispatch(RequestGetBlogs());
               }}
             >
               All
             </Box>
-            {cate.map(item => {
-              return <Box
-              sx={{
-                color: "rgba(204, 204, 204, 1)",
-                fontWeight: "500",
-                fontSize: "16px",
-              }}
-            >
-              {item.name}
-            </Box>
+            {cate.map((item) => {
+              return (
+                <Box
+                  className={`${
+                    filter.category === item.id
+                      ? styles.active
+                      : styles.not_active
+                  }`}
+                  sx={{cursor:"pointer"}}
+
+                  onClick={() => {
+                    dispatch(setFilter({ name: "category", val: item.id }));
+                    dispatch(RequestGetBlogs());
+                  }}
+                >
+                  {item.name}
+                </Box>
+              );
             })}
           </Box>
 

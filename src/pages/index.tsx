@@ -31,7 +31,7 @@ const Index = () => {
   useEffect(() => {
     // dispatch(RequestGetAllProducts())
     dispatch(RequestGetProducts())
-  }, [])
+  }, [lang])
   return (
     <>
       <div className={lang}>

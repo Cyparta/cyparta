@@ -12,8 +12,7 @@ export interface BlogsState {
   blog: {};
   cate: [];
   filter: {
-    type: string;
-    ordering: string;
+    category: string | number;
   };
 }
 
@@ -24,8 +23,7 @@ const initialState: BlogsState = {
   blog: {},
   cate: [],
   filter: {
-    type: "",
-    ordering: "launched_at",
+    category: "",
   },
 };
 
@@ -47,9 +45,18 @@ export const RequestGetBlogsCate = createAsyncThunk(
 export const RequestGetBlogs = createAsyncThunk(
   "RequestGetBlogs",
   async (data, { getState, rejectWithValue }) => {
+    const state: any = getState();
+    const filter = state.blogs.filter;
+
+    const params: {category?:any} = {};
+    console.log(filter.category)
+    if (filter.category !== "") {
+      params.category = filter.category
+    }
     try {
       const response = await axios.get(
-        `${BASEURL}apis/blogs/`
+        `${BASEURL}apis/blogs/`,
+        {params}
       );
       return response.data;
     } catch (error: any) {
@@ -76,7 +83,7 @@ export const blogsSlice = createSlice({
   name: "blogs",
   initialState,
   reducers: {
-    setFilter: (state, action: { payload: { name: string; val: string } }) => {
+    setFilter: (state, action: { payload: { name: string; val: string | number } }) => {
       state.filter[action.payload.name as keyof typeof state.filter] =
         action.payload.val;
     },
@@ -132,6 +139,6 @@ export const blogsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-// export const { setFilter } = blogsSlice.actions;
+export const { setFilter } = blogsSlice.actions;
 
 export default blogsSlice.reducer;

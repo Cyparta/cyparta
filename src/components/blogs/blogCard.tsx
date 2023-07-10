@@ -54,7 +54,7 @@ const BlogCard = ({ blog }: any) => {
         </Box>
       </Box>
       <Box sx={{ display: "flex", gap: "16px", mt: "24px" }}>
-        {blog.publisher_image && (
+        {blog?.publisher_image && (
           <Box>
             <img src={blog.publisher_image} alt="person" />
           </Box>
