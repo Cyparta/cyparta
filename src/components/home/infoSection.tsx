@@ -28,7 +28,7 @@ const InfoSection = () => {
   const { card1, card2, card3, card4 } = useSelector((state: RootState) => state.lang.value.ourClients)
   
   const infoData = [
-    { image: employImage, text: card1[lang], number: 15 },
+    { image: employImage, text: card1[lang], number: 30 },
     { image: employImage3, text: card2[lang], number: 20 },
     { image: employImage4, text: card3[lang], number: 40 },
     { image: employImage5, text: card4[lang], number: 3 },
@@ -116,7 +116,7 @@ const InfoSection = () => {
                   {info.text}
                 </Typography>
                 <Box
-                  sx={{ fontWeight: "700", color: "#252324", fontSize: "36px" }}
+                  sx={{ fontWeight: "700", color: "#252324", fontSize: "36px", direction:"ltr" }}
                   className="fill"
                 >
                   <AnimatedNumbers

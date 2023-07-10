@@ -85,6 +85,7 @@ const ProjectSlick = () => {
         },
       },
     ],
+    rtl: true
   };
 
 
