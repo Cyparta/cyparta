@@ -37,7 +37,14 @@ export const RequestGetCategory = createAsyncThunk(
   async (data, { getState, rejectWithValue }) => {
     try {
       const state: any = getState();
-      const response = await axios.get(`${BASEURL}apis/careers/`);
+      const lang = state.lang.value.lang;
+      
+      const careerLang =
+      lang === "en"
+        ? `apis/careers/`
+        : `ar/apis/careers/`;
+
+      const response = await axios.get(`${BASEURL}${careerLang}`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
@@ -52,9 +59,17 @@ export const RequestGetCareers = createAsyncThunk(
     try {
       const state: any = getState();
       const { category, jop_type, work_from } = state.careers.filter;
+      const lang = state.lang.value.lang;
+      
+      const careerLang =
+      lang === "en"
+        ? `apis/careers/?work_from=${work_from}&jop_type=${jop_type}&category=${category}`
+        : `ar/apis/careers/?work_from=${work_from}&jop_type=${jop_type}&category=${category}`;
+
       const response = await axios.get(
-        `${BASEURL}apis/careers/?work_from=${work_from}&jop_type=${jop_type}&category=${category}`
+        `${BASEURL}${careerLang}`
       );
+
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
@@ -68,8 +83,15 @@ export const RequestGetCareer = createAsyncThunk(
   async (id: any, { getState, rejectWithValue }) => {
     try {
       const state: any = getState();
+      const lang = state.lang.value.lang;
+      
+      const careerLang =
+      lang === "en"
+        ? `apis/careers/${id}/`
+        : `ar/apis/careers/${id}/`;
+
       const response = await axios.get(
-        `https://cyparta-backend-gf7qm.ondigitalocean.app/apis/careers/${id}/`
+        `${BASEURL}${careerLang}`
       );
       return response.data;
     } catch (error: any) {

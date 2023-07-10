@@ -180,7 +180,7 @@ const CareerDetails = () => {
 
     useEffect(() => {
         dispatch(RequestGetCareer(router.query.id));
-    }, [router.query.id]);
+    }, [router.query.id, lang]);
 
     return (
         <Box className={lang}>

@@ -385,6 +385,57 @@ const initialState: LangState = {
         en:"+1 (312) 270-0815",
         ar:"+۲۰ ۰۱۰۱ ۷۲۰ ٤٥۸٤ "
       },
+    },
+
+    offerPrice: {
+      heading: {
+        en:"Offer Price",
+        ar:"سعر العرض"
+      },
+      leading: {
+        en:"thinking you make a better decision more than choosing us !!",
+        ar:"التفكير بأنك تتخذ قراراً أفضل من اختيارك لنا !!"
+      },
+      name:{
+        en:"name",
+        ar:"الاسم"
+      },
+      emailAddress:{
+        en:"Email Address",
+        ar:"البريد الالكتروني"
+      },
+      development:{
+        en:"development",
+        ar:"تطوير"
+      },
+      phone:{
+        en:"Phone Number",
+        ar:"رقم التليفون"
+      },
+      budget: {
+        en:"The proposed budget",
+        ar:"الميزانية المقترحة"
+      },
+      text: {
+        en:"Write a brief about your services and products required on the site",
+        ar:"اكتب نبذة مختصرة عن خدماتك ومنتجاتك المطلوبة على الموقع"
+      },
+      text2: {
+        en:"What are the sites that you like and see fit for your idea of design and programming",
+        ar:"ما هي المواقع التي تحبها وترى أنها مناسبة لفكرتك في التصميم والبرمجة"
+      },
+      text3: {
+        en:"Other notes and additions",
+        ar:"ملاحظات وإضافات أخرى"
+      },
+      send: {
+        en:"send",
+        ar:"يرسل"
+      },
+      loading: {
+        en:"loading...",
+        ar:"تحميل..."
+      }
     }
   },
 };

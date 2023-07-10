@@ -13,10 +13,14 @@ import { countries } from '@/data/countries';
 import CustomSelect from "../offer/customSelect";
 
 import ReactToPrint from 'react-to-print';
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 
 const OfferForm = () => {
   const [loading, setLoading] = useState(false)
+  const lang = useSelector((state: RootState) => state.lang.value.lang)
+  const main = useSelector((state: RootState) => state.lang.value.offerPrice)
   const componentRef = useRef<any>();
 
   const formik = useFormik({
@@ -74,7 +78,7 @@ const OfferForm = () => {
                 <Box sx={{ width: "100%" }}>
                   <InputControl
                     type="text"
-                    placeholder="name"
+                    placeholder={main.name[lang]}
                     name="name"
                     value={formik.values.name}
                     onChange={formik.handleChange}
@@ -96,7 +100,7 @@ const OfferForm = () => {
                 <Box sx={{ width: "100%" }}>
                   <InputControl
                     type="email"
-                    placeholder="Email Address"
+                    placeholder={main.emailAddress[lang]}
                     name="email"
                     value={formik.values.email}
                     onChange={formik.handleChange}
@@ -126,7 +130,7 @@ const OfferForm = () => {
                 <Box sx={{ width: "100%" }}>
                   <InputControl
                     type="text"
-                    placeholder="Development"
+                    placeholder={main.development[lang]}
                     name="development"
                     value={formik.values.development}
                     onChange={formik.handleChange}
@@ -146,8 +150,8 @@ const OfferForm = () => {
                   ) : null}
                 </Box>
                 <Box sx={{ width: "100%" }}>
-                  <InputControl type="number" placeholder="Phone number"
-                    name="phone"
+                  <InputControl type="number" placeholder={main.phone[lang]}
+                    name={main.phone[lang]}
                     value={formik.values.phone}
                     onChange={formik.handleChange}
                     className="no-arrows"
@@ -175,49 +179,6 @@ const OfferForm = () => {
                 }}
               >
                 <Box sx={{ width: "100%" }}>
-                  {/* <InputControl
-                    type="text"
-                    placeholder="Country"
-                    value={formik.values.country}
-                    onChange={formik.handleChange}
-                    name="country"
-                  /> */}
-                  {/* <FormControl fullWidth>
-                    <InputLabel id="country">country</InputLabel>
-                    <Select
-                      labelId="country"
-                      label="country"
-                      id="country"
-                      name="country"
-                      // disabled={checked}
-                      value={formik.values.country}
-                      onChange={formik.handleChange}
-                      sx={{
-                        ".Mui-focused .MuiOutlinedInput-notchedOutline": {
-                          borderColor: "#6E2E02",
-                        },
-                        ".MuiOutlinedInput-notchedOutline": {
-                          border: "1px solid #C1C1C1",
-                        },
-                        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                          borderColor: "#6E2E02",
-                        },
-                        "&:hover .MuiOutlinedInput-notchedOutline": {
-                          borderColor: "#6E2E02",
-                        },
-                      }}
-                    >
-                      <MenuItem value={"US"}>USA</MenuItem>
-                      {countries?.map((ele, index) => {
-                        return (
-                          <MenuItem value={Object.keys(ele)[0]} key={index}>
-                            {ele[Object.keys(ele)].country}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl> */}
-
                   <CustomSelect
                     defaultValue="Egypt"
                     handleSelect={(option: string) => {
@@ -241,7 +202,7 @@ const OfferForm = () => {
                 <Box sx={{ width: "100%" }}>
                   <InputControl
                     type="number"
-                    placeholder="The proposed budget"
+                    placeholder={main.budget[lang]}
                     value={formik.values.budget}
                     onChange={formik.handleChange}
                     name="budget"
@@ -275,7 +236,7 @@ const OfferForm = () => {
                   name="services"
                   value={formik.values.services}
                   onChange={formik.handleChange}
-                  placeholder="Write a brief about your services and products required on the site"
+                  placeholder={main.text[lang]}
                 ></textarea>
                 {formik.touched.services && formik.errors.services ? (
                   <Typography
@@ -304,7 +265,7 @@ const OfferForm = () => {
                   name="sites"
                   value={formik.values.sites}
                   onChange={formik.handleChange}
-                  placeholder="What are the sites that you like and see fit for your idea of ​​design and programming"
+                  placeholder={main.text2[lang]}
                 ></textarea>
                 {formik.touched.sites && formik.errors.sites ? (
                   <Typography
@@ -333,7 +294,7 @@ const OfferForm = () => {
                   name="additions"
                   value={formik.values.additions}
                   onChange={formik.handleChange}
-                  placeholder="Other notes and additions"
+                  placeholder={main.text3[lang]}
                 ></textarea>
                 {formik.touched.additions && formik.errors.additions ? (
                   <Typography
@@ -350,7 +311,7 @@ const OfferForm = () => {
                 ) : null}
               </Box>
               <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <MainButton type="submit" disabled={loading}>{loading ? "...loading" : "Send"}</MainButton>
+                <MainButton type="submit" disabled={loading}>{loading ? main.loading[lang] : main.send[lang]}</MainButton>
               </Box>
             </Box>
           </form>

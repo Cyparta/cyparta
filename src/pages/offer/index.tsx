@@ -11,14 +11,15 @@ import { RootState } from "@/store/store";
 import OfferRequest from "@/components/offer/offerRequest";
 
 const Index = () => {
-  const lang = useSelector((state: RootState) => state.lang.value.lang)
+  const lang = useSelector((state: RootState) => state.lang.value.lang);
+  const main = useSelector((state: RootState) => state.lang.value.offerPrice);
   return (
     <Box className={`${lang}`}>
       <TopNav />
       <Navbar />
       <HeroPage
-        text="thinking you make a better decision more than choosing us !!"
-        heading="Offer Price"
+        text={main.leading[lang]}
+        heading={main.heading[lang]}
         imageCover={coverImage}
       />
 

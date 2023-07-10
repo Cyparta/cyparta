@@ -53,11 +53,10 @@ const Index = () => {
     return {title:careerID.category, val: careerID.category}
   })
 
-  console.log(cateOpt)
   useEffect(() => {
     dispatch(RequestGetCareers());
     dispatch(RequestGetCategory())
-  }, []);
+  }, [lang]);
   return (
     <Box className={lang}>
       <TopNav />
@@ -155,7 +154,6 @@ const Index = () => {
         </Box> */}
         {/* careers GRID */}
         <Grid container spacing={3} mt="32px">
-          {careers.length === 0  && 'there is no careers.. !'}
           {careers.map((career: any) => {
             return (
               <Grid item xs={12} md={6} key={career.id}>
