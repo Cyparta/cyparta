@@ -17,6 +17,7 @@ import "swiper/css";
 import { Navigation } from "swiper";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import Link from "next/link";
 
 const ServicesSection = () => {
     const [serviceImage, setServiceImage] = useState(services1);
@@ -54,10 +55,12 @@ const ServicesSection = () => {
                                 alignItems: "center",
                             }}
                         >
+                            
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services1)}
                             >
+                            <Link href="/services/web">
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         {services.web.heading[lang]}
@@ -67,11 +70,13 @@ const ServicesSection = () => {
                                         {services.web.text[lang]}
                                     </Typography>
                                 </Box>
+                            </Link>
                             </Box>
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services2)}
                             >
+                                <Link href="/services/mobile">
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         {services.app.heading[lang]}
@@ -82,11 +87,14 @@ const ServicesSection = () => {
                                         {services.app.text[lang]}
                                     </Typography>
                                 </Box>
+                                </Link>
                             </Box>
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services3)}
                             >
+                                <Link href="/services/software">
+                                
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         {services.management.heading[lang]}
@@ -98,11 +106,14 @@ const ServicesSection = () => {
 
                                     </Typography>
                                 </Box>
+                                </Link>
                             </Box>
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services4)}
                             >
+                                <Link href="/services/technical">
+                                
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         {services.technical.heading[lang]}
@@ -113,11 +124,14 @@ const ServicesSection = () => {
 
                                     </Typography>
                                 </Box>
+                                </Link>
                             </Box>
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services5)}
                             >
+                                <Link href="/services/ui">
+                                
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         {services.ui.heading[lang]}
@@ -127,11 +141,14 @@ const ServicesSection = () => {
                                         {services.ui.text[lang]}
                                     </Typography>
                                 </Box>
+                                </Link>
                             </Box>
                             <Box
                                 className="service-box"
                                 onMouseEnter={() => setServiceImage(services6)}
                             >
+                                <Link href="/services/cypar">
+                
                                 <Box sx={{ fontSize: "16px", padding: "10px" }}>
                                     <Typography sx={{ fontSize: "28px", margin: "0" }}>
                                         {services.cypar.heading[lang]}
@@ -141,6 +158,7 @@ const ServicesSection = () => {
                                         {services.cypar.text[lang]}
                                     </Typography>
                                 </Box>
+                                </Link>
                             </Box>
                         </Box>
                     </Box>
@@ -150,24 +168,27 @@ const ServicesSection = () => {
                 <Box className="">
                     <Swiper className="service-swiper" navigation={true} modules={[Navigation]}>
                         <SwiperSlide>
-                            <Box sx={{ position: "relative", lineHeight: "0" }}>
-                                <Image
-                                    src={services1}
-                                    alt="services"
-                                    style={{ width: "100%", height: "100%" }}
-                                />
-                                <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
-                                    <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
-                                        {services.web.heading[lang]}
-                                    </Typography>{" "}
-                                    <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
-                                        {services.web.heading[lang]}
-                                    </Typography>
+                            <Link href="/services/web">
+                                <Box sx={{ position: "relative", lineHeight: "0" }}>
+                                    <Image
+                                        src={services1}
+                                        alt="services"
+                                        style={{ width: "100%", height: "100%" }}
+                                    />
+                                    <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
+                                        <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
+                                            {services.web.heading[lang]}
+                                        </Typography>{" "}
+                                        <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
+                                            {services.web.heading[lang]}
+                                        </Typography>
+                                    </Box>
+                                    <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
                                 </Box>
-                                <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
-                            </Box>
+                            </Link>
                         </SwiperSlide>
                         <SwiperSlide>
+                            <Link href="/services/mobile">
                             <Box sx={{ position: "relative", lineHeight: "0" }}>
                                 <Image
                                     src={services2}
@@ -185,8 +206,10 @@ const ServicesSection = () => {
                                 </Box>
                                 <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
                             </Box>
+                            </Link>
                         </SwiperSlide>
                         <SwiperSlide>
+                            <Link href="/services/software">
                             <Box sx={{ position: "relative", lineHeight: "0" }}>
                                 <Image
                                     src={services3}
@@ -204,60 +227,72 @@ const ServicesSection = () => {
                                 </Box>
                                 <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
                             </Box>
+                            </Link>
                         </SwiperSlide>
-                        <SwiperSlide><Box sx={{ position: "relative", lineHeight: "0" }}>
-                            <Image
-                                src={services4}
-                                alt="services"
-                                style={{ width: "100%", height: "100%" }}
-                            />
-                            <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
-                                <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
-                                    {services.technical.heading[lang]}
+                        <SwiperSlide>
+                            <Link href="/services/techinecal">
+                                <Box sx={{ position: "relative", lineHeight: "0" }}>
+                                    <Image
+                                        src={services4}
+                                        alt="services"
+                                        style={{ width: "100%", height: "100%" }}
+                                    />
+                                    <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
+                                        <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
+                                            {services.technical.heading[lang]}
 
-                                </Typography>{" "}
-                                <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
-                                    {services.technical.text[lang]}
-                                </Typography>
-                            </Box>
-                            <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
-                        </Box>
+                                        </Typography>{" "}
+                                        <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
+                                            {services.technical.text[lang]}
+                                        </Typography>
+                                    </Box>
+                                    <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
+                                </Box>
+                            </Link>
                         </SwiperSlide>
-                        <SwiperSlide><Box sx={{ position: "relative", lineHeight: "0" }}>
-                            <Image
-                                src={services5}
-                                alt="services"
-                                style={{ width: "100%", height: "100%" }}
-                            />
-                            <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
-                                <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
-                                    {services.ui.heading[lang]}
+                        <SwiperSlide>
+                            <Link href="/services/ui">
+                                
+                                <Box sx={{ position: "relative", lineHeight: "0" }}>
+                                    <Image
+                                        src={services5}
+                                        alt="services"
+                                        style={{ width: "100%", height: "100%" }}
+                                    />
+                                    <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
+                                        <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
+                                            {services.ui.heading[lang]}
 
-                                </Typography>{" "}
-                                <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
-                                    {services.ui.text[lang]}
-                                </Typography>
-                            </Box>
-                            <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
-                        </Box>
+                                        </Typography>{" "}
+                                        <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
+                                            {services.ui.text[lang]}
+                                        </Typography>
+                                    </Box>
+                                    <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
+                                </Box>
+                            </Link>
+
                         </SwiperSlide>
-                        <SwiperSlide><Box sx={{ position: "relative", lineHeight: "0" }}>
-                            <Image
-                                src={services6}
-                                alt="services"
-                                style={{ width: "100%", height: "100%" }}
-                            />
-                            <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
-                                <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
-                                    {services.cypar.heading[lang]}
-                                    
-                                </Typography>{" "}
-                                <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
-                                    {services.cypar.text[lang]}
-                                </Typography>
-                            </Box>
-                            <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
-                        </Box>
+                        <SwiperSlide>
+                            <Link href="/services/cypar">
+                            
+                                    <Box sx={{ position: "relative", lineHeight: "0" }}>
+                                    <Image
+                                        src={services6}
+                                        alt="services"
+                                        style={{ width: "100%", height: "100%" }}
+                                    />
+                                    <Box sx={{ fontSize: "16px", position: "absolute", width: "100%", color: "#000", top: "0", height: "100%", display: "flex", flexDirection: "column", textAlign: "center", justifyContent: "center", zIndex: "8" }}>
+                                        <Typography sx={{ fontSize: "20px", margin: "0", color: "#fff" }}>
+                                            {services.cypar.heading[lang]}
+                                        </Typography>{" "}
+                                        <Typography sx={{ mt: "16px", paddingBottom: "40px", color: "#fff" }}>
+                                            {services.cypar.text[lang]}
+                                        </Typography>
+                                    </Box>
+                                    <Box sx={{ background: "#0000003b", width: "100%", height: "100%", position: "absolute", top: "0", zIndex: "" }}></Box>
+                                </Box>
+                            </Link>
                         </SwiperSlide>
                     </Swiper>
                 </Box>

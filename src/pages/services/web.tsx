@@ -12,23 +12,25 @@ import Link from 'next/link';
 
 const Design = () => {
     const lang = useSelector((state: RootState) => state.lang.value.lang)
+    const main = useSelector((state: RootState) => state.lang.value.servicesPages.web)
+    const hire = useSelector((state: RootState) => state.lang.value.servicesPages.hireUs)
     return (
-        <div>
+        <div className={lang}>
             <TopNav />
             <Navbar />
             <Container>
                 <Box sx={{ mt: "64px", mb: "70px" }}>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={6}>
-                            <Typography sx={{ mb: "24px", fontSize: "32px", fontWeight: "600" }}>Web development</Typography>
+                            <Typography sx={{ mb: "24px", fontSize: "32px", fontWeight: "600" }}>{main.heading[lang]}</Typography>
                             <Typography sx={{ mb: "24px" }}>
-                                Web development plays a vital role in your Business Website& Web Application success, Web Development is the core( back- end) coding of your application or your business website .
+                                {main.text[lang]}
                             </Typography>
-                            <Typography sx={{ mb: "24px" }}>As a Web Development company CYPARTA provides Web Development services, to deliver complete professional Business Web Applications that you can rely on .</Typography>
-                            <Typography sx={{ mb: "24px" }}>CYPARTA successfully delivered many web applications on different scales ; please visit our Projects page for more information about our delivered projects and apps .</Typography>
+                            <Typography sx={{ mb: "24px" }}>{main.text2[lang]}</Typography>
+                            <Typography sx={{ mb: "24px" }}>{main.text3[lang]}</Typography>
 
                             <Link href="/#contact">
-                                <MainButton sx={{ mt: "32px" }}>Hire Us</MainButton>
+                                <MainButton sx={{ mt: "32px" }}>{hire[lang]}</MainButton>
                             </Link>
                         </Grid>
                         <Grid item xs={12} sm={6} sx={{ textAlign: lang === 'en' ? "right" : "left" }}>

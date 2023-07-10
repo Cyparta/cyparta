@@ -17,11 +17,13 @@ const Index = () => {
     <Box className={`${lang}`}>
       <TopNav />
       <Navbar />
+      
       <HeroPage
         text={main.leading[lang]}
         heading={main.heading[lang]}
         imageCover={coverImage}
       />
+
       <Container>
         <OfferForm />
       </Container>

@@ -31,7 +31,7 @@ const InfoSection = () => {
     { image: employImage, text: card1[lang], number: 15 },
     { image: employImage3, text: card2[lang], number: 20 },
     { image: employImage4, text: card3[lang], number: 40 },
-    { image: employImage5, text: card4[lang], number: 6 },
+    { image: employImage5, text: card4[lang], number: 3 },
   ];
   
   return (
@@ -78,7 +78,7 @@ const InfoSection = () => {
                   {info.text}
                 </Typography>
                 <Box
-                  sx={{ fontWeight: "700", color: "#252324", fontSize: "36px" }}
+                  sx={{ fontWeight: "700", color: "#252324", fontSize: "36px", direction:"ltr" }}
                   className="fill"
                 >
                   <AnimatedNumbers

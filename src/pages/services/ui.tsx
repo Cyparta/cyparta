@@ -12,8 +12,14 @@ import Link from "next/link";
 
 const Design = () => {
   const lang = useSelector((state: RootState) => state.lang.value.lang);
+  const main = useSelector(
+    (state: RootState) => state.lang.value.servicesPages.ui
+  );
+  const hire = useSelector(
+    (state: RootState) => state.lang.value.servicesPages.hireUs
+  );
   return (
-    <div>
+    <div className={lang}>
       <TopNav />
       <Navbar />
       <Container>
@@ -23,31 +29,11 @@ const Design = () => {
               <Typography
                 sx={{ mb: "24px", fontSize: "32px", fontWeight: "600" }}
               >
-                UI & UX
+                {main.heading[lang]}
               </Typography>
-              <Typography sx={{ mb: "24px" }}>
-                At our software development company, we place a great deal of
-                importance on providing exceptional UI/UX design services to our
-                clients. We understand that the success of a software
-                application depends not only on its functionality but also on
-                its user experience.
-              </Typography>
-              <Typography sx={{ mb: "24px" }}>
-                {" "}
-                Our UI/UX design services are aimed at creating software
-                applications that are intuitive, user-friendly, and visually
-                appealing. We work closely with our clients to understand their
-                business needs and target audience, and we use this information
-                to create designs that are tailored to their specific
-                requirements.
-              </Typography>
-              <Typography sx={{ mb: "24px" }}>
-                Our team of experienced designers uses the latest design tools
-                and techniques to create engaging user interfaces that enhance
-                the user experience. We focus on creating designs that are
-                simple, clear, and easy to navigate, ensuring that users can
-                quickly and easily find what they need.
-              </Typography>
+              <Typography sx={{ mb: "24px" }}>{main.text[lang]}</Typography>
+              <Typography sx={{ mb: "24px" }}> {main.text2[lang]}</Typography>
+              <Typography sx={{ mb: "24px" }}>{main.text3[lang]}</Typography>
             </Grid>
             <Grid
               item
@@ -59,21 +45,9 @@ const Design = () => {
             </Grid>
           </Grid>
 
-          <Typography>
-            We also place a great deal of emphasis on the visual appeal of our
-            designs, creating interfaces that are not only functional but also
-            aesthetically pleasing. We believe that a well-designed interface
-            can greatly enhance the user experience and contribute to the
-            success of a software application. In conclusion, our UI/UX design
-            services are an integral part of our software development process.
-            We believe that a well-designed user interface is essential for
-            creating software applications that are easy to use, engaging, and
-            effective. Our team of experienced designers is dedicated to
-            creating designs that meet the specific needs of our clients and
-            enhance the user experience.
-          </Typography>
+          <Typography>{main.text4[lang]}</Typography>
           <Link href="/#contact">
-            <MainButton sx={{mt:"32px"}}>Hire Us</MainButton>
+            <MainButton sx={{ mt: "32px" }}>{hire[lang]}</MainButton>
           </Link>
         </Box>
       </Container>
