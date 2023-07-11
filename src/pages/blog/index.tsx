@@ -62,7 +62,14 @@ const Page = () => {
             <Typography sx={{ fontSize: "40px", fontWeight: "600" }}>
               Blog
             </Typography>
-            <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems:"center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "10px",
+                flexWrap: "wrap",
+                alignItems: "center",
+              }}
+            >
               <TextField
                 variant="outlined"
                 label=""
@@ -94,7 +101,9 @@ const Page = () => {
                 }}
               />
               <Link href="/blog/post">
-                <MainButton sx={{padding:"13px 30px !important"}}>+ Add Post</MainButton>
+                <MainButton sx={{ padding: "13px 30px !important" }}>
+                  + Add Post
+                </MainButton>
               </Link>
             </Box>
           </Box>
@@ -184,6 +193,7 @@ const Page = () => {
                       }}
                     >
                       <div
+                        className={styles.blog_card}
                         dangerouslySetInnerHTML={{
                           __html: `${blogs[0]?.text?.slice(0, 200)}...`,
                         }}
@@ -272,6 +282,7 @@ const Page = () => {
                         </Typography>
                         <Box sx={{ color: "rgba(157, 157, 157, 1)" }}>
                           <div
+                            className={styles.blog_card}
                             dangerouslySetInnerHTML={{
                               __html: `${blog?.text?.slice(0, 47)}...`,
                             }}

@@ -13,6 +13,8 @@ import blogImage from "@/assets/blogs/blog1.png";
 import personImage from "@/assets/blogs/person1.png";
 import { blogProps, categoryProps } from "@/types/blog";
 
+import styles from '@/app/Blogs.module.css'
+
 const BlogCard = ({ blog }: any) => {
   return (
     <Box>
@@ -47,6 +49,8 @@ const BlogCard = ({ blog }: any) => {
           }}
         >
           <div
+          className={styles.blog_card}
+          style={{fontSize:"16px"}}
             dangerouslySetInnerHTML={{
               __html: `${blog?.text?.slice(0, 80)}...`,
             }}
