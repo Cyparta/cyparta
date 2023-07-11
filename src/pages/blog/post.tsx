@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import InputControl from "@/components/commons/InputControl";
 import MainCategory from "@/components/blogs/mainCategory";
 import { MainButton } from "@/style/style";
+import MyEditor from "@/components/blogs/myEditor";
 
 // import ReactQuill from "react-quill";
 // import "react-quill/dist/quill.snow.css";
@@ -24,32 +25,46 @@ const Post = () => {
             <Box>
               <InputControl type="text" placeholder="title" name="title" />
             </Box>
+
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "32px",
-                mt: "22px",
-                flexWrap: "wrap",
-                cursor: "pointer",
+                border: "2px solid rgba(225, 230, 239, 1)",
+                textAlign: "center",
+                padding: "43px",
+                borderRadius: "10px",
               }}
-              onClick={() => console.log("tss")}
             >
               <Box
-                key={1}
                 sx={{
-                  background: "rgba(37, 35, 36, 1)",
-                  padding: "15px 15px",
-                  border: "1px solid rgba(236, 35, 43, 1)",
-                  borderRadius: "12px",
-                  color: "#fff",
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "32px",
+                  mt: "22px",
+                  flexWrap: "wrap",
+                  cursor: "pointer",
                 }}
+                onClick={() => console.log("tss")}
               >
-                Upload your cv
+                <Box
+                  key={1}
+                  sx={{
+                    background: "rgba(37, 35, 36, 1)",
+                    padding: "15px 15px",
+                    border: "1px solid rgba(236, 35, 43, 1)",
+                    borderRadius: "12px",
+                    color: "#fff",
+                  }}
+                >
+                  Add your blog cover
+                  <input type="file" style={{ display: "none" }} />
+                </Box>
               </Box>
+              <Typography sx={{ fontWeight: "500", mt: "8px" }}>
+                {"Or drop file"}
+              </Typography>
             </Box>
             <Box>
-              <Typography mb="16px">Choose your tags</Typography>
+              <Typography mb="16px" sx={{fontWeight:"500", fontSize:"18px"}}>Choose your tags</Typography>
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                 <MainCategory text="Design" />
                 <MainCategory text="Technical consulting" />
@@ -61,8 +76,7 @@ const Post = () => {
               value={value}
               onChange={setValue}
             /> */}
-
-            <InputControl type="text" placeholder="test" name="test" />
+            <MyEditor />
 
             <Box sx={{ textAlign: "center" }}>
               <MainButton>Publish</MainButton>

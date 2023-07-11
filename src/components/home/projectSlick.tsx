@@ -175,8 +175,8 @@ const ProjectSlick = () => {
               <>
               <Link href={`/projects/${project?.id}`}>
                 <Box className="project" key={index}>
-                  {project.main_image ? <img
-                    src={project.main_image}
+                  {project?.main_image ? <img
+                    src={project?.main_image}
                     alt="test"
                     style={{ borderRadius: "10px", width: "100%", height: "100%" }}
 
@@ -184,9 +184,9 @@ const ProjectSlick = () => {
 
 
                   <Box className="swiper-info" sx={{ mt: "24px" }}>
-                    {project.description.length > 200
-                      ? project.description.slice(0, 200) + "..."
-                      : project.description}
+                    {project?.description?.length > 200
+                      ? project?.description?.slice(0, 200) + "..."
+                      : project?.description}
                   </Box>
                 </Box>
                 </Link>
@@ -204,16 +204,16 @@ const ProjectSlick = () => {
                       style={{ borderRadius: "10px" }}
                     /> */}
 
-                  {project.main_image ? <img
-                    src={project.main_image}
+                  {project?.main_image ? <img
+                    src={project?.main_image}
                     alt="test"
                     style={{ borderRadius: "10px", width: "100%", height: "100%" }}
 
                   /> : ""}
                   <Box className="swiper-info" sx={{ mt: "24px" }}>
-                    {project.description.length > 200
-                      ? project.description.slice(0, 200) + "..."
-                      : project.description}
+                    {project?.description?.length > 200
+                      ? project?.description?.slice(0, 200) + "..."
+                      : project?.description}
                   </Box>
                 </Box>
               );

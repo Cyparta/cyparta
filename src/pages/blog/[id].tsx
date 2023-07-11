@@ -28,6 +28,7 @@ import Link from "next/link";
 import moment from 'moment';
 
 const Test = () => {
+  const lang = useSelector((state: RootState) => state.lang.value.lang);
   const blog: blogProps = useSelector((state: RootState) => state.blogs.blog);
   const blogs: blogProps[] = useSelector(
     (state: RootState) => state.blogs.blogs
@@ -40,7 +41,7 @@ const Test = () => {
     dispatch(RequestGetBlogs());
   }, [router.query.id]);
   return (
-    <Box>
+    <Box className={lang}>
       <TopNav />
       <Navbar />
       <Box sx={{ padding: { xs: "20px", lg: "20px 100px" } }}>

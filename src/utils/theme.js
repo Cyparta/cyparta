@@ -14,12 +14,12 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: "'Poppins', sans-serif",
-  }
+  },
   // components: {
   //   MuiContainer: {
   //     styleOverrides: {
   //       maxWidthLg: {
-  //         maxWidth: '1250px !important',
+  //         maxWidth: '1400px !important',
   //       },
   //     },
   //   },
