@@ -25,15 +25,14 @@ import BlogCard from "@/components/blogs/blogCard";
 import { blogProps, categoryProps } from "@/types/blog";
 import { setFilter } from "@/store/blogs/blogsSlice";
 import styles from "@/app/Blogs.module.css";
+import { MainButton } from "@/style/style";
 
 const Page = () => {
   const lang = useSelector((state: RootState) => state.lang.value.lang);
   const blogs: blogProps[] = useSelector(
     (state: RootState) => state.blogs.blogs
   );
-  const loading = useSelector(
-    (state: RootState) => state.blogs.loading
-  );
+  const loading = useSelector((state: RootState) => state.blogs.loading);
   const cate: categoryProps[] = useSelector(
     (state: RootState) => state.blogs.cate
   );
@@ -63,7 +62,7 @@ const Page = () => {
             <Typography sx={{ fontSize: "40px", fontWeight: "600" }}>
               Blog
             </Typography>
-            <Box>
+            <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems:"center" }}>
               <TextField
                 variant="outlined"
                 label=""
@@ -79,7 +78,6 @@ const Page = () => {
                   style: { color: "rgba(0, 0, 0, 0.3)" },
                 }}
                 sx={{
-                  padding: "11.5px 0px !important",
                   width: { xs: "auto", sm: "388px !important" },
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "10px",
@@ -95,6 +93,9 @@ const Page = () => {
                   },
                 }}
               />
+              <Link href="/blog/post">
+                <MainButton sx={{padding:"13px 30px !important"}}>+ Add Post</MainButton>
+              </Link>
             </Box>
           </Box>
           {/* tabs */}
@@ -111,7 +112,7 @@ const Page = () => {
               className={`${
                 filter.category === "" ? styles.active : styles.not_active
               }`}
-              sx={{cursor:"pointer"}}
+              sx={{ cursor: "pointer" }}
               onClick={() => {
                 dispatch(setFilter({ name: "category", val: "" }));
                 dispatch(RequestGetBlogs());
@@ -122,14 +123,13 @@ const Page = () => {
             {cate.map((item) => {
               return (
                 <Box
-                key={item.id}
+                  key={item.id}
                   className={`${
                     filter.category === item.id
                       ? styles.active
                       : styles.not_active
                   }`}
-                  sx={{cursor:"pointer"}}
-
+                  sx={{ cursor: "pointer" }}
                   onClick={() => {
                     dispatch(setFilter({ name: "category", val: item.id }));
                     dispatch(RequestGetBlogs());

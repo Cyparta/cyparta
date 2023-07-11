@@ -85,7 +85,6 @@ const ProjectSlick = () => {
         },
       },
     ],
-    rtl: true
   };
 
 
@@ -185,9 +184,9 @@ const ProjectSlick = () => {
 
 
                   <Box className="swiper-info" sx={{ mt: "24px" }}>
-                    {project?.description?.length > 200
-                      ? project?.description?.slice(0, 200) + "..."
-                      : project?.description}
+                    {project.description.length > 200
+                      ? project.description.slice(0, 200) + "..."
+                      : project.description}
                   </Box>
                 </Box>
                 </Link>
