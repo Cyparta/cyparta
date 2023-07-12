@@ -18,6 +18,8 @@ import { RequestGetCollection } from "@/store/collections/collectionsSlice";
 import { RequestGetBlogsCate } from "@/store/blogs/blogsSlice";
 import { categoryProps } from "@/types/blog";
 
+import FormData from "form-data";
+
 // import ReactQuill from "react-quill";
 // import "react-quill/dist/quill.snow.css";
 // import EditorToolbar, { modules, formats } from "@/components/blogs/editorToolbar";
