@@ -24,7 +24,9 @@ import { categoryProps } from "@/types/blog";
 
 const Post = () => {
   const [value, setValue] = useState("");
-
+  
+  const formData: any = new FormData();
+  
   const cate: categoryProps[] = useSelector(
     (state: RootState) => state.blogs.cate
   );
@@ -52,7 +54,6 @@ const Post = () => {
     formik.setFieldValue("image", e.target.files[0]);
   };
 
-  const formData: any = new FormData();
 
   const formik = useFormik({
     initialValues: {
