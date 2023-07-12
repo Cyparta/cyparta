@@ -72,12 +72,8 @@ const Post = () => {
     }),
     onSubmit: async (values, { resetForm, setSubmitting }) => {
       const { title, image, publisher, category, text } = values;
-      formData.append("photo", image);
-      formData.append("category", [{ name: "backend", id: "1" }]); // need to fix
-      formData.append("text", text);
-      formData.append("title", title);
-      formData.append("publisher", 8);
-      const res = await axios.post(`${BASEURL}apis/blogs/`, ...[formData], {
+
+      const res = await axios.post(`${BASEURL}apis/blogs/`, formData, {
         headers: {
           Authorization: `Token ${user}`,
         },
@@ -97,6 +93,12 @@ const Post = () => {
     for (let i = 0; category.length > i; i++) {
       formData.append(`category_id[${i}]`, category[i]);
     }
+
+    formData.append("photo", formik.values.image);
+    formData.append("category", [{ name: "backend", id: "1" }]); // need to fix
+    formData.append("text", formik.values.text);
+    formData.append("title", formik.values.title);
+    formData.append("publisher", 8);
   }, [formData]);
   console.log(category);
 
