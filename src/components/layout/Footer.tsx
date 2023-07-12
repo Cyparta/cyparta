@@ -385,7 +385,7 @@ const Footer = () => {
                   border: "1px solid #EC232B",
                 }}
               >
-                <a href="https://api.whatsapp.com/send/?phone=%2B2001017204584&text=HiCyparta&type=phone_number&app_absent=0" target="_blank">
+                <a href="https://api.whatsapp.com/send/?phone=%2B2001212018088&text=HiCyparta&type=phone_number&app_absent=0" target="_blank">
                 <Image
                   src={whatsFooter}
                   alt="facebook"
