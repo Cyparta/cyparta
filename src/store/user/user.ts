@@ -3,6 +3,16 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 import axios from "axios";
 
+
+const getLocalStoarge = () => {
+  let user = null
+  if (typeof window !== 'undefined') {
+    const result = localStorage.getItem("token");
+    user = result ? result : null;
+  }
+  return user;
+};
+
 export interface UserState {
   loading: boolean;
   error: boolean;
@@ -12,7 +22,7 @@ export interface UserState {
 
 const initialState: UserState = {
   loading: false,
-  user: [],
+  user: getLocalStoarge(),
   error: false,
   errorMsg: ""
 }

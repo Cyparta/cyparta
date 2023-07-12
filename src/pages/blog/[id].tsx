@@ -25,7 +25,7 @@ import { RootState } from "@/store/store";
 import BlogCard from "@/components/blogs/blogCard";
 import Link from "next/link";
 
-import moment from 'moment';
+import moment from "moment";
 
 const Test = () => {
   const lang = useSelector((state: RootState) => state.lang.value.lang);
@@ -41,9 +41,11 @@ const Test = () => {
     dispatch(RequestGetBlogs());
   }, [router.query.id]);
   return (
-    <Box className={lang}>
-      <TopNav />
-      <Navbar />
+    <Box>
+      <Box className={lang}>
+        <TopNav />
+        <Navbar />
+      </Box>
       <Box sx={{ padding: { xs: "20px", lg: "20px 100px" } }}>
         <Box
           sx={{
@@ -102,7 +104,7 @@ const Test = () => {
                     fontSize: "12px",
                   }}
                 >
-                  {moment(blog?.created_at).format('D MMM, YYYY')}
+                  {moment(blog?.created_at).format("D MMM, YYYY")}
                 </Typography>
               </Box>
             </Box>
@@ -245,8 +247,10 @@ const Test = () => {
           })}
         </Grid>
       </Box>
-
-      <Footer />
+        
+        <Box className={lang}>
+          <Footer />
+        </Box>
     </Box>
   );
 };

@@ -1,12 +1,16 @@
 import TopNav from "@/components/layout/topNav";
 import Navbar from "@/components/layout/navbar";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "@/components/layout/Footer";
 import playImage from "../../assets/icons/playStore-project.png";
 import adobeImage from "../../assets/icons/adobe-project.png";
 import linkProject from "../../assets/icons/link-project.png";
 import bagIcon from "../../assets/icons/bag-icon.png";
+
+import CloseIcon from "@mui/icons-material/Close";
+
+import galleryImage from "@/assets/blogs/blog3.png";
 
 import Image from "next/image";
 
@@ -24,6 +28,8 @@ import { RequestGetColDetails } from "@/store/collections/collectionsSlice";
 import { RequestGetProduct } from "@/store/products/productsSlice";
 import axios from "axios";
 import { AppDispatch, RootState } from "@/store/store";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 
 interface ProductState {
   title_logo?: string;
@@ -46,13 +52,14 @@ interface ProductState {
   wimages?: any;
 }
 const ProjectDetails = () => {
+  const [photo, setPhoto] = useState("");
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const col: ProductState = useSelector(
     (state: RootState) => state.products.col
   );
-  const lang = useSelector((state:RootState) => state.lang.value.lang)
-
+  const lang = useSelector((state: RootState) => state.lang.value.lang);
+  const isTab = useMediaQuery("(max-width:800px)"); 
   useEffect(() => {
     dispatch(RequestGetProduct(router.query.id));
   }, [router.query.id, lang]);
@@ -188,7 +195,7 @@ const ProjectDetails = () => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                gap: "32px",
+                gap: "0px 20px",
                 mt: "22px",
                 flexWrap: "wrap",
               }}
@@ -227,7 +234,7 @@ const ProjectDetails = () => {
               <Swiper
                 navigation={true}
                 modules={[Navigation]}
-                slidesPerView={6}
+                slidesPerView={5}
                 spaceBetween={10}
                 className="mySwiper"
                 autoplay={{
@@ -249,14 +256,14 @@ const ProjectDetails = () => {
                   },
                   991: {
                     width: 991,
-                    slidesPerView: 6,
+                    slidesPerView: 5,
                   },
                 }}
               >
                 {col?.images?.map((item: { id: number; image: string }) => {
                   return (
                     <SwiperSlide key={item.id} style={{ color: "#000" }}>
-                      <Box>
+                      <Box onClick={() => setPhoto(item?.image)}>
                         <Image
                           src={item?.image}
                           alt="test"
@@ -317,7 +324,7 @@ const ProjectDetails = () => {
                 {col?.wimages?.map((item: { id: number; image: string }) => {
                   return (
                     <SwiperSlide key={item.id} style={{ color: "#000" }}>
-                      <Box>
+                      <Box onClick={() => setPhoto(item?.image)}>
                         {item?.image && (
                           <img
                             src={item?.image}
@@ -334,7 +341,46 @@ const ProjectDetails = () => {
           )}
           {/* wimages */}
         </Container>
-        {/* <Box className="curve-line"></Box> */}
+        {photo && (
+          <Box
+            sx={{
+              position: "fixed",
+              top: "0",
+              left: "0",
+              width: "100%",
+              height: "100%",
+              background: "#00000061",
+              zIndex: "99999",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "20px",
+                width: isTab ? "auto" : "800px",
+                margin:"auto",
+                height:"90%"
+              }}
+            >
+              <img src={photo} alt="test" style={{width:"100%", height:"100%"}}/>
+            </Box>
+
+            <Box
+              sx={{
+                position: "absolute",
+                top: "10px",
+                right: "9px",
+                color: "#fff",
+                cursor: "pointer",
+                fontSize: "30px",
+              }}
+            >
+              <CloseIcon sx={{ fontSize: "30px" }} onClick={() => setPhoto("")}/>
+            </Box>
+          </Box>
+        )}
       </Box>
       <Footer />
     </Box>

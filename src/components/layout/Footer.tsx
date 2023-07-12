@@ -369,7 +369,9 @@ const Footer = () => {
                   border: "1px solid #EC232B",
                 }}
               >
-                <Image src={faceFooter} alt="facebook" width={20} height={20} />
+                <a href="https://www.facebook.com/CypartaCompany" target="_blank">
+                  <Image src={faceFooter} alt="facebook" width={20} height={20} />
+                </a>
               </Box>
               <Box
                 sx={{
@@ -378,17 +380,19 @@ const Footer = () => {
                   width: "36px",
                   height: "36px",
                   display: "flex",
-                  alignItems: "center",
+                  alignItems: "end",
                   justifyContent: "center",
                   border: "1px solid #EC232B",
                 }}
               >
+                <a href="https://api.whatsapp.com/send/?phone=%2B2001017204584&text=HiCyparta&type=phone_number&app_absent=0" target="_blank">
                 <Image
                   src={whatsFooter}
                   alt="facebook"
                   width={20}
                   height={20}
                 />
+                </a>
               </Box>
               <Box
                 sx={{
@@ -402,12 +406,14 @@ const Footer = () => {
                   border: "1px solid #EC232B",
                 }}
               >
+                <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FCypartaCompany" target="_blank">
                 <Image
                   src={twitterFooter}
                   alt="facebook"
                   width={20}
                   height={20}
                 />
+                </a>
               </Box>
             </Box>
           </Grid>

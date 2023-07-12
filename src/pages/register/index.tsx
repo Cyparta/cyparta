@@ -54,7 +54,7 @@ const Index = () => {
                     console.log(req.type)
                     if (req.type == "RequestPostRegister/fulfilled") {
                         setTimeout(() => {
-                            router.push("/dashboard");
+                            router.push("/login");
                         }, 200);
                     }
                 }

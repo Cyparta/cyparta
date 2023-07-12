@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const MyEditor = () => {
+const MyEditor = ({handleEditor}:any) => {
   const [content, setContent] = useState("");
   const modules = {
     toolbar: [
@@ -22,6 +22,7 @@ const MyEditor = () => {
   };
   const handleChange = (value: any) => {
     setContent(value);
+    handleEditor(value)
   };
 
   return (

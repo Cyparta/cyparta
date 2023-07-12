@@ -37,6 +37,10 @@ const Page = () => {
     (state: RootState) => state.blogs.cate
   );
   const filter = useSelector((state: RootState) => state.blogs.filter);
+  const token = useSelector((state: RootState) => state.user.user);
+
+  console.log(token)
+
   // const mainBlog:blogState = blogs[0]
 
   const dispatch = useDispatch<AppDispatch>();
@@ -44,10 +48,14 @@ const Page = () => {
     dispatch(RequestGetBlogs());
     dispatch(RequestGetBlogsCate());
   }, []);
+
+  
   return (
-    <Box className={lang}>
+    <Box >
+      <Box className={lang}>
       <TopNav />
       <Navbar />
+      </Box>
       <Box sx={{ padding: { xs: "20px", lg: "20px 100px" } }}>
         <Box mt="48px">
           {/* top section */}
@@ -99,12 +107,18 @@ const Page = () => {
                     },
                   },
                 }}
+                onChange={(e) => {
+                  dispatch(setFilter({name:"search", val:e.target.value}))
+                  dispatch(RequestGetBlogs())
+                }}
               />
-              <Link href="/blog/post">
-                <MainButton sx={{ padding: "13px 30px !important" }}>
-                  + Add Post
-                </MainButton>
-              </Link>
+              {token !== null ? (
+                <Link href="/blog/post">
+                  <MainButton sx={{ padding: "13px 30px !important" }}>
+                    + Add Post
+                  </MainButton>
+                </Link>
+              ) : ""}
             </Box>
           </Box>
           {/* tabs */}

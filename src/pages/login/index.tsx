@@ -37,11 +37,13 @@ const Index = () => {
         onSubmit: (values) => {
             const { email, password } = values;
             dispatch(RequestPostLogin({ email, password })).then((req) => {{
-                console.log(req.type)
+                console.log(typeof req.payload.data.token)
+                localStorage.setItem("token", req.payload.data.token)
                 if (req.type == "RequestPostLogin/fulfilled") {
                     setTimeout(() => {
-                        router.push("/dashboard");
+                        router.push("/blog");
                     }, 200);
+                    
                 }
             }})
         },

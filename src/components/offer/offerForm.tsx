@@ -1,4 +1,12 @@
-import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import {
+  Box,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+} from "@mui/material";
 import React, { useState, useRef } from "react";
 import InputControl from "../commons/InputControl";
 import Image from "next/image";
@@ -9,18 +17,18 @@ import * as Yup from "yup";
 import axios from "axios";
 import { BASEURL } from "@/data/APIS";
 import OfferRequest from "./offerRequest";
-import { countries } from '@/data/countries';
+import { countries } from "@/data/countries";
 import CustomSelect from "../offer/customSelect";
 
-import ReactToPrint from 'react-to-print';
+import ReactToPrint from "react-to-print";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-
+import NumberField from "../commons/numberField";
 
 const OfferForm = () => {
-  const [loading, setLoading] = useState(false)
-  const lang = useSelector((state: RootState) => state.lang.value.lang)
-  const main = useSelector((state: RootState) => state.lang.value.offerPrice)
+  const [loading, setLoading] = useState(false);
+  const lang = useSelector((state: RootState) => state.lang.value.lang);
+  const main = useSelector((state: RootState) => state.lang.value.offerPrice);
   const componentRef = useRef<any>();
 
   const formik = useFormik({
@@ -41,7 +49,9 @@ const OfferForm = () => {
         .required("Please enter a vaild email"),
       name: Yup.string().required("Please enter name"),
       development: Yup.string().required("Please enter development"),
-      phone: Yup.number().required("Please enter phone"),
+      phone: Yup.number()
+        .typeError("phone must be a number")
+        .required("Please enter phone"),
       country: Yup.string().required("Please enter country"),
       budget: Yup.number().required("Please enter budget"),
       services: Yup.string().required("Please enter services"),
@@ -51,9 +61,9 @@ const OfferForm = () => {
     onSubmit: (values, { resetForm }) => {
       // const { email } = values
       // dispatch(RequestPostSubscibe({ email: email }))
-      setLoading(true)
-      axios.post(`${BASEURL}apis/offers/`, { ...values })
-      setLoading(false)
+      setLoading(true);
+      axios.post(`${BASEURL}apis/offers/`, { ...values });
+      setLoading(false);
       resetForm();
     },
   });
@@ -150,11 +160,18 @@ const OfferForm = () => {
                   ) : null}
                 </Box>
                 <Box sx={{ width: "100%" }}>
-                  <InputControl type="number" placeholder={main.phone[lang]}
-                    name={main.phone[lang]}
+                  {/* <InputControl
+                    type="text"
+                    placeholder={main.phone[lang]}
+                    name="phone"
                     value={formik.values.phone}
                     onChange={formik.handleChange}
-                    className="no-arrows"
+                  /> */}
+                  <NumberField
+                    onChange={(e: any) => {
+                      formik.setFieldValue("phone", e.target.value);
+                    }}
+                    placeholder={main.phone[lang]}
                   />
                   {formik.touched.phone && formik.errors.phone ? (
                     <Typography
@@ -182,7 +199,7 @@ const OfferForm = () => {
                   <CustomSelect
                     defaultValue="Egypt"
                     handleSelect={(option: string) => {
-                      formik.setFieldValue("country", option)
+                      formik.setFieldValue("country", option);
                     }}
                   />
                   {formik.touched.country && formik.errors.country ? (
@@ -200,13 +217,19 @@ const OfferForm = () => {
                   ) : null}
                 </Box>
                 <Box sx={{ width: "100%" }}>
-                  <InputControl
+                  {/* <InputControl
                     type="number"
                     placeholder={main.budget[lang]}
                     value={formik.values.budget}
                     onChange={formik.handleChange}
                     name="budget"
                     className="no-arrows"
+                  /> */}
+                  <NumberField
+                    onChange={(e: any) => {
+                      formik.setFieldValue("budget", e.target.value);
+                    }}
+                    placeholder={main.budget[lang]}
                   />
                   {formik.touched.budget && formik.errors.budget ? (
                     <Typography
@@ -311,7 +334,9 @@ const OfferForm = () => {
                 ) : null}
               </Box>
               <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <MainButton type="submit" disabled={loading}>{loading ? main.loading[lang] : main.send[lang]}</MainButton>
+                <MainButton type="submit" disabled={loading}>
+                  {loading ? main.loading[lang] : main.send[lang]}
+                </MainButton>
               </Box>
             </Box>
           </form>

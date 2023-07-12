@@ -13,6 +13,7 @@ export interface BlogsState {
   cate: [];
   filter: {
     category: string | number;
+    search:string | number
   };
 }
 
@@ -24,6 +25,7 @@ const initialState: BlogsState = {
   cate: [],
   filter: {
     category: "",
+    search:""
   },
 };
 
@@ -48,10 +50,13 @@ export const RequestGetBlogs = createAsyncThunk(
     const state: any = getState();
     const filter = state.blogs.filter;
 
-    const params: {category?:any} = {};
+    const params: {category?:any, search?:any} = {};
     console.log(filter.category)
     if (filter.category !== "") {
       params.category = filter.category
+    }
+    if (filter.search !== "") {
+      params.search = filter.search
     }
     try {
       const response = await axios.get(
