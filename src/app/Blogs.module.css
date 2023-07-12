@@ -24,6 +24,11 @@
   display:inline;
   color:rgba(157, 157, 157, 1)
 }
+.editor {
+  height:100%;
+  border:none;
+}
+
 
 
 

@@ -364,7 +364,7 @@ const Footer = () => {
                   width: "36px",
                   height: "36px",
                   display: "flex",
-                  alignItems: "center",
+                  alignItems: "end",
                   justifyContent: "center",
                   border: "1px solid #EC232B",
                 }}
@@ -401,7 +401,7 @@ const Footer = () => {
                   width: "36px",
                   height: "36px",
                   display: "flex",
-                  alignItems: "center",
+                  alignItems: "end",
                   justifyContent: "center",
                   border: "1px solid #EC232B",
                 }}

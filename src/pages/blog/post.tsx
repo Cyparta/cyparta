@@ -24,40 +24,22 @@ import { categoryProps } from "@/types/blog";
 
 const Post = () => {
   const [value, setValue] = useState("");
-  
-  const [category, setCategory] = useState([1, 2])
 
-  // const cate: categoryProps[] = useSelector(
-  //   (state: RootState) => state.blogs.cate
-  // );
+  const cate: categoryProps[] = useSelector(
+    (state: RootState) => state.blogs.cate
+  );
+  const user: categoryProps[] = useSelector(
+    (state: RootState) => state.user.user
+  );
+  const lang = useSelector(
+    (state: RootState) => state.lang.value.lang
+  );
 
-  const cate = [{name:"test", id:1}, {name:"test", id:2}]
+  const [category, setCatgory] = useState<any>([]);
+
+  // const cate = [{name:"test", id:1}, {name:"test", id:2}]
 
   const dispatch = useDispatch<AppDispatch>();
-
-  const arr = [1, 2, 3, 4];
-
-  // console.log(arr.filter(ele => ele === 5 ? [ele, 10] :  [ele, 10]))
-
-  // for(var i =0; i < arr.length; i++) {
-  //   if (arr[i] === 3) {
-  //     console.log('yes', i)
-  //     arr.splice(arr[i -1], 1)
-  //   } else {
-  //     arr.push(3)
-  //   }
-  //   console.log(arr)
-  // }
-
-  // const test = category?.map((ele, index, arr) => {
-  //   if (ele === 3) {
-  //     arr.splice(arr[index-1], 1)
-  //   } else {
-  //     arr.push(ele)
-  //   }
-  // })
-  // console.log(category)
-
 
   /* for upload photo */
   const [dragging, setDragging] = useState(false);
@@ -70,6 +52,8 @@ const Post = () => {
     formik.setFieldValue("image", e.target.files[0]);
   };
 
+  const formData: any = new FormData();
+
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -80,41 +64,40 @@ const Post = () => {
     },
     validationSchema: Yup.object().shape({
       title: Yup.string().required("Please enter name"),
-      image: Yup.mixed().required('A photo is required'),
+      image: Yup.mixed().required("A photo is required"),
       publisher: Yup.number().required("Please enter a publisher name"),
       category: Yup.string().required("Please enter a category"),
       text: Yup.string(),
     }),
     onSubmit: async (values, { resetForm, setSubmitting }) => {
       const { title, image, publisher, category, text } = values;
-      const formData:any = new FormData();
-      formData.append('photo', image);
-      formData.append('category', [{name:"backend", id:"1"}]);
-      formData.append('text', text);
-      formData.append('title', title);
-      formData.append('publisher', 8);
-      const res = await axios.post(
-        `${BASEURL}apis/blogs/`,
-        formData,
-        {
-          headers: {
-            Authorization: `Token b4375de1ff6454c97275ddb98e5eaba4cd413787`,
-          },
-        }
-      );
+      formData.append("photo", image);
+      formData.append("category", [{ name: "backend", id: "1" }]); // need to fix
+      formData.append("text", text);
+      formData.append("title", title);
+      formData.append("publisher", 8);
+      const res = await axios.post(`${BASEURL}apis/blogs/`, ...[formData], {
+        headers: {
+          Authorization: `Token ${user}`,
+        },
+      });
 
       console.log(res);
 
       setSubmitting(true);
 
       setSubmitting(false);
-      // if (formik.isSubmitting) {
-      //   toast.success("your cv sent successfully");
-      // }
       setSelectedFile("");
       resetForm();
     },
   });
+
+  useEffect(() => {
+    for (let i = 0; category.length > i; i++) {
+      formData.append(`category_id[${i}]`, category[i]);
+    }
+  }, [formData]);
+  console.log(category);
 
   // for Drag and Drop PDF
   const handleDragEnter = (event: any) => {
@@ -142,13 +125,16 @@ const Post = () => {
     formik.setFieldValue("text", value);
   };
 
+  console.log(category.find((item: any) => item === 1));
   useEffect(() => {
     dispatch(RequestGetBlogsCate());
   }, []);
   return (
     <Box>
-      <TopNav />
-      <Navbar />
+      <Box className={lang}>
+        <TopNav />
+        <Navbar />
+      </Box>
       <Container sx={{ position: "relative" }}>
         <Box sx={{ mt: "46px" }}>
           <form onSubmit={formik.handleSubmit}>
@@ -251,27 +237,72 @@ const Post = () => {
                   Choose your tags
                 </Typography>
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-                  {cate?.map((item) => {
+                  {cate?.map((item, index) => {
                     return (
                       <Box
-                        onClick={() =>
-                          {
-                            formik.setFieldValue("category", item.name)
+                        onClick={() => {
+                          if (
+                            category.filter((cat: any) => cat === item.id)
+                              .length > 0
+                          ) {
+                            setCatgory(
+                              category.filter((cat: any) => cat !== item.id)
+                            );
+                          } else {
+                            setCatgory([...category, item.id]);
                           }
-                        }
+                        }}
                         key={item.id}
                       >
-                        <MainCategory
-                          text={item.name}
-                          active={item.name == formik.values.category}
-                        />
+                        <Box
+                          sx={{
+                            color:
+                              category.filter((cat: any) => cat === item.id)
+                                .length > 0
+                                ? "#EC232B"
+                                : "rgba(157, 157, 157, 1)",
+                            border:
+                              category.filter((cat: any) => cat === item.id)
+                                .length > 0
+                                ? "1px solid #EC232B"
+                                : "1px solid rgba(157, 157, 157, 1)",
+                            display: "inline-block",
+                            padding: "8px 16px",
+                            borderRadius: "20px",
+                          }}
+                        >
+                          {item.name}
+                        </Box>
                       </Box>
                     );
                   })}
+                  {/* <Box onClick={() => setCategory0(1)}>
+                    <MainCategory text="Design"/>
+                  </Box>
+                  <Box onClick={() => setCategory1(2)}>
+                    <MainCategory text="Mobile Development"/>
+                  </Box>
+                  <Box onClick={() => setCategory2(3)}>
+                    <MainCategory text="Web Development" />
+                  </Box>
+                  <Box onClick={() => setCategory3(4)}>
+                    <MainCategory text="Technical Consulting" />
+                  </Box>
+                  <Box onClick={() => setCategory4(5)}>
+                    <MainCategory text="Software Management System" />
+                  </Box> */}
                 </Box>
               </Box>
 
-              <MyEditor handleEditor={handleEditor} />
+              <Box
+                sx={{
+                  height: "300px",
+                  overflow: "auto",
+                  border: "1px solid lightgray",
+                }}
+              >
+                <MyEditor handleEditor={handleEditor} />
+              </Box>
 
               <Box sx={{ textAlign: "center" }}>
                 <MainButton type="submit">Publish</MainButton>
@@ -293,7 +324,9 @@ const Post = () => {
           test
         </Box> */}
       </Container>
-      <Footer />
+      <Box className={lang}>
+        <Footer />
+      </Box>
     </Box>
   );
 };

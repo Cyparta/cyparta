@@ -352,6 +352,8 @@ select::-ms-expand {
   z-index: 8;
   cursor: pointer;
   margin-top: 10px;
+  height: 196px;
+  overflow-y: scroll;
 }
 .options li {
   padding: 15px 15px;
@@ -636,4 +638,10 @@ select::-ms-expand {
 /* clients */
 .swiper-wrapper {
   align-items: center;
+}
+
+
+/* blog */
+.ql-container.ql-snow {
+  border:none !important;
 }

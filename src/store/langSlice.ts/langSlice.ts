@@ -228,6 +228,10 @@ const initialState: LangState = {
         en: "loading...",
         ar: "تحميل...",
       },
+      summary: {
+        en: "write your question here",
+        ar:"اكتب سؤالك هنا"
+      }
     },
 
     contactInfo: {
@@ -579,7 +583,9 @@ const initialState: LangState = {
         en:"hire us",
         ar:"تواصل معنا"
       }
-    }
+    },
+
+   
   },
 };
 

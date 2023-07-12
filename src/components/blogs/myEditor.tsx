@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 // import ReactQuill from 'react-quill';
 import "react-quill/dist/quill.snow.css";
+import styles from "@/app/Blogs.module.css"
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const MyEditor = ({handleEditor}:any) => {
@@ -26,8 +27,8 @@ const MyEditor = ({handleEditor}:any) => {
   };
 
   return (
-    <div>
-      <ReactQuill value={content} onChange={handleChange} modules={modules} />
+    <div style={{border:"none"}}>
+      <ReactQuill value={content} onChange={handleChange} modules={modules} className={styles.editor}/>
     </div>
   );
 };
